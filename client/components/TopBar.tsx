@@ -131,7 +131,7 @@ export function TopBar() {
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
-            className="md:hidden hover:bg-gray-100 h-9 w-9"
+            className="hover:bg-gray-100 h-9 w-9"
           >
             <Menu size={20} className="text-gray-600" />
           </Button>
