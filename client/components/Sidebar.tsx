@@ -65,9 +65,7 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const [isOpen, setIsOpen] = useState(
-    typeof window !== "undefined" && window.innerWidth >= 768
-  );
+  const { isOpen } = useSidebar();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const location = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
