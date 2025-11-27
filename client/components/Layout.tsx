@@ -1,4 +1,5 @@
 import { Sidebar } from "./Sidebar";
+import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
 
 interface LayoutProps {
@@ -10,16 +11,18 @@ export function Layout({ children, className }: LayoutProps) {
   return (
     <div className="flex h-screen bg-background">
       <Sidebar />
-      <main
-        className={cn(
-          "flex-1 overflow-auto md:ml-0",
-          "pt-16 md:pt-0",
-          "font-sans",
-          className
-        )}
-      >
-        {children}
-      </main>
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <TopBar />
+        <main
+          className={cn(
+            "flex-1 overflow-auto",
+            "font-sans",
+            className
+          )}
+        >
+          {children}
+        </main>
+      </div>
     </div>
   );
 }
