@@ -14,6 +14,17 @@ import Charts from "./pages/Charts";
 import Trends from "./pages/Trends";
 import Customers from "./pages/Customers";
 import Settings from "./pages/Settings";
+import AnalyticsOverview from "./pages/analytics/Overview";
+import FinancialAnalysis from "./pages/analytics/Financial";
+import RevenueAnalysis from "./pages/analytics/Revenue";
+import ExpenseAnalysis from "./pages/analytics/Expense";
+import CashFlowAnalysis from "./pages/analytics/CashFlow";
+import CustomerAnalysis from "./pages/analytics/Customer";
+import VarianceAnalysis from "./pages/analytics/Variance";
+import BreakEvenAnalysis from "./pages/analytics/BreakEven";
+import RatioAnalysis from "./pages/analytics/Ratio";
+import TrendAnalysis from "./pages/analytics/Trend";
+import DepartmentAnalysis from "./pages/analytics/Department";
 
 const queryClient = new QueryClient();
 
