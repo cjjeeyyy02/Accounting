@@ -129,11 +129,10 @@ const getStatusIcon = (status: string) => {
   }
 };
 
-export default function ExpenseAnalysis() {
+function ExpenseAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
@@ -304,6 +303,16 @@ export default function ExpenseAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function ExpenseAnalysis() {
+  return (
+    <Layout>
+      <ExpenseAnalysisContent />
     </Layout>
   );
 }
+
+export default ExpenseAnalysis;
+export { ExpenseAnalysisContent };
