@@ -128,7 +128,12 @@ export function Sidebar() {
         </div>
 
         {/* Main Navigation */}
-        <nav className="flex-1 overflow-y-auto px-4 py-6">
+        <nav
+          ref={navRef}
+          onScroll={(e) => {
+            scrollPositionRef.current = (e.target as HTMLDivElement).scrollTop;
+          }}
+          className="flex-1 overflow-y-auto px-4 py-6">
           <div className="space-y-2">
             {navItems.map((item) => {
               const isActive = item.href && location.pathname === item.href;
