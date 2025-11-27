@@ -146,25 +146,25 @@ export default function VarianceAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4 md:mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                 Variance Analysis
               </h1>
-              <p className="text-gray-600">
+              <p className="text-xs md:text-sm text-gray-600">
                 Actual vs budget comparison and performance gaps
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
-              <Download size={16} />
+            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-xs md:text-sm h-8 md:h-10">
+              <Download size={14} />
               Export Report
             </Button>
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
             {metricCards.map((card) => (
               <div
                 key={card.label}
