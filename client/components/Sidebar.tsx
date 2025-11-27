@@ -50,7 +50,7 @@ const navItems: NavItem[] = [
     badge: "New",
     submenu: analysisSubmenu,
   },
-  { label: "Account", icon: <User size={20} />, href: "/account" },
+  { label: "Accounts", icon: <User size={20} />, href: "/account" },
 ];
 
 export function Sidebar() {
