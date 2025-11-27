@@ -6,6 +6,16 @@
 @tailwind utilities;
 
 @layer components {
+  /* Scrollbar utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
   /* Global card and container components */
   .card {
     @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow;
