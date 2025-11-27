@@ -25,10 +25,7 @@ export default function Transactions() {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <TransactionsTab />
-        </div>
+        <TransactionsTab />
       </div>
     </Layout>
   );
