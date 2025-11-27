@@ -259,12 +259,12 @@ export default function CustomerAnalysis() {
                       key={index}
                       className="border-b border-gray-200 hover:bg-gray-50"
                     >
-                      <td className="text-xs md:text-sm font-medium text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs font-medium text-gray-900 px-2 md:px-3 py-1 md:py-2">
                         {row.cohort}
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{ width: "100%" }}
