@@ -98,11 +98,10 @@ const getIconColor = (color: string) => {
   return colors[color] || "text-[#2E5AAC]";
 };
 
-export default function AnalyticsOverview() {
+function AnalysisOverviewContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-6 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
@@ -168,6 +167,16 @@ export default function AnalyticsOverview() {
           </div>
         </div>
       </div>
+  );
+}
+
+function AnalyticsOverview() {
+  return (
+    <Layout>
+      <AnalysisOverviewContent />
     </Layout>
   );
 }
+
+export default AnalyticsOverview;
+export { AnalysisOverviewContent };
