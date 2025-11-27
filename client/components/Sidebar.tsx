@@ -125,7 +125,7 @@ export function Sidebar() {
           <div className="space-y-2">
             {navItems.map((item) => {
               const isActive = item.href && location.pathname === item.href;
-              const isSubmenuActive = isSubmenuActive(item.submenu);
+              const isSubmenuActive = checkIsSubmenuActive(item.submenu);
               const isExpanded = expandedMenu === item.label;
 
               return (
