@@ -205,24 +205,24 @@ export default function RatioAnalysis() {
             <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
               Liquidity Ratios
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-2">
               {liquidityRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between hover:shadow-md transition-shadow"
                 >
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    <h3 className="text-[11px] md:text-xs font-semibold text-gray-900 mb-0.5">
                       {ratio.label}
                     </h3>
-                    <p className="text-xs text-gray-600">{ratio.description}</p>
+                    <p className="text-[10px] md:text-[11px] text-gray-600">{ratio.description}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <p className={`text-2xl font-bold ${getStatusColor(ratio.status)}`}>
+                  <div className="flex items-center gap-2">
+                    <p className={`text-base md:text-lg font-bold ${getStatusColor(ratio.status)}`}>
                       {ratio.value}
                     </p>
                     <span
-                      className={`text-xs font-semibold px-3 py-1 rounded-full ${getStatusColor(
+                      className={`text-[10px] md:text-[11px] font-semibold px-2 py-0.5 rounded-full ${getStatusColor(
                         ratio.status
                       )} ${
                         ratio.status === "excellent"
@@ -243,28 +243,28 @@ export default function RatioAnalysis() {
           </div>
 
           {/* Efficiency Ratios */}
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div>
+            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
               Efficiency Ratios
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-2">
               {efficiencyRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between hover:shadow-md transition-shadow"
                 >
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    <h3 className="text-[11px] md:text-xs font-semibold text-gray-900 mb-0.5">
                       {ratio.label}
                     </h3>
-                    <p className="text-xs text-gray-600">{ratio.description}</p>
+                    <p className="text-[10px] md:text-[11px] text-gray-600">{ratio.description}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <p className={`text-2xl font-bold ${getStatusColor(ratio.status)}`}>
+                  <div className="flex items-center gap-2">
+                    <p className={`text-base md:text-lg font-bold ${getStatusColor(ratio.status)}`}>
                       {ratio.value}
                     </p>
                     <span
-                      className={`text-xs font-semibold px-3 py-1 rounded-full ${getStatusColor(
+                      className={`text-[10px] md:text-[11px] font-semibold px-2 py-0.5 rounded-full ${getStatusColor(
                         ratio.status
                       )} ${
                         ratio.status === "excellent"
