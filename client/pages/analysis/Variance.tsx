@@ -196,11 +196,11 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Category Analysis */}
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Category Analysis
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {categoryAnalysis.map((category) => (
                 <div
                   key={category.name}
