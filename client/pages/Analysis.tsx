@@ -21,8 +21,8 @@ interface Tab {
 const tabs: Tab[] = [
   { id: "overview", label: "Overview", Component: AnalysisOverviewContent },
   { id: "financial", label: "Financial Analysis", Component: FinancialAnalysisContent },
-  { id: "revenue", label: "Revenue Analysis", Component: RevenuePage },
-  { id: "expense", label: "Expense Analysis", Component: ExpensePage },
+  { id: "revenue", label: "Revenue Analysis", Component: RevenueAnalysisContent },
+  { id: "expense", label: "Expense Analysis", Component: ExpenseAnalysisContent },
   { id: "cash-flow", label: "Cash Flow Analysis", Component: CashFlowPage },
   { id: "customer", label: "Customer Analysis", Component: CustomerPage },
   { id: "variance", label: "Variance Analysis", Component: VariancePage },
