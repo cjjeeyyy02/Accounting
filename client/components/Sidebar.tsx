@@ -83,6 +83,13 @@ export function Sidebar() {
     setExpandedMenu(expandedMenu === label ? null : label);
   };
 
+  const handleSubmenuClick = () => {
+    // Save current scroll position before navigation
+    if (navRef.current) {
+      scrollPositionRef.current = navRef.current.scrollTop;
+    }
+  };
+
   // Auto-expand submenu if a child route is active
   useEffect(() => {
     for (const item of navItems) {
@@ -96,7 +103,11 @@ export function Sidebar() {
   // Preserve sidebar scroll position on navigation
   useEffect(() => {
     if (navRef.current) {
-      navRef.current.scrollTop = scrollPositionRef.current;
+      setTimeout(() => {
+        if (navRef.current) {
+          navRef.current.scrollTop = scrollPositionRef.current;
+        }
+      }, 0);
     }
   }, [location.pathname]);
 
