@@ -107,9 +107,9 @@ export default {
       },
       boxShadow: {
         xs: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-        sm: "0px 1px 4px rgba(0, 0, 0, 0.08)",
-        DEFAULT: "0px 1px 4px rgba(0, 0, 0, 0.08)",
-        md: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        sm: "0px 2px 6px rgba(0, 0, 0, 0.07)",
+        DEFAULT: "0px 2px 6px rgba(0, 0, 0, 0.07)",
+        md: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         lg: "0px 8px 16px rgba(0, 0, 0, 0.12)",
       },
       keyframes: {
