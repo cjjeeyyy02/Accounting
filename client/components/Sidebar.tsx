@@ -89,26 +89,29 @@ export function Sidebar() {
         {/* Main Navigation */}
         <nav className="flex-1 overflow-y-auto px-4 py-6">
           <div className="space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={cn(
-                  "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all",
-                  location.pathname === item.href
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                )}
-              >
-                {item.icon}
-                <span className="flex-1">{item.label}</span>
-                {item.badge && (
-                  <span className="text-xs bg-sidebar-primary px-2 py-1 rounded-full">
-                    {item.badge}
-                  </span>
-                )}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={cn(
+                    "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all",
+                    isActive
+                      ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                      : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  )}
+                >
+                  {item.icon}
+                  <span className="flex-1">{item.label}</span>
+                  {item.badge && (
+                    <span className="text-xs bg-sidebar-primary px-2 py-1 rounded-full">
+                      {item.badge}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </nav>
 
