@@ -183,9 +183,9 @@ export function TopBar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="relative hover:bg-gray-100"
+                className="relative hover:bg-[#F6F8FA] text-[#4C4C4C]"
               >
-                <Bell size={20} className="text-gray-600" />
+                <Bell size={20} />
                 {notificationCount > 0 && (
                   <Badge
                     className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-white text-xs"
