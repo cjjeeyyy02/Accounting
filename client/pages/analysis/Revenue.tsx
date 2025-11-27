@@ -240,31 +240,31 @@ export default function RevenueAnalysis() {
             </div>
 
             {/* Top Customers */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-[#2E5AAC] mb-4">
                 Top Customers
               </h2>
 
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {topCustomers.map((customer, index) => (
-                  <div key={index} className="flex items-center justify-between pb-2 border-b border-gray-200 last:border-b-0">
+                  <div key={index} className="flex items-center justify-between pb-3 border-b border-[#E5E7EB] last:border-b-0">
                     <div>
-                      <p className="text-[11px] md:text-xs font-medium text-gray-900">
+                      <p className="text-[13px] font-medium text-[#4C4C4C]">
                         {customer.name}
                       </p>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <div className="w-12 h-0.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="flex items-center gap-2 mt-2">
+                        <div className="w-20 h-1 bg-[#E5E7EB] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-blue-600 rounded-full"
+                            className="h-full bg-[#2E5AAC] rounded-full"
                             style={{ width: `${customer.percentage}%` }}
                           />
                         </div>
-                        <span className="text-[10px] text-gray-600">
+                        <span className="text-[12px] text-[#7A7A7A]">
                           {customer.percentage}%
                         </span>
                       </div>
                     </div>
-                    <p className="text-[11px] md:text-xs font-semibold text-gray-900">
+                    <p className="text-[13px] font-semibold text-[#2E5AAC]">
                       {customer.revenue}
                     </p>
                   </div>
