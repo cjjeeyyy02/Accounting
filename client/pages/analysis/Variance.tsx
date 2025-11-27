@@ -142,11 +142,10 @@ const departmentPerformance: DepartmentPerformance[] = [
   },
 ];
 
-export default function VarianceAnalysis() {
+function VarianceAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
@@ -337,6 +336,16 @@ export default function VarianceAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function VarianceAnalysis() {
+  return (
+    <Layout>
+      <VarianceAnalysisContent />
     </Layout>
   );
 }
+
+export default VarianceAnalysis;
+export { VarianceAnalysisContent };
