@@ -57,6 +57,12 @@ const navItems: NavItem[] = [
     submenu: analysisSubmenu,
   },
   { label: "Accounts", icon: <User size={20} />, href: "/account" },
+  { label: "Transactions", icon: <CreditCard size={20} />, href: "/transactions" },
+  { label: "Invoices", icon: <FileText size={20} />, href: "/invoices" },
+  { label: "Customers/Vendors", icon: <Users size={20} />, href: "/customers-vendors" },
+  { label: "Inventory", icon: <Package size={20} />, href: "/inventory" },
+  { label: "Budget", icon: <Target size={20} />, href: "/budget" },
+  { label: "Upload Center", icon: <Cloud size={20} />, href: "/upload-center" },
 ];
 
 export function Sidebar() {
