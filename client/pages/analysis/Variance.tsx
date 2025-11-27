@@ -204,17 +204,17 @@ export default function VarianceAnalysis() {
               {categoryAnalysis.map((category) => (
                 <div
                   key={category.name}
-                  className="bg-white rounded-lg border border-gray-200 p-6"
+                  className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
                 >
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-start mb-3">
                     <div>
-                      <p className="text-sm text-gray-600 mb-1">{category.name}</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-xs md:text-sm text-gray-600 mb-1">{category.name}</p>
+                      <p className="text-xs md:text-sm text-gray-600">
                         Budget: ${(category.budgeted / 1000).toFixed(0)}k
                       </p>
                     </div>
                     <span
-                      className={`text-sm font-semibold px-2 py-1 rounded ${
+                      className={`text-xs md:text-sm font-semibold px-2 py-1 rounded ${
                         category.variance >= 0
                           ? "bg-green-100 text-green-700"
                           : "bg-red-100 text-red-700"
@@ -224,14 +224,14 @@ export default function VarianceAnalysis() {
                       {category.variancePercent.toFixed(1)}%
                     </span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-xs md:text-sm">
                       <span className="text-gray-700">Actual</span>
                       <span className="font-semibold text-gray-900">
                         ${(category.actual / 1000).toFixed(0)}k
                       </span>
                     </div>
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-xs md:text-sm">
                       <span className="text-gray-700">Variance</span>
                       <span
                         className={`font-semibold ${
