@@ -152,9 +152,9 @@ export function TopBar() {
           </div>
 
           {/* Breadcrumbs */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 ml-4">
             <Breadcrumb>
-              <BreadcrumbList>
+              <BreadcrumbList className="text-[13px]">
               {breadcrumbs.map((crumb, index) => (
                 <div key={index} className="flex items-center">
                   {index > 0 && <BreadcrumbSeparator />}
