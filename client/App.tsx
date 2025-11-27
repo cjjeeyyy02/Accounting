@@ -78,8 +78,13 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
+const rootElement = document.getElementById("root")!;
+
+// Store root in window to prevent multiple createRoot calls during HMR
+let root = (window as any).__react_root;
+if (!root) {
+  root = createRoot(rootElement);
+  (window as any).__react_root = root;
 }
+
+root.render(<App />);
