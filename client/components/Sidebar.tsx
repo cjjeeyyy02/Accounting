@@ -45,6 +45,7 @@ const navItems: NavItem[] = [
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
+  const location = useLocation();
 
   return (
     <>
