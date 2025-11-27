@@ -126,133 +126,135 @@ const getTypeColor = (type: string) => {
 
 export default function Reports() {
   return (
-    <div className="flex-1 overflow-auto">
-      <div className="p-8">
-        {/* Header */}
-        <div className="flex justify-between items-start mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Reports</h1>
-            <p className="text-gray-600">Access and generate financial reports</p>
+    <Layout>
+      <div className="flex-1 overflow-auto">
+        <div className="p-8">
+          {/* Header */}
+          <div className="flex justify-between items-start mb-8">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Reports</h1>
+              <p className="text-gray-600">Access and generate financial reports</p>
+            </div>
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              + Export All
+            </Button>
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700">
-            + Export All
-          </Button>
-        </div>
 
-        {/* Report Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {reportCategories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={category.title}
-                className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <Icon className="w-8 h-8 text-blue-600" />
-                  <span className="text-sm font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
-                    {category.count}
-                  </span>
+          {/* Report Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {reportCategories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <div
+                  key={category.title}
+                  className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <Icon className="w-8 h-8 text-blue-600" />
+                    <span className="text-sm font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                      {category.count}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{category.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {category.title}
-                </h3>
-                <p className="text-sm text-gray-600">{category.description}</p>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        {/* Recent Reports Section */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-gray-900">Recent Reports</h2>
-            <div className="flex items-center gap-4">
-              <input
-                type="text"
-                placeholder="Search reports..."
-                className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-              />
-              <Button variant="outline">
-                Filter
-              </Button>
+          {/* Recent Reports Section */}
+          <div className="mb-8">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-gray-900">Recent Reports</h2>
+              <div className="flex items-center gap-4">
+                <input
+                  type="text"
+                  placeholder="Search reports..."
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                />
+                <Button variant="outline">
+                  Filter
+                </Button>
+              </div>
+            </div>
+
+            {/* Reports Table */}
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-gray-700">Report Name</TableHead>
+                    <TableHead className="text-gray-700">Type</TableHead>
+                    <TableHead className="text-gray-700">Period</TableHead>
+                    <TableHead className="text-gray-700">Date</TableHead>
+                    <TableHead className="text-gray-700">Status</TableHead>
+                    <TableHead className="text-gray-700">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {reports.map((report) => (
+                    <TableRow key={report.id} className="hover:bg-gray-50">
+                      <TableCell className="text-gray-900 font-medium">
+                        {report.name}
+                      </TableCell>
+                      <TableCell>
+                        <Badge className={`${getTypeColor(report.type)}`}>
+                          {report.type}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-gray-700">{report.period}</TableCell>
+                      <TableCell className="text-gray-700">{report.date}</TableCell>
+                      <TableCell>
+                        <Badge className={`${getStatusColor(report.status)}`}>
+                          {report.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="View">
+                            <Eye size={18} className="text-gray-600" />
+                          </button>
+                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Download">
+                            <Download size={18} className="text-gray-600" />
+                          </button>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                                <MoreVertical size={18} className="text-gray-600" />
+                              </button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Download</DropdownMenuItem>
+                              <DropdownMenuItem>Share</DropdownMenuItem>
+                              <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
 
-          {/* Reports Table */}
-          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="text-gray-700">Report Name</TableHead>
-                  <TableHead className="text-gray-700">Type</TableHead>
-                  <TableHead className="text-gray-700">Period</TableHead>
-                  <TableHead className="text-gray-700">Date</TableHead>
-                  <TableHead className="text-gray-700">Status</TableHead>
-                  <TableHead className="text-gray-700">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {reports.map((report) => (
-                  <TableRow key={report.id} className="hover:bg-gray-50">
-                    <TableCell className="text-gray-900 font-medium">
-                      {report.name}
-                    </TableCell>
-                    <TableCell>
-                      <Badge className={`${getTypeColor(report.type)}`}>
-                        {report.type}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-gray-700">{report.period}</TableCell>
-                    <TableCell className="text-gray-700">{report.date}</TableCell>
-                    <TableCell>
-                      <Badge className={`${getStatusColor(report.status)}`}>
-                        {report.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="View">
-                          <Eye size={18} className="text-gray-600" />
-                        </button>
-                        <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Download">
-                          <Download size={18} className="text-gray-600" />
-                        </button>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                              <MoreVertical size={18} className="text-gray-600" />
-                            </button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem>View Details</DropdownMenuItem>
-                            <DropdownMenuItem>Download</DropdownMenuItem>
-                            <DropdownMenuItem>Share</DropdownMenuItem>
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+          {/* Custom Report Section */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Need a Custom Report?
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Generate a custom financial report tailored to your specific needs.
+            </p>
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              Generate Custom Report
+            </Button>
           </div>
         </div>
-
-        {/* Custom Report Section */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-8">
-          <h3 className="text-lg font-bold text-gray-900 mb-2">
-            Need a Custom Report?
-          </h3>
-          <p className="text-gray-600 mb-4">
-            Generate a custom financial report tailored to your specific needs.
-          </p>
-          <Button className="bg-blue-600 hover:bg-blue-700">
-            Generate Custom Report
-          </Button>
-        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
