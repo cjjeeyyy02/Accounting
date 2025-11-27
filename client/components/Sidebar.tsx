@@ -108,8 +108,6 @@ export function Sidebar() {
     }
   }, [location.pathname]);
 
-  const { setSidebarOpen } = useSidebar();
-
   return (
     <>
       {/* Sidebar overlay for mobile */}
