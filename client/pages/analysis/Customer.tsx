@@ -233,22 +233,22 @@ export default function CustomerAnalysis() {
                     <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Cohort
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Jan
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Feb
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Mar
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Apr
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       May
                     </th>
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Jun
                     </th>
                   </tr>
