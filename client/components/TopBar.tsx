@@ -70,6 +70,29 @@ export function TopBar() {
   const getBreadcrumbs = (): BreadcrumbSegment[] => {
     const pathSegments = location.pathname.split("/").filter(Boolean);
 
+    // Hide breadcrumb for analysis sub-modules
+    const analysisSubModules = [
+      "overview",
+      "financial",
+      "revenue",
+      "expense",
+      "cash-flow",
+      "customer",
+      "variance",
+      "break-even",
+      "ratio",
+      "trend",
+      "department",
+    ];
+
+    if (
+      pathSegments.length === 2 &&
+      pathSegments[0] === "analysis" &&
+      analysisSubModules.includes(pathSegments[1])
+    ) {
+      return [];
+    }
+
     if (pathSegments.length === 0) {
       return [{ label: "Dashboard" }];
     }
