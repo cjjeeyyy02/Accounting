@@ -4,12 +4,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountsTab } from "./tabs/AccountsTab";
 import { ReportsTab } from "./tabs/ReportsTab";
 import { AccountBalancesTab } from "./tabs/AccountBalancesTab";
-import { TransactionsTab } from "./tabs/TransactionsTab";
-import { InvoicesTab } from "./tabs/InvoicesTab";
-import { CustomersVendorsTab } from "./tabs/CustomersVendorsTab";
-import { InventoryTab } from "./tabs/InventoryTab";
-import { BudgetTab } from "./tabs/BudgetTab";
-import { UploadCenterTab } from "./tabs/UploadCenterTab";
 import { Settings } from "lucide-react";
 
 export default function AccountsDashboard() {
