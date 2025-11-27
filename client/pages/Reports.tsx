@@ -1,4 +1,5 @@
 import { FileText, DollarSign, BarChart3, Eye, Download, MoreVertical } from "lucide-react";
+import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import {
   Table,
