@@ -7,8 +7,6 @@ import {
   User,
   Settings,
   LogOut,
-  Menu,
-  X,
   ChevronDown,
   CreditCard,
   FileText,
@@ -18,6 +16,7 @@ import {
   Cloud,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useSidebar } from "./SidebarContext";
 
 interface SubMenuItem {
   label: string;
