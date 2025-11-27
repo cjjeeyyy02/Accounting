@@ -1,5 +1,5 @@
 import { Placeholder } from "./Placeholder";
 
-export default function Analytics() {
-  return <Placeholder pageName="Analytics" />;
+export default function Analysis() {
+  return <Placeholder pageName="Analysis" />;
 }
