@@ -164,25 +164,25 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 mb-3">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-xs md:text-sm text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
                   <div className="flex items-center gap-1">
                     {card.isPositive ? (
-                      <TrendingUp size={14} className="text-green-600" />
+                      <TrendingUp size={13} className="text-green-600" />
                     ) : (
-                      <TrendingDown size={14} className="text-red-600" />
+                      <TrendingDown size={13} className="text-red-600" />
                     )}
                     <span
-                      className={`text-xs md:text-sm font-medium ${
+                      className={`text-[10px] md:text-xs font-medium ${
                         card.isPositive ? "text-green-600" : "text-red-600"
                       }`}
                     >
@@ -196,11 +196,11 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Category Analysis */}
-          <div className="mb-4 md:mb-6">
-            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="mb-3">
+            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
               Category Analysis
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
               {categoryAnalysis.map((category) => (
                 <div
                   key={category.name}
