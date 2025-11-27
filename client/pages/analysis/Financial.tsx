@@ -213,31 +213,31 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Financial Ratios */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-[#2E5AAC] mb-6">
               Financial Ratios
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {financialRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className={`rounded-lg border border-gray-200 p-3 ${getStatusBgColor(
+                  className={`rounded-lg border border-[#E5E7EB] p-4 ${getStatusBgColor(
                     ratio.status
                   )}`}
                 >
-                  <p className="text-[11px] md:text-xs text-gray-600 mb-1">{ratio.label}</p>
-                  <p className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                  <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">{ratio.label}</p>
+                  <p className="text-2xl font-semibold text-[#2E5AAC] mb-3">
                     {ratio.value}
                   </p>
                   {ratio.change && (
                     <span
-                      className={`text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-full ${
+                      className={`text-[12px] font-semibold px-3 py-1 rounded-full inline-block ${
                         ratio.status === "healthy"
-                          ? "bg-green-100 text-green-700"
+                          ? "bg-[#10B981] bg-opacity-10 text-[#10B981]"
                           : ratio.status === "trending"
-                          ? "bg-blue-100 text-blue-700"
-                          : "bg-yellow-100 text-yellow-700"
+                          ? "bg-[#00A8E8] bg-opacity-10 text-[#00A8E8]"
+                          : "bg-[#F59E0B] bg-opacity-10 text-[#F59E0B]"
                       }`}
                     >
                       {ratio.change}
