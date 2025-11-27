@@ -190,24 +190,24 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Channel & Top Customers */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Revenue by Channel - Donut Chart */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
-              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
                 Revenue by Channel
               </h2>
 
               <div className="flex items-center justify-between">
-                <div className="w-32 h-32">
+                <div className="w-24 h-24">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
                         data={revenueByChannelData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={40}
-                        outerRadius={60}
-                        paddingAngle={2}
+                        innerRadius={30}
+                        outerRadius={45}
+                        paddingAngle={1}
                         dataKey="value"
                       >
                         {revenueByChannelData.map((entry, index) => (
@@ -218,19 +218,19 @@ export default function RevenueAnalysis() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="flex-1 pl-4 space-y-2">
+                <div className="flex-1 pl-3 space-y-1">
                   {revenueByChannelData.map((channel) => (
-                    <div key={channel.name} className="flex items-center gap-2">
+                    <div key={channel.name} className="flex items-center gap-1">
                       <div
-                        className="w-2 h-2 rounded-full"
+                        className="w-1.5 h-1.5 rounded-full"
                         style={{ backgroundColor: channel.color }}
                       />
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-900">
+                        <p className="text-[10px] md:text-xs font-medium text-gray-900">
                           {channel.name}
                         </p>
                       </div>
-                      <p className="text-xs font-semibold text-gray-900">
+                      <p className="text-[10px] md:text-xs font-semibold text-gray-900">
                         {channel.value}%
                       </p>
                     </div>
@@ -240,31 +240,31 @@ export default function RevenueAnalysis() {
             </div>
 
             {/* Top Customers */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
-              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
                 Top Customers
               </h2>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {topCustomers.map((customer, index) => (
-                  <div key={index} className="flex items-center justify-between pb-3 border-b border-gray-200 last:border-b-0">
+                  <div key={index} className="flex items-center justify-between pb-2 border-b border-gray-200 last:border-b-0">
                     <div>
-                      <p className="text-xs font-medium text-gray-900">
+                      <p className="text-[11px] md:text-xs font-medium text-gray-900">
                         {customer.name}
                       </p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <div className="w-12 h-0.5 bg-gray-200 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-blue-600 rounded-full"
                             style={{ width: `${customer.percentage}%` }}
                           />
                         </div>
-                        <span className="text-xs text-gray-600">
+                        <span className="text-[10px] text-gray-600">
                           {customer.percentage}%
                         </span>
                       </div>
                     </div>
-                    <p className="text-xs font-semibold text-gray-900">
+                    <p className="text-[11px] md:text-xs font-semibold text-gray-900">
                       {customer.revenue}
                     </p>
                   </div>
