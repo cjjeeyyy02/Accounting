@@ -202,7 +202,7 @@ export function Sidebar() {
 
                   {/* Submenu */}
                   {item.submenu && isExpanded && (
-                    <div className="mt-1 ml-4 space-y-1 border-l-2 border-[#E5E7EB] pl-2">
+                    <div className="mt-1 ml-4 space-y-1 border-l-2 border-[#4C7AB5] pl-2">
                       {item.submenu.map((subitem) => {
                         const isSubActive = location.pathname === subitem.href;
                         return (
@@ -213,8 +213,8 @@ export function Sidebar() {
                             className={cn(
                               "block px-3 py-2 rounded-lg text-[13px] transition-all font-medium",
                               isSubActive
-                                ? "bg-[#E8F0FF] text-[#2E5AAC] font-semibold"
-                                : "text-[#7A7A7A] hover:bg-[#F6F8FA] hover:text-[#2E5AAC]"
+                                ? "bg-[#2E5AAC] text-white font-semibold"
+                                : "text-[#B0C4E3] hover:bg-[#2D5A8C] hover:text-white"
                             )}
                           >
                             {subitem.label}
