@@ -88,19 +88,19 @@ export default function DepartmentAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-4 md:mb-6">
+          <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
                 Department Analysis
               </h1>
-              <p className="text-xs md:text-sm text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-gray-600">
                 Operational efficiency and department-wise metrics
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-xs md:text-sm h-8 md:h-10">
-              <Download size={14} />
+            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+              <Download size={13} />
               Export Report
             </Button>
           </div>
