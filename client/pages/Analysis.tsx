@@ -30,10 +30,7 @@ const tabs: Tab[] = [
   {
     id: "financial",
     label: "Financial Analysis",
-    render: () => {
-      const Page = FinancialAnalysisPage;
-      return <Page />;
-    },
+    render: () => <FinancialAnalysisContent />,
   },
   {
     id: "revenue",
