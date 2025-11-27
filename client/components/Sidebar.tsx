@@ -184,10 +184,10 @@ export function Sidebar() {
                     <Link
                       to={item.href || "/"}
                       className={cn(
-                        "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all",
+                        "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-[14px] border-l-4",
                         isActive
-                          ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                          : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                          ? "bg-[#E8F0FF] text-[#2E5AAC] border-l-[#2E5AAC]"
+                          : "text-[#4C4C4C] hover:bg-[#F6F8FA] border-l-transparent hover:border-l-[#E5E7EB]"
                       )}
                     >
                       {item.icon}
