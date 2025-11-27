@@ -119,7 +119,7 @@ export default function AnalyticsOverview() {
               <Link
                 key={card.href}
                 to={card.href}
-                className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow hover:border-gray-300 cursor-pointer group"
+                className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow hover:border-gray-300 cursor-pointer group no-underline"
               >
                 <div className={`${getIconColor(card.color)} mb-4 group-hover:scale-110 transition-transform`}>
                   {card.icon}
@@ -130,13 +130,10 @@ export default function AnalyticsOverview() {
                 <p className="text-xs text-gray-600 mb-4">
                   {card.description}
                 </p>
-                <Link
-                  to={card.href}
-                  className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
-                >
+                <span className="text-xs font-medium text-blue-600 group-hover:text-blue-700 flex items-center gap-1">
                   View Details
                   <span>→</span>
-                </Link>
+                </span>
               </Link>
             ))}
           </div>
