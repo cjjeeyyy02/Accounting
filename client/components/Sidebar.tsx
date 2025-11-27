@@ -10,6 +10,12 @@ import {
   Menu,
   X,
   ChevronDown,
+  CreditCard,
+  FileText,
+  Users,
+  Package,
+  Target,
+  Cloud,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
