@@ -88,26 +88,26 @@ const balanceSheetData = [
 const getStatusColor = (status: string) => {
   switch (status) {
     case "healthy":
-      return "text-green-600";
+      return "text-[#10B981]";
     case "trending":
-      return "text-blue-600";
+      return "text-[#00A8E8]";
     case "warning":
-      return "text-yellow-600";
+      return "text-[#F59E0B]";
     default:
-      return "text-gray-600";
+      return "text-[#7A7A7A]";
   }
 };
 
 const getStatusBgColor = (status: string) => {
   switch (status) {
     case "healthy":
-      return "bg-green-50";
+      return "bg-[#F0FDF4]";
     case "trending":
-      return "bg-blue-50";
+      return "bg-[#F0F9FF]";
     case "warning":
-      return "bg-yellow-50";
+      return "bg-[#FFFBF0]";
     default:
-      return "bg-gray-50";
+      return "bg-[#F6F8FA]";
   }
 };
 
