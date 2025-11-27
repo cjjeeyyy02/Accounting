@@ -163,13 +163,13 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Balance Sheet Trends Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
-            <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 mb-8 shadow-sm">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-lg font-semibold text-[#2E5AAC]">
                 Balance Sheet Trends
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={13} />
+              <button className="flex items-center gap-2 px-3 py-2 text-[13px] font-medium text-[#4C4C4C] hover:bg-[#F6F8FA] rounded-lg transition-colors border border-[#E5E7EB]">
+                <Filter size={16} />
                 Filter
               </button>
             </div>
