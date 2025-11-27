@@ -252,11 +252,5 @@ function FinancialAnalysisContent() {
 }
 
 export default function FinancialAnalysis() {
-  return (
-    <>
-      <FinancialAnalysisContent />
-    </>
-  );
+  return <FinancialAnalysisContent />;
 }
-
-export { FinancialAnalysisContent };
