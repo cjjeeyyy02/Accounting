@@ -213,26 +213,26 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Financial Ratios */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
               Financial Ratios
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
               {financialRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className={`rounded-lg border border-gray-200 p-4 ${getStatusBgColor(
+                  className={`rounded-lg border border-gray-200 p-3 ${getStatusBgColor(
                     ratio.status
                   )}`}
                 >
-                  <p className="text-xs text-gray-600 mb-2">{ratio.label}</p>
-                  <p className="text-[20px] font-bold text-gray-900 mb-2">
+                  <p className="text-[11px] md:text-xs text-gray-600 mb-1">{ratio.label}</p>
+                  <p className="text-base md:text-lg font-bold text-gray-900 mb-1">
                     {ratio.value}
                   </p>
                   {ratio.change && (
                     <span
-                      className={`text-xs font-medium px-2 py-1 rounded-full ${
+                      className={`text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded-full ${
                         ratio.status === "healthy"
                           ? "bg-green-100 text-green-700"
                           : ratio.status === "trending"
