@@ -115,19 +115,19 @@ export default function FinancialAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-3">
+          <div className="flex justify-between items-start mb-8">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
                 Financial Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] font-normal text-gray-600">
+              <p className="text-[14px] font-normal text-[#7A7A7A]">
                 Deep dive into your financial position and performance metrics
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
-              <Download size={13} />
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] text-white flex items-center gap-2 text-sm h-10 px-4 rounded-lg font-medium shadow-sm">
+              <Download size={16} />
               Export Report
             </Button>
           </div>
