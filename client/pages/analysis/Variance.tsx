@@ -250,18 +250,18 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Monthly Variance Trend */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900">
                 Monthly Variance Trend
               </h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={14} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={150} minHeight={150}>
               <BarChart data={monthlyVarianceData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
