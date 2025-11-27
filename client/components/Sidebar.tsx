@@ -31,20 +31,6 @@ interface NavItem {
   submenu?: SubMenuItem[];
 }
 
-const analysisSubmenu: SubMenuItem[] = [
-  { label: "Overview", href: "/analysis/overview" },
-  { label: "Financial Analysis", href: "/analysis/financial" },
-  { label: "Revenue Analysis", href: "/analysis/revenue" },
-  { label: "Expense Analysis", href: "/analysis/expense" },
-  { label: "Cash Flow Analysis", href: "/analysis/cash-flow" },
-  { label: "Customer Analysis", href: "/analysis/customer" },
-  { label: "Variance Analysis", href: "/analysis/variance" },
-  { label: "Break-even Analysis", href: "/analysis/break-even" },
-  { label: "Ratio Analysis", href: "/analysis/ratio" },
-  { label: "Trend Analysis", href: "/analysis/trend" },
-  { label: "Department Analysis", href: "/analysis/department" },
-];
-
 const navItems: NavItem[] = [
   { label: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/" },
   { label: "Reports", icon: <BarChart3 size={20} />, href: "/reports" },
@@ -53,7 +39,6 @@ const navItems: NavItem[] = [
     icon: <TrendingUp size={20} />,
     href: "/analysis",
     badge: "New",
-    submenu: analysisSubmenu,
   },
   { label: "Accounts", icon: <User size={20} />, href: "/account" },
   { label: "Transactions", icon: <CreditCard size={20} />, href: "/transactions" },
