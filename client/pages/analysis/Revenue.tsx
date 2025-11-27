@@ -190,10 +190,10 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Channel & Top Customers */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Revenue by Channel - Donut Chart */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-[#2E5AAC] mb-4">
                 Revenue by Channel
               </h2>
 
