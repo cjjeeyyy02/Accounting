@@ -1,45 +1,122 @@
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
-import AnalysisOverview from "./analysis/Overview";
-import FinancialAnalysis from "./analysis/Financial";
-import RevenueAnalysis from "./analysis/Revenue";
-import ExpenseAnalysis from "./analysis/Expense";
-import CashFlowAnalysis from "./analysis/CashFlow";
-import CustomerAnalysis from "./analysis/Customer";
-import VarianceAnalysis from "./analysis/Variance";
-import BreakEvenAnalysis from "./analysis/BreakEven";
-import RatioAnalysis from "./analysis/Ratio";
-import TrendAnalysis from "./analysis/Trend";
-import DepartmentAnalysis from "./analysis/Department";
+import AnalysisOverviewPage from "./analysis/Overview";
+import FinancialAnalysisPage from "./analysis/Financial";
+import RevenueAnalysisPage from "./analysis/Revenue";
+import ExpenseAnalysisPage from "./analysis/Expense";
+import CashFlowAnalysisPage from "./analysis/CashFlow";
+import CustomerAnalysisPage from "./analysis/Customer";
+import VarianceAnalysisPage from "./analysis/Variance";
+import BreakEvenAnalysisPage from "./analysis/BreakEven";
+import RatioAnalysisPage from "./analysis/Ratio";
+import TrendAnalysisPage from "./analysis/Trend";
+import DepartmentAnalysisPage from "./analysis/Department";
 
 interface Tab {
   id: string;
   label: string;
-  component: React.ComponentType;
+  render: () => React.ReactNode;
 }
 
 const tabs: Tab[] = [
-  { id: "overview", label: "Overview", component: AnalysisOverview },
-  { id: "financial", label: "Financial Analysis", component: FinancialAnalysis },
-  { id: "revenue", label: "Revenue Analysis", component: RevenueAnalysis },
-  { id: "expense", label: "Expense Analysis", component: ExpenseAnalysis },
-  { id: "cash-flow", label: "Cash Flow Analysis", component: CashFlowAnalysis },
-  { id: "customer", label: "Customer Analysis", component: CustomerAnalysis },
-  { id: "variance", label: "Variance Analysis", component: VarianceAnalysis },
-  { id: "break-even", label: "Break-even Analysis", component: BreakEvenAnalysis },
-  { id: "ratio", label: "Ratio Analysis", component: RatioAnalysis },
-  { id: "trend", label: "Trend Analysis", component: TrendAnalysis },
-  { id: "department", label: "Department Analysis", component: DepartmentAnalysis },
+  {
+    id: "overview",
+    label: "Overview",
+    render: () => {
+      const Page = AnalysisOverviewPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "financial",
+    label: "Financial Analysis",
+    render: () => {
+      const Page = FinancialAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "revenue",
+    label: "Revenue Analysis",
+    render: () => {
+      const Page = RevenueAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "expense",
+    label: "Expense Analysis",
+    render: () => {
+      const Page = ExpenseAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "cash-flow",
+    label: "Cash Flow Analysis",
+    render: () => {
+      const Page = CashFlowAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "customer",
+    label: "Customer Analysis",
+    render: () => {
+      const Page = CustomerAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "variance",
+    label: "Variance Analysis",
+    render: () => {
+      const Page = VarianceAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "break-even",
+    label: "Break-even Analysis",
+    render: () => {
+      const Page = BreakEvenAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "ratio",
+    label: "Ratio Analysis",
+    render: () => {
+      const Page = RatioAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "trend",
+    label: "Trend Analysis",
+    render: () => {
+      const Page = TrendAnalysisPage;
+      return <Page />;
+    },
+  },
+  {
+    id: "department",
+    label: "Department Analysis",
+    render: () => {
+      const Page = DepartmentAnalysisPage;
+      return <Page />;
+    },
+  },
 ];
 
 export default function Analysis() {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component || AnalysisOverview;
+  const activeTabData = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
   return (
     <Layout>
-      <div className="flex-1 overflow-hidden flex flex-col bg-[#F6F8FA]">
+      <div className="flex-1 overflow-hidden flex flex-col">
         {/* Tabs Navigation */}
         <div className="bg-white border-b border-[#E5E7EB] shadow-sm">
           <div className="overflow-x-auto scrollbar-hide">
@@ -63,7 +140,7 @@ export default function Analysis() {
 
         {/* Tab Content */}
         <div className="flex-1 overflow-auto">
-          <ActiveComponent />
+          {activeTabData.render()}
         </div>
       </div>
     </Layout>
