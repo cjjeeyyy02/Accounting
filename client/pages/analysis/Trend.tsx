@@ -116,38 +116,38 @@ export default function TrendAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4 md:mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                 Trend Analysis
               </h1>
-              <p className="text-gray-600">
+              <p className="text-xs md:text-sm text-gray-600">
                 Historical data analysis and trend forecasting
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
-              <Download size={16} />
+            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-xs md:text-sm h-8 md:h-10">
+              <Download size={14} />
               Export Report
             </Button>
           </div>
 
           {/* Trend Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
             {trendMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
               >
-                <p className="text-sm font-semibold text-gray-900 mb-4">
+                <p className="text-xs md:text-sm font-semibold text-gray-900 mb-2 md:mb-3">
                   {metric.label}
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {metric.trends.map((trend) => (
                     <div key={trend.period} className="flex justify-between items-center">
                       <p className="text-xs text-gray-600">{trend.period}</p>
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-xs md:text-sm font-semibold text-gray-900">
                         {trend.value}
                       </p>
                     </div>
@@ -158,18 +158,18 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Year-over-Year Revenue Comparison */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900">
                 Year-over-Year Revenue Comparison
               </h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={14} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={150} minHeight={150}>
               <LineChart data={yearOverYearData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
@@ -212,15 +212,15 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Monthly Trend */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Monthly Trend Last 1 Month
             </h2>
 
-            <ResponsiveContainer width="100%" height={250}>
+            <ResponsiveContainer width="100%" height={150} minHeight={150}>
               <LineChart data={monthlyTrendData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="day" stroke="#6b7280" label={{ value: "Day of Month", position: "insideBottomRight", offset: -5 }} />
+                <XAxis dataKey="day" stroke="#6b7280" label={{ value: "Day", position: "insideBottomRight", offset: -3 }} />
                 <YAxis stroke="#6b7280" />
                 <Tooltip
                   contentStyle={{
@@ -243,22 +243,22 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Revenue Projections */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Revenue Projections
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {projections.map((projection) => (
                 <div
                   key={projection.label}
-                  className="border-l-4 border-blue-600 pl-6"
+                  className="border-l-4 border-blue-600 pl-3 md:pl-6"
                 >
-                  <p className="text-sm text-gray-600 mb-2">{projection.label}</p>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-1">
+                  <p className="text-xs md:text-sm text-gray-600 mb-1">{projection.label}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">
                     {projection.value}
                   </h3>
-                  <p className="text-sm text-gray-600 flex items-center gap-2">
+                  <p className="text-xs md:text-sm text-gray-600 flex items-center gap-1 md:gap-2">
                     {projection.description}
                     <span className="text-blue-600 cursor-pointer hover:underline">
                       View Details
