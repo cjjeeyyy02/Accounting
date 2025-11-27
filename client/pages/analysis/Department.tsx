@@ -84,11 +84,10 @@ const departmentExpenseData = [
   { name: "HR", amount: 64000 },
 ];
 
-export default function DepartmentAnalysis() {
+function DepartmentAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
@@ -264,6 +263,16 @@ export default function DepartmentAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function DepartmentAnalysis() {
+  return (
+    <Layout>
+      <DepartmentAnalysisContent />
     </Layout>
   );
 }
+
+export default DepartmentAnalysis;
+export { DepartmentAnalysisContent };
