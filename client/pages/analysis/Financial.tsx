@@ -133,25 +133,25 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-4 shadow-sm hover:shadow-md transition-shadow"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                <p className="text-[13px] font-medium text-[#7A7A7A] mb-3">{card.label}</p>
+                <h3 className="text-2xl font-semibold text-[#2E5AAC] mb-3">
                   {card.value}
                 </h3>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-2">
                   {card.isPositive ? (
-                    <TrendingUp size={13} className="text-green-600" />
+                    <TrendingUp size={16} className="text-[#10B981]" />
                   ) : (
-                    <TrendingDown size={13} className="text-red-600" />
+                    <TrendingDown size={16} className="text-[#EF4444]" />
                   )}
                   <span
-                    className={`text-[10px] md:text-xs font-medium ${
-                      card.isPositive ? "text-green-600" : "text-red-600"
+                    className={`text-[13px] font-medium ${
+                      card.isPositive ? "text-[#10B981]" : "text-[#EF4444]"
                     }`}
                   >
                     {card.isPositive ? "+" : ""}
