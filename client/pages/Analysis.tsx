@@ -19,7 +19,7 @@ interface Tab {
 }
 
 const tabs: Tab[] = [
-  { id: "overview", label: "Overview", Component: OverviewPage },
+  { id: "overview", label: "Overview", Component: AnalysisOverviewContent },
   { id: "financial", label: "Financial Analysis", Component: FinancialAnalysisContent },
   { id: "revenue", label: "Revenue Analysis", Component: RevenuePage },
   { id: "expense", label: "Expense Analysis", Component: ExpensePage },
