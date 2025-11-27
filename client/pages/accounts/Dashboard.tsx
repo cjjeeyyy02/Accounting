@@ -4,7 +4,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountsTab } from "./tabs/AccountsTab";
 import { ReportsTab } from "./tabs/ReportsTab";
 import { AccountBalancesTab } from "./tabs/AccountBalancesTab";
-import { Settings } from "lucide-react";
 
 export default function AccountsDashboard() {
   const [activeTab, setActiveTab] = useState("accounts");
