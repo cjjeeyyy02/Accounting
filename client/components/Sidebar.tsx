@@ -246,7 +246,7 @@ export function Sidebar() {
       </aside>
 
       {/* Spacer for desktop */}
-      <div className="hidden md:block w-64 bg-[#F0F4FF] border-r border-[#E5E7EB]" />
+      <div className="hidden md:block w-64 bg-[#1E3F7A] border-r border-[#1A2D4D]" />
     </>
   );
 }
