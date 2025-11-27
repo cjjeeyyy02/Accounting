@@ -13,6 +13,7 @@ import Analysis from "./pages/Analysis";
 import Charts from "./pages/Charts";
 import Trends from "./pages/Trends";
 import Customers from "./pages/Customers";
+import Account from "./pages/Account";
 import Settings from "./pages/Settings";
 import AnalysisOverview from "./pages/analysis/Overview";
 import FinancialAnalysis from "./pages/analysis/Financial";
