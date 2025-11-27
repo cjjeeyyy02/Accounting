@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export function Layout({ children, className }: LayoutProps) {
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-[#F6F8FA]">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <TopBar />
@@ -17,6 +17,7 @@ export function Layout({ children, className }: LayoutProps) {
           className={cn(
             "flex-1 overflow-auto",
             "font-sans",
+            "bg-[#F6F8FA]",
             className
           )}
         >
