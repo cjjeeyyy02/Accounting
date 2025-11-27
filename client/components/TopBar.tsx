@@ -68,6 +68,7 @@ export function TopBar() {
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [notificationCount] = useState(3);
+  const { toggleSidebar } = useSidebar();
 
   const getBreadcrumbs = (): BreadcrumbSegment[] => {
     const pathSegments = location.pathname.split("/").filter(Boolean);
