@@ -109,11 +109,10 @@ const cohortAnalysisData: CohortData[] = [
   { cohort: "Jun-23", jun: 115 },
 ];
 
-export default function CustomerAnalysis() {
+function CustomerAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
@@ -346,6 +345,16 @@ export default function CustomerAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function CustomerAnalysis() {
+  return (
+    <Layout>
+      <CustomerAnalysisContent />
     </Layout>
   );
 }
+
+export default CustomerAnalysis;
+export { CustomerAnalysisContent };
