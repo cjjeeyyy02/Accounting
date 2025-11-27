@@ -131,15 +131,15 @@ export function TopBar() {
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
-            className="hover:bg-gray-100 h-9 w-9 flex-shrink-0"
+            className="hover:bg-[#F6F8FA] h-9 w-9 flex-shrink-0 text-[#4C4C4C]"
           >
-            <Menu size={20} className="text-gray-600" />
+            <Menu size={20} />
           </Button>
 
           {/* Search Bar */}
           <div className="relative hidden md:block">
             <Search
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7A7A7A]"
               size={18}
             />
             <Input
@@ -147,7 +147,7 @@ export function TopBar() {
               placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 w-64 h-9 bg-gray-50 border-gray-200 focus:bg-white"
+              className="pl-10 w-64 h-9 bg-[#F6F8FA] border-[#E5E7EB] focus:bg-white focus:border-[#2E5AAC] text-[#4C4C4C] placeholder-[#7A7A7A]"
             />
           </div>
 
