@@ -146,18 +146,18 @@ export default function VarianceAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Variance Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                 Actual vs budget comparison and performance gaps
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
@@ -168,10 +168,10 @@ export default function VarianceAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">{card.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-[#2E5AAC] mb-1">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
@@ -197,19 +197,19 @@ export default function VarianceAnalysis() {
 
           {/* Category Analysis */}
           <div className="mb-3">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2 md:mb-3">
               Category Analysis
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
               {categoryAnalysis.map((category) => (
                 <div
                   key={category.name}
-                  className="bg-white rounded-lg border border-gray-200 p-3"
+                  className="bg-white rounded-lg border border-[#E5E7EB] p-3"
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <p className="text-[11px] md:text-xs text-gray-600 mb-1">{category.name}</p>
-                      <p className="text-[11px] md:text-xs text-gray-600">
+                      <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">{category.name}</p>
+                      <p className="text-[11px] md:text-xs text-[#7A7A7A]">
                         Budget: ${(category.budgeted / 1000).toFixed(0)}k
                       </p>
                     </div>
@@ -227,7 +227,7 @@ export default function VarianceAnalysis() {
                   <div className="space-y-0.5">
                     <div className="flex justify-between text-[11px] md:text-xs">
                       <span className="text-gray-700">Actual</span>
-                      <span className="font-semibold text-gray-900">
+                      <span className="font-semibold text-[#2E5AAC]">
                         ${(category.actual / 1000).toFixed(0)}k
                       </span>
                     </div>
@@ -250,12 +250,12 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Monthly Variance Trend */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 md:p-6 mb-4 md:mb-6">
             <div className="flex justify-between items-center mb-3 md:mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">
+              <h2 className="text-lg md:text-xl font-bold text-[#2E5AAC]">
                 Monthly Variance Trend
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-[#7A7A7A] hover:bg-gray-100 rounded-lg transition-colors">
                 <Filter size={14} />
                 Filter
               </button>
@@ -280,20 +280,20 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Department Performance */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-[#2E5AAC] mb-3 md:mb-4">
               Department Performance
             </h2>
 
             <div className="space-y-3 md:space-y-4">
               {departmentPerformance.map((dept) => (
-                <div key={dept.name} className="pb-3 md:pb-4 border-b border-gray-200 last:border-b-0">
+                <div key={dept.name} className="pb-3 md:pb-4 border-b border-[#E5E7EB] last:border-b-0">
                   <div className="flex items-start justify-between mb-2 md:mb-3">
                     <div>
-                      <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1">
+                      <h3 className="text-xs md:text-sm font-semibold text-[#2E5AAC] mb-1">
                         {dept.name}
                       </h3>
-                      <p className="text-xs text-gray-600">
+                      <p className="text-xs text-[#7A7A7A]">
                         Budget: ${(dept.budgeted / 1000).toFixed(0)}k | Actual: ${(dept.actual / 1000).toFixed(0)}k
                       </p>
                     </div>
@@ -327,7 +327,7 @@ export default function VarianceAnalysis() {
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-gray-600 whitespace-nowrap">
+                    <span className="text-xs text-[#7A7A7A] whitespace-nowrap">
                       {dept.variance >= 0 ? "+" : ""}${(dept.variance / 1000).toFixed(1)}k
                     </span>
                   </div>

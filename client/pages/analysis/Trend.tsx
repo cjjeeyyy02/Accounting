@@ -116,18 +116,18 @@ export default function TrendAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Trend Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                 Historical data analysis and trend forecasting
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
@@ -138,16 +138,16 @@ export default function TrendAnalysis() {
             {trendMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs font-semibold text-gray-900 mb-2">
+                <p className="text-[11px] md:text-xs font-semibold text-[#2E5AAC] mb-2">
                   {metric.label}
                 </p>
                 <div className="space-y-1">
                   {metric.trends.map((trend) => (
                     <div key={trend.period} className="flex justify-between items-center">
-                      <p className="text-[10px] text-gray-600">{trend.period}</p>
-                      <p className="text-[11px] md:text-xs font-semibold text-gray-900">
+                      <p className="text-[10px] text-[#7A7A7A]">{trend.period}</p>
+                      <p className="text-[11px] md:text-xs font-semibold text-[#2E5AAC]">
                         {trend.value}
                       </p>
                     </div>
@@ -158,12 +158,12 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Year-over-Year Revenue Comparison */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3">
             <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC]">
                 Year-over-Year Revenue Comparison
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-[#7A7A7A] hover:bg-gray-100 rounded-lg transition-colors">
                 <Filter size={13} />
                 Filter
               </button>
@@ -212,8 +212,8 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Monthly Trend */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
-            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 md:p-6 mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-[#2E5AAC] mb-3 md:mb-4">
               Monthly Trend Last 1 Month
             </h2>
 
@@ -243,8 +243,8 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Revenue Projections */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-[#2E5AAC] mb-3 md:mb-4">
               Revenue Projections
             </h2>
 
@@ -254,11 +254,11 @@ export default function TrendAnalysis() {
                   key={projection.label}
                   className="border-l-4 border-blue-600 pl-3 md:pl-6"
                 >
-                  <p className="text-xs md:text-sm text-gray-600 mb-1">{projection.label}</p>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">
+                  <p className="text-xs md:text-sm text-[#7A7A7A] mb-1">{projection.label}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-[#2E5AAC] mb-1">
                     {projection.value}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-600 flex items-center gap-1 md:gap-2">
+                  <p className="text-xs md:text-sm text-[#7A7A7A] flex items-center gap-1 md:gap-2">
                     {projection.description}
                     <span className="text-blue-600 cursor-pointer hover:underline">
                       View Details

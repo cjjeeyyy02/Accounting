@@ -119,18 +119,18 @@ export default function CashFlowAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Cash Flow Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                 Operating, investing, and financing cash movements
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
@@ -141,12 +141,12 @@ export default function CashFlowAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">{card.label}</p>
                 <h3
                   className={`text-base md:text-lg font-bold mb-1 ${
-                    card.isPositive ? "text-gray-900" : "text-red-600"
+                    card.isPositive ? "text-[#2E5AAC]" : "text-red-600"
                   }`}
                 >
                   {card.value}
@@ -171,12 +171,12 @@ export default function CashFlowAnalysis() {
           </div>
 
           {/* Cash Flow Trends Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3">
             <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC]">
                 Cash Flow Trends
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-[#7A7A7A] hover:bg-gray-100 rounded-lg transition-colors">
                 <Filter size={13} />
                 Filter
               </button>
@@ -204,8 +204,8 @@ export default function CashFlowAnalysis() {
           </div>
 
           {/* Net Cash Position Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2 md:mb-3">
               Net Cash Position
             </h2>
 
@@ -237,8 +237,8 @@ export default function CashFlowAnalysis() {
           {/* Quarterly Activity */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Q1 Quarterly Activity */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2 md:mb-3">
                 Q1 Quarterly Activity
               </h2>
 
@@ -250,7 +250,7 @@ export default function CashFlowAnalysis() {
                   return (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-1">
-                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-[#2E5AAC]">
                           {item.activity}
                         </p>
                         <span className="text-[11px] md:text-xs font-semibold text-gray-700">
@@ -259,7 +259,7 @@ export default function CashFlowAnalysis() {
                       </div>
                       <div className="h-1 md:h-1.5 bg-gray-200 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-blue-600 rounded-full"
+                          className="h-full bg-[#2E5AAC] rounded-full"
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
@@ -270,8 +270,8 @@ export default function CashFlowAnalysis() {
             </div>
 
             {/* Q2 Quarterly Activity */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2 md:mb-3">
                 Q2 Quarterly Activity
               </h2>
 
@@ -283,7 +283,7 @@ export default function CashFlowAnalysis() {
                   return (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-1">
-                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-[#2E5AAC]">
                           {item.activity}
                         </p>
                         <span className="text-[11px] md:text-xs font-semibold text-gray-700">

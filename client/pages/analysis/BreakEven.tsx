@@ -104,7 +104,7 @@ const getStatusColor = (status: string) => {
     case "Success":
       return "text-green-600 bg-green-50";
     default:
-      return "text-gray-600 bg-gray-50";
+      return "text-[#7A7A7A] bg-gray-50";
   }
 };
 
@@ -112,18 +112,18 @@ export default function BreakEvenAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3 md:mb-4">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Break-even Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                 Financial analysis through profitability and capacity ratios
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
@@ -134,11 +134,11 @@ export default function BreakEvenAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">{card.label}</p>
                 <div className="flex items-baseline gap-1 mb-2">
-                  <h3 className="text-base md:text-lg font-bold text-gray-900">
+                  <h3 className="text-base md:text-lg font-bold text-[#2E5AAC]">
                     {card.value}
                   </h3>
                   {card.unit && (
@@ -158,12 +158,12 @@ export default function BreakEvenAnalysis() {
           </div>
 
           {/* Profitability Analysis Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3 md:mb-4">
             <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC]">
                 Profitability Analysis
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-[#7A7A7A] hover:bg-gray-100 rounded-lg transition-colors">
                 <Filter size={13} />
                 Filter
               </button>
@@ -216,10 +216,10 @@ export default function BreakEvenAnalysis() {
             {keyMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-2">{metric.label}</p>
-                <h3 className="text-base md:text-lg font-bold text-gray-900">
+                <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-2">{metric.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-[#2E5AAC]">
                   {metric.value}
                 </h3>
               </div>
@@ -227,25 +227,25 @@ export default function BreakEvenAnalysis() {
           </div>
 
           {/* Scenario Analysis */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-3">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-3">
               Scenario Analysis
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
               {scenarios.map((scenario) => (
-                <div key={scenario.name} className="border border-gray-200 rounded-lg p-3">
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-2">
+                <div key={scenario.name} className="border border-[#E5E7EB] rounded-lg p-3">
+                  <h3 className="text-xs md:text-sm font-semibold text-[#2E5AAC] mb-2">
                     {scenario.name}
                   </h3>
                   <div className="space-y-2">
                     {scenario.values.map((item, index) => (
                       <div key={index}>
-                        <p className="text-[11px] md:text-xs text-gray-600 mb-1">
+                        <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">
                           {item.label}
                         </p>
                         <div className="flex items-center justify-between">
-                          <p className="text-xs md:text-sm font-bold text-gray-900">
+                          <p className="text-xs md:text-sm font-bold text-[#2E5AAC]">
                             {item.value}
                           </p>
                           <span

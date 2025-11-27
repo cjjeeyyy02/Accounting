@@ -226,11 +226,11 @@ export default function RevenueAnalysis() {
                         style={{ backgroundColor: channel.color }}
                       />
                       <div className="flex-1">
-                        <p className="text-[10px] md:text-xs font-medium text-gray-900">
+                        <p className="text-[10px] md:text-xs font-medium text-[#2E5AAC]">
                           {channel.name}
                         </p>
                       </div>
-                      <p className="text-[10px] md:text-xs font-semibold text-gray-900">
+                      <p className="text-[10px] md:text-xs font-semibold text-[#2E5AAC]">
                         {channel.value}%
                       </p>
                     </div>

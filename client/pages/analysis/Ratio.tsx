@@ -95,7 +95,7 @@ const getStatusColor = (status: string) => {
     case "poor":
       return "text-red-600";
     default:
-      return "text-gray-600";
+      return "text-[#7A7A7A]";
   }
 };
 
@@ -118,31 +118,31 @@ export default function RatioAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3 md:mb-4">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Ratio Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                 Financial health through profitability and capacity ratios
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
           </div>
 
           {/* Overall Financial Health */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3 md:mb-4">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-xs md:text-sm font-semibold text-gray-900 mb-1">
+                <h2 className="text-xs md:text-sm font-semibold text-[#2E5AAC] mb-1">
                   Overall Financial Health
                 </h2>
-                <p className="text-[11px] md:text-[12px] text-gray-600">
+                <p className="text-[11px] md:text-[12px] text-[#7A7A7A]">
                   Your company shows strong financial position and operational efficiency
                 </p>
               </div>
@@ -160,20 +160,20 @@ export default function RatioAnalysis() {
 
           {/* Profitability Ratios */}
           <div className="mb-3 md:mb-4">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2">
               Profitability Ratios
             </h2>
             <div className="space-y-2">
               {profitabilityRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-[#E5E7EB] p-3 flex items-center justify-between hover:shadow-md transition-shadow"
                 >
                   <div>
-                    <h3 className="text-[11px] md:text-xs font-semibold text-gray-900 mb-0.5">
+                    <h3 className="text-[11px] md:text-xs font-semibold text-[#2E5AAC] mb-0.5">
                       {ratio.label}
                     </h3>
-                    <p className="text-[10px] md:text-[11px] text-gray-600">{ratio.description}</p>
+                    <p className="text-[10px] md:text-[11px] text-[#7A7A7A]">{ratio.description}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <p className={`text-base md:text-lg font-bold ${getStatusColor(ratio.status)}`}>
@@ -202,20 +202,20 @@ export default function RatioAnalysis() {
 
           {/* Liquidity Ratios */}
           <div className="mb-3 md:mb-4">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2">
               Liquidity Ratios
             </h2>
             <div className="space-y-2">
               {liquidityRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-[#E5E7EB] p-3 flex items-center justify-between hover:shadow-md transition-shadow"
                 >
                   <div>
-                    <h3 className="text-[11px] md:text-xs font-semibold text-gray-900 mb-0.5">
+                    <h3 className="text-[11px] md:text-xs font-semibold text-[#2E5AAC] mb-0.5">
                       {ratio.label}
                     </h3>
-                    <p className="text-[10px] md:text-[11px] text-gray-600">{ratio.description}</p>
+                    <p className="text-[10px] md:text-[11px] text-[#7A7A7A]">{ratio.description}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <p className={`text-base md:text-lg font-bold ${getStatusColor(ratio.status)}`}>
@@ -244,20 +244,20 @@ export default function RatioAnalysis() {
 
           {/* Efficiency Ratios */}
           <div>
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2">
               Efficiency Ratios
             </h2>
             <div className="space-y-2">
               {efficiencyRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className="bg-white rounded-lg border border-gray-200 p-3 flex items-center justify-between hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-[#E5E7EB] p-3 flex items-center justify-between hover:shadow-md transition-shadow"
                 >
                   <div>
-                    <h3 className="text-[11px] md:text-xs font-semibold text-gray-900 mb-0.5">
+                    <h3 className="text-[11px] md:text-xs font-semibold text-[#2E5AAC] mb-0.5">
                       {ratio.label}
                     </h3>
-                    <p className="text-[10px] md:text-[11px] text-gray-600">{ratio.description}</p>
+                    <p className="text-[10px] md:text-[11px] text-[#7A7A7A]">{ratio.description}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <p className={`text-base md:text-lg font-bold ${getStatusColor(ratio.status)}`}>

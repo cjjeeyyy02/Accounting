@@ -117,7 +117,7 @@ const getStatusColor = (status: string) => {
     case "over-budget":
       return "text-red-600 bg-red-50";
     default:
-      return "text-gray-600 bg-gray-50";
+      return "text-[#7A7A7A] bg-gray-50";
   }
 };
 
@@ -133,18 +133,18 @@ export default function ExpenseAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
                 Expense Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] font-normal text-gray-600">
+              <p className="text-[11px] md:text-[12px] font-normal text-[#7A7A7A]">
                 Spending patterns, category breakdown, and optimization
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
               <Download size={13} />
               Export Report
             </Button>
@@ -155,10 +155,10 @@ export default function ExpenseAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                <p className="text-[11px] md:text-xs text-[#7A7A7A] mb-1">{card.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-[#2E5AAC] mb-1">
                   {card.value}
                 </h3>
                 {card.status && (
@@ -174,12 +174,12 @@ export default function ExpenseAnalysis() {
           </div>
 
           {/* Monthly Expense Breakdown Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4 mb-3">
             <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC]">
                 Monthly Expense Breakdown
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-[#7A7A7A] hover:bg-gray-100 rounded-lg transition-colors">
                 <Filter size={13} />
                 Filter
               </button>
@@ -209,8 +209,8 @@ export default function ExpenseAnalysis() {
           {/* Expense Distribution & Department Budget Status */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Expense Distribution - Donut Chart */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2">
                 Expense Distribution
               </h2>
 
@@ -243,11 +243,11 @@ export default function ExpenseAnalysis() {
                         style={{ backgroundColor: expense.color }}
                       />
                       <div className="flex-1">
-                        <p className="text-[10px] md:text-xs font-medium text-gray-900">
+                        <p className="text-[10px] md:text-xs font-medium text-[#2E5AAC]">
                           {expense.name}
                         </p>
                       </div>
-                      <p className="text-[10px] md:text-xs font-semibold text-gray-900">
+                      <p className="text-[10px] md:text-xs font-semibold text-[#2E5AAC]">
                         {expense.value}%
                       </p>
                     </div>
@@ -257,18 +257,18 @@ export default function ExpenseAnalysis() {
             </div>
 
             {/* Department Budget Status */}
-            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+            <div className="bg-white rounded-lg border border-[#E5E7EB] p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-[#2E5AAC] mb-2">
                 Department Budget Status
               </h2>
 
               <div className="space-y-2">
                 {departmentBudgets.map((dept, index) => (
-                  <div key={index} className="pb-2 border-b border-gray-200 last:border-b-0">
+                  <div key={index} className="pb-2 border-b border-[#E5E7EB] last:border-b-0">
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center gap-1">
                         {getStatusIcon(dept.status)}
-                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-[#2E5AAC]">
                           {dept.name}
                         </p>
                       </div>
@@ -293,7 +293,7 @@ export default function ExpenseAnalysis() {
                           style={{ width: `${Math.min(dept.percentage, 100)}%` }}
                         />
                       </div>
-                      <p className="text-[10px] text-gray-600 whitespace-nowrap">
+                      <p className="text-[10px] text-[#7A7A7A] whitespace-nowrap">
                         ${(dept.spent / 1000).toFixed(0)}k / ${(dept.budgeted / 1000).toFixed(0)}k
                       </p>
                     </div>
