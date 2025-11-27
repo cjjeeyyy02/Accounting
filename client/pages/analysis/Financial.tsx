@@ -251,10 +251,13 @@ function FinancialAnalysisContent() {
   );
 }
 
-export default function FinancialAnalysis() {
+function FinancialAnalysis() {
   return (
     <Layout>
       <FinancialAnalysisContent />
     </Layout>
   );
 }
+
+export default FinancialAnalysis;
+export { FinancialAnalysisContent };
