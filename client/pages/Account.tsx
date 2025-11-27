@@ -1,5 +1,5 @@
-import { Placeholder } from "./Placeholder";
+import AccountsDashboard from "./accounts/Dashboard";
 
 export default function Account() {
-  return <Placeholder pageName="Account" />;
+  return <AccountsDashboard />;
 }
