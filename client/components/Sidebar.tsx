@@ -161,8 +161,8 @@ export function Sidebar() {
                       className={cn(
                         "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-[14px] border-l-4",
                         isSubmenuActive || isExpanded
-                          ? "bg-[#E8F0FF] text-[#2E5AAC] border-l-[#2E5AAC]"
-                          : "text-[#4C4C4C] hover:bg-[#F6F8FA] border-l-transparent hover:border-l-[#E5E7EB]"
+                          ? "bg-[#2E5AAC] text-white border-l-white"
+                          : "text-white hover:bg-[#2D5A8C] border-l-transparent hover:border-l-[#4C7AB5]"
                       )}
                     >
                       {item.icon}
