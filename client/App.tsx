@@ -38,6 +38,17 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/analytics/overview" element={<AnalyticsOverview />} />
+          <Route path="/analytics/financial" element={<FinancialAnalysis />} />
+          <Route path="/analytics/revenue" element={<RevenueAnalysis />} />
+          <Route path="/analytics/expense" element={<ExpenseAnalysis />} />
+          <Route path="/analytics/cash-flow" element={<CashFlowAnalysis />} />
+          <Route path="/analytics/customer" element={<CustomerAnalysis />} />
+          <Route path="/analytics/variance" element={<VarianceAnalysis />} />
+          <Route path="/analytics/break-even" element={<BreakEvenAnalysis />} />
+          <Route path="/analytics/ratio" element={<RatioAnalysis />} />
+          <Route path="/analytics/trend" element={<TrendAnalysis />} />
+          <Route path="/analytics/department" element={<DepartmentAnalysis />} />
           <Route path="/charts" element={<Charts />} />
           <Route path="/trends" element={<Trends />} />
           <Route path="/customers" element={<Customers />} />
