@@ -76,7 +76,7 @@ export function Sidebar() {
     setExpandedMenu(expandedMenu === label ? null : label);
   };
 
-  const isSubmenuActive = (submenu?: SubMenuItem[]) => {
+  const checkIsSubmenuActive = (submenu?: SubMenuItem[]) => {
     if (!submenu) return false;
     return submenu.some((item) => location.pathname === item.href);
   };
