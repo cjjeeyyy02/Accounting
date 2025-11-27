@@ -104,11 +104,11 @@ export default function AnalyticsOverview() {
       <div className="flex-1 overflow-auto">
         <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <div className="mb-6">
+            <h1 className="text-[28px] font-semibold text-gray-900 mb-2">
               Financial Analysis Center
             </h1>
-            <p className="text-gray-600">
+            <p className="text-[14px] font-normal text-gray-600">
               Comprehensive analysis tools to understand your financial performance
             </p>
           </div>
