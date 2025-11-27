@@ -115,14 +115,14 @@ export default function FinancialAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-[22px] font-semibold text-gray-900 mb-1">
                 Financial Analysis
               </h1>
-              <p className="text-gray-600">
+              <p className="text-[12px] font-normal text-gray-600">
                 Deep dive into your financial position and performance metrics
               </p>
             </div>
@@ -133,24 +133,24 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-4"
               >
-                <p className="text-sm text-gray-600 mb-2">{card.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <p className="text-xs text-gray-600 mb-2">{card.label}</p>
+                <h3 className="text-[18px] font-bold text-gray-900 mb-2">
                   {card.value}
                 </h3>
                 <div className="flex items-center gap-2">
                   {card.isPositive ? (
-                    <TrendingUp size={16} className="text-green-600" />
+                    <TrendingUp size={14} className="text-green-600" />
                   ) : (
-                    <TrendingDown size={16} className="text-red-600" />
+                    <TrendingDown size={14} className="text-red-600" />
                   )}
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-xs font-medium ${
                       card.isPositive ? "text-green-600" : "text-red-600"
                     }`}
                   >
@@ -163,18 +163,18 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Balance Sheet Trends Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-[16px] font-semibold text-gray-900">
                 Balance Sheet Trends
               </h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+              <button className="flex items-center gap-2 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={14} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={200}>
               <LineChart data={balanceSheetData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
@@ -213,21 +213,21 @@ export default function FinancialAnalysis() {
           </div>
 
           {/* Financial Ratios */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4">
+            <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
               Financial Ratios
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {financialRatios.map((ratio) => (
                 <div
                   key={ratio.label}
-                  className={`rounded-lg border border-gray-200 p-6 ${getStatusBgColor(
+                  className={`rounded-lg border border-gray-200 p-4 ${getStatusBgColor(
                     ratio.status
                   )}`}
                 >
-                  <p className="text-sm text-gray-600 mb-3">{ratio.label}</p>
-                  <p className="text-3xl font-bold text-gray-900 mb-3">
+                  <p className="text-xs text-gray-600 mb-2">{ratio.label}</p>
+                  <p className="text-[20px] font-bold text-gray-900 mb-2">
                     {ratio.value}
                   </p>
                   {ratio.change && (
