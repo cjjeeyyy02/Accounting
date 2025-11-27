@@ -43,7 +43,7 @@ const App = () => (
       <Sonner />
       <SidebarProvider>
         <BrowserRouter>
-        <Routes>
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/analysis" element={<Analysis />} />
