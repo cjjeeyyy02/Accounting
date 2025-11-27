@@ -114,11 +114,10 @@ const getStatusLabel = (status: string) => {
   }
 };
 
-export default function RatioAnalysis() {
+function RatioAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3 md:mb-4">
             <div>
@@ -285,6 +284,16 @@ export default function RatioAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function RatioAnalysis() {
+  return (
+    <Layout>
+      <RatioAnalysisContent />
     </Layout>
   );
 }
+
+export default RatioAnalysis;
+export { RatioAnalysisContent };
