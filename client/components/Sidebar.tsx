@@ -81,6 +81,13 @@ export function Sidebar() {
     }
   }, [location.pathname]);
 
+  // Preserve sidebar scroll position on navigation
+  useEffect(() => {
+    if (navRef.current) {
+      navRef.current.scrollTop = scrollPositionRef.current;
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {/* Mobile menu button */}
