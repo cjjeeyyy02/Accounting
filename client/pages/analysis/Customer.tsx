@@ -171,20 +171,20 @@ export default function CustomerAnalysis() {
               {customerSegments.map((segment) => (
                 <div
                   key={segment.name}
-                  className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
+                  className="bg-white rounded-lg border border-gray-200 p-3"
                 >
-                  <div className="text-2xl md:text-3xl mb-2 md:mb-3">{segment.icon}</div>
-                  <p className="text-xs md:text-sm text-gray-600 mb-1">{segment.name}</p>
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+                  <div className="text-lg md:text-xl mb-2">{segment.icon}</div>
+                  <p className="text-[11px] md:text-xs text-gray-600 mb-1">{segment.name}</p>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">
                     {segment.count}
                   </h3>
-                  <div className="w-full h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-full h-1 md:h-1.5 bg-gray-200 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-blue-600 rounded-full"
                       style={{ width: `${segment.percentage}%` }}
                     />
                   </div>
-                  <p className="text-xs text-gray-600 mt-1 md:mt-2">
+                  <p className="text-[10px] text-gray-600 mt-1">
                     {segment.percentage}% of total
                   </p>
                 </div>
@@ -193,16 +193,16 @@ export default function CustomerAnalysis() {
           </div>
 
           {/* Top Customers */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
-            <div className="flex justify-between items-center mb-3 md:mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">Top Customers</h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={14} />
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">Top Customers</h2>
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={13} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={150} minHeight={150}>
+            <ResponsiveContainer width="100%" height={120} minHeight={120}>
               <BarChart data={topCustomersData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} stroke="#6b7280" />
