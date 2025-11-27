@@ -204,12 +204,12 @@ export default function CashFlowAnalysis() {
           </div>
 
           {/* Net Cash Position Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Net Cash Position
             </h2>
 
-            <ResponsiveContainer width="100%" height={250}>
+            <ResponsiveContainer width="100%" height={150} minHeight={150}>
               <LineChart data={netCashPositionData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
