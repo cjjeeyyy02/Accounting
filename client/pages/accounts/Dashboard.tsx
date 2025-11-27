@@ -21,7 +21,7 @@ export default function AccountsDashboard() {
                   Accounts Dashboard
                 </h1>
                 <p className="text-[14px] font-normal text-gray-600 mt-1">
-                  Manage accounts, reports, transactions, and more
+                  Manage your accounts and view financial summaries
                 </p>
               </div>
               <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
@@ -58,42 +58,6 @@ export default function AccountsDashboard() {
                 >
                   Account Balances
                 </TabsTrigger>
-                <TabsTrigger
-                  value="transactions"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Transactions
-                </TabsTrigger>
-                <TabsTrigger
-                  value="invoices"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Invoices
-                </TabsTrigger>
-                <TabsTrigger
-                  value="customers"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Customers/Vendors
-                </TabsTrigger>
-                <TabsTrigger
-                  value="inventory"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Inventory
-                </TabsTrigger>
-                <TabsTrigger
-                  value="budget"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Budget
-                </TabsTrigger>
-                <TabsTrigger
-                  value="upload"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                >
-                  Upload Center
-                </TabsTrigger>
               </TabsList>
 
               {/* Tab Content */}
@@ -106,24 +70,6 @@ export default function AccountsDashboard() {
                 </TabsContent>
                 <TabsContent value="balances" className="mt-0">
                   <AccountBalancesTab />
-                </TabsContent>
-                <TabsContent value="transactions" className="mt-0">
-                  <TransactionsTab />
-                </TabsContent>
-                <TabsContent value="invoices" className="mt-0">
-                  <InvoicesTab />
-                </TabsContent>
-                <TabsContent value="customers" className="mt-0">
-                  <CustomersVendorsTab />
-                </TabsContent>
-                <TabsContent value="inventory" className="mt-0">
-                  <InventoryTab />
-                </TabsContent>
-                <TabsContent value="budget" className="mt-0">
-                  <BudgetTab />
-                </TabsContent>
-                <TabsContent value="upload" className="mt-0">
-                  <UploadCenterTab />
                 </TabsContent>
               </div>
             </Tabs>
