@@ -207,24 +207,24 @@ export default function ExpenseAnalysis() {
           </div>
 
           {/* Expense Distribution & Department Budget Status */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Expense Distribution - Donut Chart */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
-              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
                 Expense Distribution
               </h2>
 
               <div className="flex items-center justify-between">
-                <div className="w-32 h-32">
+                <div className="w-24 h-24">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
                         data={expenseDistributionData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={40}
-                        outerRadius={60}
-                        paddingAngle={2}
+                        innerRadius={30}
+                        outerRadius={45}
+                        paddingAngle={1}
                         dataKey="value"
                       >
                         {expenseDistributionData.map((entry, index) => (
@@ -235,19 +235,19 @@ export default function ExpenseAnalysis() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="flex-1 pl-4 space-y-2">
+                <div className="flex-1 pl-3 space-y-1">
                   {expenseDistributionData.map((expense) => (
-                    <div key={expense.name} className="flex items-center gap-2">
+                    <div key={expense.name} className="flex items-center gap-1">
                       <div
-                        className="w-2 h-2 rounded-full"
+                        className="w-1.5 h-1.5 rounded-full"
                         style={{ backgroundColor: expense.color }}
                       />
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-900">
+                        <p className="text-[10px] md:text-xs font-medium text-gray-900">
                           {expense.name}
                         </p>
                       </div>
-                      <p className="text-xs font-semibold text-gray-900">
+                      <p className="text-[10px] md:text-xs font-semibold text-gray-900">
                         {expense.value}%
                       </p>
                     </div>
@@ -257,23 +257,23 @@ export default function ExpenseAnalysis() {
             </div>
 
             {/* Department Budget Status */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
-              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
                 Department Budget Status
               </h2>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {departmentBudgets.map((dept, index) => (
-                  <div key={index} className="pb-3 border-b border-gray-200 last:border-b-0">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
+                  <div key={index} className="pb-2 border-b border-gray-200 last:border-b-0">
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center gap-1">
                         {getStatusIcon(dept.status)}
-                        <p className="text-xs font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
                           {dept.name}
                         </p>
                       </div>
                       <span
-                        className={`text-xs font-semibold px-2 py-1 rounded ${getStatusColor(
+                        className={`text-[10px] md:text-[11px] font-semibold px-2 py-0.5 rounded ${getStatusColor(
                           dept.status
                         )}`}
                       >
@@ -281,7 +281,7 @@ export default function ExpenseAnalysis() {
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full ${
                             dept.status === "on-track"
@@ -293,7 +293,7 @@ export default function ExpenseAnalysis() {
                           style={{ width: `${Math.min(dept.percentage, 100)}%` }}
                         />
                       </div>
-                      <p className="text-xs text-gray-600">
+                      <p className="text-[10px] text-gray-600 whitespace-nowrap">
                         ${(dept.spent / 1000).toFixed(0)}k / ${(dept.budgeted / 1000).toFixed(0)}k
                       </p>
                     </div>
