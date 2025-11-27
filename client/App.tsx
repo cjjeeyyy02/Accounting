@@ -9,22 +9,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Reports from "./pages/Reports";
-import Analytics from "./pages/Analytics";
+import Analysis from "./pages/Analysis";
 import Charts from "./pages/Charts";
 import Trends from "./pages/Trends";
 import Customers from "./pages/Customers";
 import Settings from "./pages/Settings";
-import AnalyticsOverview from "./pages/analytics/Overview";
-import FinancialAnalysis from "./pages/analytics/Financial";
-import RevenueAnalysis from "./pages/analytics/Revenue";
-import ExpenseAnalysis from "./pages/analytics/Expense";
-import CashFlowAnalysis from "./pages/analytics/CashFlow";
-import CustomerAnalysis from "./pages/analytics/Customer";
-import VarianceAnalysis from "./pages/analytics/Variance";
-import BreakEvenAnalysis from "./pages/analytics/BreakEven";
-import RatioAnalysis from "./pages/analytics/Ratio";
-import TrendAnalysis from "./pages/analytics/Trend";
-import DepartmentAnalysis from "./pages/analytics/Department";
+import AnalysisOverview from "./pages/analysis/Overview";
+import FinancialAnalysis from "./pages/analysis/Financial";
+import RevenueAnalysis from "./pages/analysis/Revenue";
+import ExpenseAnalysis from "./pages/analysis/Expense";
+import CashFlowAnalysis from "./pages/analysis/CashFlow";
+import CustomerAnalysis from "./pages/analysis/Customer";
+import VarianceAnalysis from "./pages/analysis/Variance";
+import BreakEvenAnalysis from "./pages/analysis/BreakEven";
+import RatioAnalysis from "./pages/analysis/Ratio";
+import TrendAnalysis from "./pages/analysis/Trend";
+import DepartmentAnalysis from "./pages/analysis/Department";
 
 const queryClient = new QueryClient();
 
@@ -37,18 +37,18 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/reports" element={<Reports />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/analytics/overview" element={<AnalyticsOverview />} />
-          <Route path="/analytics/financial" element={<FinancialAnalysis />} />
-          <Route path="/analytics/revenue" element={<RevenueAnalysis />} />
-          <Route path="/analytics/expense" element={<ExpenseAnalysis />} />
-          <Route path="/analytics/cash-flow" element={<CashFlowAnalysis />} />
-          <Route path="/analytics/customer" element={<CustomerAnalysis />} />
-          <Route path="/analytics/variance" element={<VarianceAnalysis />} />
-          <Route path="/analytics/break-even" element={<BreakEvenAnalysis />} />
-          <Route path="/analytics/ratio" element={<RatioAnalysis />} />
-          <Route path="/analytics/trend" element={<TrendAnalysis />} />
-          <Route path="/analytics/department" element={<DepartmentAnalysis />} />
+          <Route path="/analysis" element={<Analysis />} />
+          <Route path="/analysis/overview" element={<AnalysisOverview />} />
+          <Route path="/analysis/financial" element={<FinancialAnalysis />} />
+          <Route path="/analysis/revenue" element={<RevenueAnalysis />} />
+          <Route path="/analysis/expense" element={<ExpenseAnalysis />} />
+          <Route path="/analysis/cash-flow" element={<CashFlowAnalysis />} />
+          <Route path="/analysis/customer" element={<CustomerAnalysis />} />
+          <Route path="/analysis/variance" element={<VarianceAnalysis />} />
+          <Route path="/analysis/break-even" element={<BreakEvenAnalysis />} />
+          <Route path="/analysis/ratio" element={<RatioAnalysis />} />
+          <Route path="/analysis/trend" element={<TrendAnalysis />} />
+          <Route path="/analysis/department" element={<DepartmentAnalysis />} />
           <Route path="/charts" element={<Charts />} />
           <Route path="/trends" element={<Trends />} />
           <Route path="/customers" element={<Customers />} />
