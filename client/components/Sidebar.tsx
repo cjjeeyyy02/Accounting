@@ -44,7 +44,9 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(
+    typeof window !== "undefined" && window.innerWidth >= 768
+  );
   const location = useLocation();
 
   return (
