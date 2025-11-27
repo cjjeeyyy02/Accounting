@@ -124,17 +124,32 @@ export function TopBar() {
   return (
     <div className="sticky top-0 z-20 bg-white border-b border-gray-200">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        {/* Left Section: Burger Menu & Breadcrumbs */}
+        {/* Left Section: Burger Menu, Search & Breadcrumbs */}
         <div className="flex-1 min-w-0 flex items-center gap-3">
           {/* Burger Menu Button */}
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
-            className="hover:bg-gray-100 h-9 w-9"
+            className="hover:bg-gray-100 h-9 w-9 flex-shrink-0"
           >
             <Menu size={20} className="text-gray-600" />
           </Button>
+
+          {/* Search Bar */}
+          <div className="relative hidden md:block">
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+            <Input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 w-64 h-9 bg-gray-50 border-gray-200 focus:bg-white"
+            />
+          </div>
 
           {/* Breadcrumbs */}
           <div className="flex-1 min-w-0">
@@ -159,22 +174,8 @@ export function TopBar() {
           </div>
         </div>
 
-        {/* Right Section: Search, Notifications, Profile */}
+        {/* Right Section: Notifications, Profile */}
         <div className="flex items-center gap-3">
-          {/* Search Bar */}
-          <div className="relative hidden md:block">
-            <Search
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-              size={18}
-            />
-            <Input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 w-64 h-9 bg-gray-50 border-gray-200 focus:bg-white"
-            />
-          </div>
 
           {/* Notifications */}
           <DropdownMenu>
