@@ -131,7 +131,7 @@ export function Sidebar() {
         <div className="p-6 border-b border-[#1A2D4D] bg-[#1E3F7A]">
           <Link
             to="/"
-            className="flex items-center gap-2 font-bold text-2xl text-[#2E5AAC] hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 font-bold text-2xl text-white hover:opacity-80 transition-opacity"
           >
             <div className="w-8 h-8 rounded-lg bg-sidebar-primary flex items-center justify-center text-sidebar-primary-foreground font-bold text-xs">
               FC
