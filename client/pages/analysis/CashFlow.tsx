@@ -119,33 +119,33 @@ export default function CashFlowAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-4 md:mb-6">
+          <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
+              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
                 Cash Flow Analysis
               </h1>
-              <p className="text-xs md:text-sm text-gray-600">
+              <p className="text-[11px] md:text-[12px] text-gray-600">
                 Operating, investing, and financing cash movements
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-xs md:text-sm h-8 md:h-10">
-              <Download size={14} />
+            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
+              <Download size={13} />
               Export Report
             </Button>
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3 mb-3">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-xs md:text-sm text-gray-600 mb-1">{card.label}</p>
+                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
                 <h3
-                  className={`text-lg md:text-xl font-bold mb-2 ${
+                  className={`text-base md:text-lg font-bold mb-1 ${
                     card.isPositive ? "text-gray-900" : "text-red-600"
                   }`}
                 >
@@ -153,12 +153,12 @@ export default function CashFlowAnalysis() {
                 </h3>
                 <div className="flex items-center gap-1">
                   {card.isPositive ? (
-                    <TrendingUp size={14} className="text-green-600" />
+                    <TrendingUp size={13} className="text-green-600" />
                   ) : (
-                    <TrendingDown size={14} className="text-red-600" />
+                    <TrendingDown size={13} className="text-red-600" />
                   )}
                   <span
-                    className={`text-xs md:text-sm font-medium ${
+                    className={`text-[10px] md:text-xs font-medium ${
                       card.isPositive ? "text-green-600" : "text-red-600"
                     }`}
                   >
@@ -171,9 +171,9 @@ export default function CashFlowAnalysis() {
           </div>
 
           {/* Cash Flow Trends Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
-            <div className="flex justify-between items-center mb-3 md:mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Cash Flow Trends
               </h2>
               <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
