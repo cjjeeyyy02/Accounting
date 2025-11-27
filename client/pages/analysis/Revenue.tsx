@@ -79,44 +79,44 @@ export default function RevenueAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-3">
+          <div className="flex justify-between items-start mb-8">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+              <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
                 Revenue Analysis
               </h1>
-              <p className="text-[11px] md:text-[12px] font-normal text-gray-600">
+              <p className="text-[14px] font-normal text-[#7A7A7A]">
                 Revenue trends, customer insights, and growth patterns
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-[11px] md:text-xs h-7 md:h-8">
-              <Download size={13} />
+            <Button className="bg-[#2E5AAC] hover:bg-[#1E3F7A] text-white flex items-center gap-2 text-sm h-10 px-4 rounded-lg font-medium shadow-sm">
+              <Download size={16} />
               Export Report
             </Button>
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-4 shadow-sm hover:shadow-md transition-shadow"
               >
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
+                <p className="text-[13px] font-medium text-[#7A7A7A] mb-3">{card.label}</p>
+                <h3 className="text-2xl font-semibold text-[#2E5AAC] mb-3">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-2">
                     {card.isPositive ? (
-                      <TrendingUp size={13} className="text-green-600" />
+                      <TrendingUp size={16} className="text-[#10B981]" />
                     ) : (
-                      <TrendingDown size={13} className="text-red-600" />
+                      <TrendingDown size={16} className="text-[#EF4444]" />
                     )}
                     <span
-                      className={`text-[10px] md:text-xs font-medium ${
-                        card.isPositive ? "text-green-600" : "text-red-600"
+                      className={`text-[13px] font-medium ${
+                        card.isPositive ? "text-[#10B981]" : "text-[#EF4444]"
                       }`}
                     >
                       {card.isPositive ? "+" : ""}
@@ -129,13 +129,13 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Source Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
-            <div className="flex justify-between items-center mb-2 md:mb-3">
-              <h2 className="text-sm md:text-base font-semibold text-gray-900">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 mb-8 shadow-sm">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-lg font-semibold text-[#2E5AAC]">
                 Revenue by Source
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={13} />
+              <button className="flex items-center gap-2 px-3 py-2 text-[13px] font-medium text-[#4C4C4C] hover:bg-[#F6F8FA] rounded-lg transition-colors border border-[#E5E7EB]">
+                <Filter size={16} />
                 Filter
               </button>
             </div>
