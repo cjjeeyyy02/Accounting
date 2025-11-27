@@ -134,22 +134,22 @@ export default function BreakEvenAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-sm text-gray-600 mb-2">{card.label}</p>
-                <div className="flex items-baseline gap-2 mb-3">
-                  <h3 className="text-2xl font-bold text-gray-900">
+                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <h3 className="text-base md:text-lg font-bold text-gray-900">
                     {card.value}
                   </h3>
                   {card.unit && (
-                    <span className="text-sm text-green-600 font-medium">
+                    <span className="text-[10px] md:text-[11px] text-green-600 font-medium">
                       {card.unit}
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-2">
-                  <TrendingUp size={16} className="text-green-600" />
-                  <span className="text-sm font-medium text-green-600">
+                <div className="flex items-center gap-1">
+                  <TrendingUp size={13} className="text-green-600" />
+                  <span className="text-[11px] md:text-xs font-medium text-green-600">
                     Target achieved
                   </span>
                 </div>
@@ -158,18 +158,18 @@ export default function BreakEvenAnalysis() {
           </div>
 
           {/* Profitability Analysis Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3 md:mb-4">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Profitability Analysis
               </h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={13} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={140} minHeight={140}>
               <LineChart data={profitabilityData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="units" stroke="#6b7280" label={{ value: "Units Sold", position: "insideBottomRight", offset: -5 }} />
