@@ -1,115 +1,101 @@
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
-import AnalysisOverviewPage from "./analysis/Overview";
-import { FinancialAnalysisContent } from "./analysis/Financial";
-import RevenueAnalysisPage from "./analysis/Revenue";
-import ExpenseAnalysisPage from "./analysis/Expense";
-import CashFlowAnalysisPage from "./analysis/CashFlow";
-import CustomerAnalysisPage from "./analysis/Customer";
-import VarianceAnalysisPage from "./analysis/Variance";
-import BreakEvenAnalysisPage from "./analysis/BreakEven";
-import RatioAnalysisPage from "./analysis/Ratio";
-import TrendAnalysisPage from "./analysis/Trend";
-import DepartmentAnalysisPage from "./analysis/Department";
 
 interface Tab {
   id: string;
   label: string;
-  render: () => React.ReactNode;
+  content: React.ReactNode;
 }
 
+// Lazy load the tab contents
 const tabs: Tab[] = [
-  {
-    id: "overview",
-    label: "Overview",
-    render: () => {
-      const Page = AnalysisOverviewPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "financial",
-    label: "Financial Analysis",
-    render: () => <FinancialAnalysisContent />,
-  },
-  {
-    id: "revenue",
-    label: "Revenue Analysis",
-    render: () => {
-      const Page = RevenueAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "expense",
-    label: "Expense Analysis",
-    render: () => {
-      const Page = ExpenseAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "cash-flow",
-    label: "Cash Flow Analysis",
-    render: () => {
-      const Page = CashFlowAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "customer",
-    label: "Customer Analysis",
-    render: () => {
-      const Page = CustomerAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "variance",
-    label: "Variance Analysis",
-    render: () => {
-      const Page = VarianceAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "break-even",
-    label: "Break-even Analysis",
-    render: () => {
-      const Page = BreakEvenAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "ratio",
-    label: "Ratio Analysis",
-    render: () => {
-      const Page = RatioAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "trend",
-    label: "Trend Analysis",
-    render: () => {
-      const Page = TrendAnalysisPage;
-      return <Page />;
-    },
-  },
-  {
-    id: "department",
-    label: "Department Analysis",
-    render: () => {
-      const Page = DepartmentAnalysisPage;
-      return <Page />;
-    },
-  },
+  { id: "overview", label: "Overview", content: null },
+  { id: "financial", label: "Financial Analysis", content: null },
+  { id: "revenue", label: "Revenue Analysis", content: null },
+  { id: "expense", label: "Expense Analysis", content: null },
+  { id: "cash-flow", label: "Cash Flow Analysis", content: null },
+  { id: "customer", label: "Customer Analysis", content: null },
+  { id: "variance", label: "Variance Analysis", content: null },
+  { id: "break-even", label: "Break-even Analysis", content: null },
+  { id: "ratio", label: "Ratio Analysis", content: null },
+  { id: "trend", label: "Trend Analysis", content: null },
+  { id: "department", label: "Department Analysis", content: null },
 ];
+
+// Content renderers that don't include Layout
+function OverviewContent() {
+  const OverviewPage = require("./analysis/Overview").default;
+  return <OverviewPage />;
+}
+
+function FinancialContent() {
+  const FinancialPage = require("./analysis/Financial").default;
+  return <FinancialPage />;
+}
+
+function RevenueContent() {
+  const RevenuePage = require("./analysis/Revenue").default;
+  return <RevenuePage />;
+}
+
+function ExpenseContent() {
+  const ExpensePage = require("./analysis/Expense").default;
+  return <ExpensePage />;
+}
+
+function CashFlowContent() {
+  const CashFlowPage = require("./analysis/CashFlow").default;
+  return <CashFlowPage />;
+}
+
+function CustomerContent() {
+  const CustomerPage = require("./analysis/Customer").default;
+  return <CustomerPage />;
+}
+
+function VarianceContent() {
+  const VariancePage = require("./analysis/Variance").default;
+  return <VariancePage />;
+}
+
+function BreakEvenContent() {
+  const BreakEvenPage = require("./analysis/BreakEven").default;
+  return <BreakEvenPage />;
+}
+
+function RatioContent() {
+  const RatioPage = require("./analysis/Ratio").default;
+  return <RatioPage />;
+}
+
+function TrendContent() {
+  const TrendPage = require("./analysis/Trend").default;
+  return <TrendPage />;
+}
+
+function DepartmentContent() {
+  const DepartmentPage = require("./analysis/Department").default;
+  return <DepartmentPage />;
+}
+
+const contentMap: { [key: string]: React.ComponentType } = {
+  overview: OverviewContent,
+  financial: FinancialContent,
+  revenue: RevenueContent,
+  expense: ExpenseContent,
+  "cash-flow": CashFlowContent,
+  customer: CustomerContent,
+  variance: VarianceContent,
+  "break-even": BreakEvenContent,
+  ratio: RatioContent,
+  trend: TrendContent,
+  department: DepartmentContent,
+};
 
 export default function Analysis() {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const activeTabData = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+  const ContentComponent = contentMap[activeTab] || OverviewContent;
 
   return (
     <Layout>
@@ -137,7 +123,7 @@ export default function Analysis() {
 
         {/* Tab Content */}
         <div className="flex-1 overflow-auto">
-          {activeTabData.render()}
+          <ContentComponent />
         </div>
       </div>
     </Layout>
