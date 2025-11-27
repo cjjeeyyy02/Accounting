@@ -221,8 +221,8 @@ export default function CustomerAnalysis() {
           </div>
 
           {/* Cohort Analysis */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
               Cohort Analysis
             </h2>
 
@@ -230,7 +230,7 @@ export default function CustomerAnalysis() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
+                    <th className="text-left text-[10px] md:text-xs font-semibold text-gray-900 px-2 md:px-3 py-1 md:py-2">
                       Cohort
                     </th>
                     <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
