@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import AnalysisOverviewPage from "./analysis/Overview";
-import FinancialAnalysisPage from "./analysis/Financial";
+import { FinancialAnalysisContent } from "./analysis/Financial";
 import RevenueAnalysisPage from "./analysis/Revenue";
 import ExpenseAnalysisPage from "./analysis/Expense";
 import CashFlowAnalysisPage from "./analysis/CashFlow";
