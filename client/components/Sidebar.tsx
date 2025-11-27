@@ -230,16 +230,16 @@ export function Sidebar() {
         </nav>
 
         {/* Settings Section */}
-        <div className="border-t border-sidebar-border p-4 space-y-2">
+        <div className="border-t border-[#E5E7EB] p-4 space-y-2 bg-white">
           <Link
             to="/settings"
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-all"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#4C4C4C] hover:bg-[#F6F8FA] hover:text-[#2E5AAC] transition-all font-medium text-[14px]"
           >
-            <Settings size={20} />
+            <Settings size={18} />
             <span>Settings</span>
           </Link>
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-all text-left">
-            <LogOut size={20} />
+          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#4C4C4C] hover:bg-[#F6F8FA] hover:text-[#2E5AAC] transition-all text-left font-medium text-[14px]">
+            <LogOut size={18} />
             <span>Logout</span>
           </button>
         </div>
