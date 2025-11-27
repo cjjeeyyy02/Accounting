@@ -124,9 +124,21 @@ export function TopBar() {
   return (
     <div className="sticky top-0 z-20 bg-white border-b border-gray-200">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        {/* Left Section: Breadcrumbs */}
-        <div className="flex-1 min-w-0">
-          <Breadcrumb>
+        {/* Left Section: Burger Menu & Breadcrumbs */}
+        <div className="flex-1 min-w-0 flex items-center gap-3">
+          {/* Burger Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleSidebar}
+            className="md:hidden hover:bg-gray-100 h-9 w-9"
+          >
+            <Menu size={20} className="text-gray-600" />
+          </Button>
+
+          {/* Breadcrumbs */}
+          <div className="flex-1 min-w-0">
+            <Breadcrumb>
             <BreadcrumbList>
               {breadcrumbs.map((crumb, index) => (
                 <div key={index} className="flex items-center">
@@ -144,6 +156,7 @@ export function TopBar() {
               ))}
             </BreadcrumbList>
           </Breadcrumb>
+          </div>
         </div>
 
         {/* Right Section: Search, Notifications, Profile */}
