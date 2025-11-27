@@ -100,9 +100,17 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "8px",
+        md: "6px",
+        sm: "4px",
+        DEFAULT: "8px",
+      },
+      boxShadow: {
+        xs: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+        sm: "0px 1px 4px rgba(0, 0, 0, 0.08)",
+        DEFAULT: "0px 1px 4px rgba(0, 0, 0, 0.08)",
+        md: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        lg: "0px 8px 16px rgba(0, 0, 0, 0.12)",
       },
       keyframes: {
         "accordion-down": {
