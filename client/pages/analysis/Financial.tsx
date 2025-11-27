@@ -111,10 +111,9 @@ const getStatusBgColor = (status: string) => {
   }
 };
 
-export default function FinancialAnalysis() {
+function FinancialAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
+    <div className="flex-1 overflow-auto">
         <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
@@ -249,6 +248,15 @@ export default function FinancialAnalysis() {
           </div>
         </div>
       </div>
-    </Layout>
   );
 }
+
+export default function FinancialAnalysis() {
+  return (
+    <>
+      <FinancialAnalysisContent />
+    </>
+  );
+}
+
+export { FinancialAnalysisContent };
