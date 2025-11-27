@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   BarChart3,
   TrendingUp,
+  User,
   Settings,
   LogOut,
   Menu,
