@@ -72,7 +72,7 @@ export function Sidebar() {
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
   // Auto-expand submenu if a child route is active
-  React.useEffect(() => {
+  useEffect(() => {
     for (const item of navItems) {
       if (item.submenu && checkIsSubmenuActive(item.submenu)) {
         setExpandedMenu(item.label);
