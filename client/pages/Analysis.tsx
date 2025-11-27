@@ -4,13 +4,13 @@ import { AnalysisOverviewContent } from "./analysis/Overview";
 import { FinancialAnalysisContent } from "./analysis/Financial";
 import { RevenueAnalysisContent } from "./analysis/Revenue";
 import { ExpenseAnalysisContent } from "./analysis/Expense";
-import CashFlowPage from "./analysis/CashFlow";
-import CustomerPage from "./analysis/Customer";
-import VariancePage from "./analysis/Variance";
-import BreakEvenPage from "./analysis/BreakEven";
-import RatioPage from "./analysis/Ratio";
-import TrendPage from "./analysis/Trend";
-import DepartmentPage from "./analysis/Department";
+import { CashFlowAnalysisContent } from "./analysis/CashFlow";
+import { CustomerAnalysisContent } from "./analysis/Customer";
+import { VarianceAnalysisContent } from "./analysis/Variance";
+import { BreakEvenAnalysisContent } from "./analysis/BreakEven";
+import { RatioAnalysisContent } from "./analysis/Ratio";
+import { TrendAnalysisContent } from "./analysis/Trend";
+import { DepartmentAnalysisContent } from "./analysis/Department";
 
 interface Tab {
   id: string;
