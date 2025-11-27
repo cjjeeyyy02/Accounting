@@ -5,6 +5,7 @@ import { ExpenseBreakdown } from "@/components/ExpenseBreakdown";
 import { AccountBalances } from "@/components/AccountBalances";
 import { Bell, Settings } from "lucide-react";
 
+// Dashboard page
 export default function Index() {
   return (
     <Layout>
