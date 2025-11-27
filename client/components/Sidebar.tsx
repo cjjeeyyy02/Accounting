@@ -59,6 +59,8 @@ export function Sidebar() {
   );
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const location = useLocation();
+  const navRef = useRef<HTMLDivElement>(null);
+  const scrollPositionRef = useRef<number>(0);
 
   const checkIsSubmenuActive = (submenu?: SubMenuItem[]) => {
     if (!submenu) return false;
