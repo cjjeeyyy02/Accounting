@@ -108,21 +108,15 @@ export function Sidebar() {
     }
   }, [location.pathname]);
 
+  const { setSidebarOpen } = useSidebar();
+
   return (
     <>
-      {/* Mobile menu button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 md:hidden p-2 rounded-lg bg-sidebar hover:bg-sidebar/80 text-sidebar-foreground"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
       {/* Sidebar overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={() => setIsOpen(false)}
+          onClick={() => setSidebarOpen(false)}
         />
       )}
 
