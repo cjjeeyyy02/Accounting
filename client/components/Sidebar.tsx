@@ -219,6 +219,7 @@ export function Sidebar() {
                           <Link
                             key={subitem.href}
                             to={subitem.href}
+                            onClick={handleSubmenuClick}
                             className={cn(
                               "block px-4 py-2 rounded-lg text-sm transition-all",
                               isSubActive
