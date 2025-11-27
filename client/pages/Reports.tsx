@@ -132,8 +132,8 @@ export default function Reports() {
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Reports</h1>
-              <p className="text-gray-600">Access and generate financial reports</p>
+              <h1 className="text-[28px] font-semibold text-gray-900 mb-2">Reports</h1>
+              <p className="text-[14px] font-normal text-gray-600">Access and generate financial reports</p>
             </div>
             <Button className="bg-blue-600 hover:bg-blue-700">
               + Export All
