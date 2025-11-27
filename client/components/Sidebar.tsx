@@ -70,6 +70,16 @@ export function Sidebar() {
     typeof window !== "undefined" && window.innerWidth >= 768
   );
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  const location = useLocation();
+
+  const checkIsSubmenuActive = (submenu?: SubMenuItem[]) => {
+    if (!submenu) return false;
+    return submenu.some((item) => location.pathname === item.href);
+  };
+
+  const toggleSubmenu = (label: string) => {
+    setExpandedMenu(expandedMenu === label ? null : label);
+  };
 
   // Auto-expand submenu if a child route is active
   useEffect(() => {
@@ -80,16 +90,6 @@ export function Sidebar() {
       }
     }
   }, [location.pathname]);
-  const location = useLocation();
-
-  const toggleSubmenu = (label: string) => {
-    setExpandedMenu(expandedMenu === label ? null : label);
-  };
-
-  const checkIsSubmenuActive = (submenu?: SubMenuItem[]) => {
-    if (!submenu) return false;
-    return submenu.some((item) => location.pathname === item.href);
-  };
 
   return (
     <>
