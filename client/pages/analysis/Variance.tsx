@@ -168,21 +168,21 @@ export default function VarianceAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
               >
-                <p className="text-sm text-gray-600 mb-2">{card.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <p className="text-xs md:text-sm text-gray-600 mb-1">{card.label}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {card.isPositive ? (
-                      <TrendingUp size={16} className="text-green-600" />
+                      <TrendingUp size={14} className="text-green-600" />
                     ) : (
-                      <TrendingDown size={16} className="text-red-600" />
+                      <TrendingDown size={14} className="text-red-600" />
                     )}
                     <span
-                      className={`text-sm font-medium ${
+                      className={`text-xs md:text-sm font-medium ${
                         card.isPositive ? "text-green-600" : "text-red-600"
                       }`}
                     >
