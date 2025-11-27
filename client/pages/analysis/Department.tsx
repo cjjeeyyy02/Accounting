@@ -106,20 +106,20 @@ export default function DepartmentAnalysis() {
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3 mb-3">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-xs md:text-sm text-gray-600 mb-1">{card.label}</p>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
                   {card.value}
                 </h3>
                 {card.status === "Active" && (
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-600" />
-                    <span className="text-xs md:text-sm font-medium text-green-600">
+                  <div className="flex items-center gap-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-600" />
+                    <span className="text-[11px] md:text-xs font-medium text-green-600">
                       {card.status}
                     </span>
                   </div>
@@ -129,9 +129,9 @@ export default function DepartmentAnalysis() {
           </div>
 
           {/* Department Performance Table */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
-            <div className="flex justify-between items-center mb-3 md:mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Department Performance
               </h2>
               <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
