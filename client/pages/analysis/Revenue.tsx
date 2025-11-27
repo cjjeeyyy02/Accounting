@@ -79,14 +79,14 @@ export default function RevenueAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-[22px] font-semibold text-gray-900 mb-1">
                 Revenue Analysis
               </h1>
-              <p className="text-gray-600">
+              <p className="text-[12px] font-normal text-gray-600">
                 Revenue trends, customer insights, and growth patterns
               </p>
             </div>
@@ -97,25 +97,25 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-4"
               >
-                <p className="text-sm text-gray-600 mb-2">{card.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <p className="text-xs text-gray-600 mb-2">{card.label}</p>
+                <h3 className="text-[18px] font-bold text-gray-900 mb-2">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
                   <div className="flex items-center gap-2">
                     {card.isPositive ? (
-                      <TrendingUp size={16} className="text-green-600" />
+                      <TrendingUp size={14} className="text-green-600" />
                     ) : (
-                      <TrendingDown size={16} className="text-red-600" />
+                      <TrendingDown size={14} className="text-red-600" />
                     )}
                     <span
-                      className={`text-sm font-medium ${
+                      className={`text-xs font-medium ${
                         card.isPositive ? "text-green-600" : "text-red-600"
                       }`}
                     >
@@ -129,18 +129,18 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Source Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-[16px] font-semibold text-gray-900">
                 Revenue by Source
               </h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+              <button className="flex items-center gap-2 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={14} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={180}>
               <AreaChart data={revenueBySourceData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
@@ -190,23 +190,23 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Channel & Top Customers */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Revenue by Channel - Donut Chart */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
                 Revenue by Channel
               </h2>
 
               <div className="flex items-center justify-between">
-                <div className="w-48 h-48">
+                <div className="w-32 h-32">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
                         data={revenueByChannelData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={60}
-                        outerRadius={90}
+                        innerRadius={40}
+                        outerRadius={60}
                         paddingAngle={2}
                         dataKey="value"
                       >
@@ -218,19 +218,19 @@ export default function RevenueAnalysis() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="flex-1 pl-6 space-y-3">
+                <div className="flex-1 pl-4 space-y-2">
                   {revenueByChannelData.map((channel) => (
-                    <div key={channel.name} className="flex items-center gap-3">
+                    <div key={channel.name} className="flex items-center gap-2">
                       <div
-                        className="w-3 h-3 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: channel.color }}
                       />
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900">
+                        <p className="text-xs font-medium text-gray-900">
                           {channel.name}
                         </p>
                       </div>
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-xs font-semibold text-gray-900">
                         {channel.value}%
                       </p>
                     </div>
@@ -240,20 +240,20 @@ export default function RevenueAnalysis() {
             </div>
 
             {/* Top Customers */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <h2 className="text-[16px] font-semibold text-gray-900 mb-3">
                 Top Customers
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {topCustomers.map((customer, index) => (
-                  <div key={index} className="flex items-center justify-between pb-4 border-b border-gray-200 last:border-b-0">
+                  <div key={index} className="flex items-center justify-between pb-3 border-b border-gray-200 last:border-b-0">
                     <div>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-xs font-medium text-gray-900">
                         {customer.name}
                       </p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="flex items-center gap-2 mt-1">
+                        <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-blue-600 rounded-full"
                             style={{ width: `${customer.percentage}%` }}
@@ -264,7 +264,7 @@ export default function RevenueAnalysis() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-xs font-semibold text-gray-900">
                       {customer.revenue}
                     </p>
                   </div>
