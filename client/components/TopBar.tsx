@@ -231,17 +231,17 @@ export function TopBar() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 hover:bg-gray-100 h-9 px-2"
+                className="flex items-center gap-2 hover:bg-[#F6F8FA] h-9 px-2"
               >
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="" alt="User" />
-                  <AvatarFallback className="bg-blue-600 text-white text-sm">
+                  <AvatarFallback className="bg-[#2E5AAC] text-white text-sm font-semibold">
                     JD
                   </AvatarFallback>
                 </Avatar>
                 <div className="hidden lg:block text-left">
-                  <p className="text-sm font-medium text-gray-900">John Doe</p>
-                  <p className="text-xs text-gray-500">Admin</p>
+                  <p className="text-sm font-medium text-[#2E5AAC]">John Doe</p>
+                  <p className="text-xs text-[#7A7A7A]">Admin</p>
                 </div>
               </Button>
             </DropdownMenuTrigger>
