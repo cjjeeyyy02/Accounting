@@ -20,7 +20,7 @@ interface Tab {
 
 const tabs: Tab[] = [
   { id: "overview", label: "Overview", Component: OverviewPage },
-  { id: "financial", label: "Financial Analysis", Component: FinancialPage },
+  { id: "financial", label: "Financial Analysis", Component: FinancialAnalysisContent },
   { id: "revenue", label: "Revenue Analysis", Component: RevenuePage },
   { id: "expense", label: "Expense Analysis", Component: ExpensePage },
   { id: "cash-flow", label: "Cash Flow Analysis", Component: CashFlowPage },
