@@ -28,29 +28,29 @@ interface NavItem {
   submenu?: SubMenuItem[];
 }
 
-const analyticsSubmenu: SubMenuItem[] = [
-  { label: "Overview", href: "/analytics/overview" },
-  { label: "Financial Analysis", href: "/analytics/financial" },
-  { label: "Revenue Analysis", href: "/analytics/revenue" },
-  { label: "Expense Analysis", href: "/analytics/expense" },
-  { label: "Cash Flow Analysis", href: "/analytics/cash-flow" },
-  { label: "Customer Analysis", href: "/analytics/customer" },
-  { label: "Variance Analysis", href: "/analytics/variance" },
-  { label: "Break-even Analysis", href: "/analytics/break-even" },
-  { label: "Ratio Analysis", href: "/analytics/ratio" },
-  { label: "Trend Analysis", href: "/analytics/trend" },
-  { label: "Department Analysis", href: "/analytics/department" },
+const analysisSubmenu: SubMenuItem[] = [
+  { label: "Overview", href: "/analysis/overview" },
+  { label: "Financial Analysis", href: "/analysis/financial" },
+  { label: "Revenue Analysis", href: "/analysis/revenue" },
+  { label: "Expense Analysis", href: "/analysis/expense" },
+  { label: "Cash Flow Analysis", href: "/analysis/cash-flow" },
+  { label: "Customer Analysis", href: "/analysis/customer" },
+  { label: "Variance Analysis", href: "/analysis/variance" },
+  { label: "Break-even Analysis", href: "/analysis/break-even" },
+  { label: "Ratio Analysis", href: "/analysis/ratio" },
+  { label: "Trend Analysis", href: "/analysis/trend" },
+  { label: "Department Analysis", href: "/analysis/department" },
 ];
 
 const navItems: NavItem[] = [
   { label: "Dashboard", icon: <LayoutDashboard size={20} />, href: "/" },
   { label: "Reports", icon: <BarChart3 size={20} />, href: "/reports" },
   {
-    label: "Analytics",
+    label: "Analysis",
     icon: <TrendingUp size={20} />,
-    href: "/analytics",
+    href: "/analysis",
     badge: "New",
-    submenu: analyticsSubmenu,
+    submenu: analysisSubmenu,
   },
   {
     label: "Charts",
