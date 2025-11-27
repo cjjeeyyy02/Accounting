@@ -102,35 +102,35 @@ export default function AnalyticsOverview() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
-          <div className="mb-3">
-            <h1 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
+          <div className="mb-8">
+            <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
               Financial Analysis Center
             </h1>
-            <p className="text-[11px] md:text-[12px] font-normal text-gray-600">
+            <p className="text-[14px] font-normal text-[#7A7A7A]">
               Comprehensive analysis tools to understand your financial performance
             </p>
           </div>
 
           {/* Analysis Cards Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3 mb-3 md:mb-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-8">
             {analysisCards.map((card) => (
               <Link
                 key={card.href}
                 to={card.href}
-                className="bg-white rounded-lg border border-gray-200 p-3 hover:shadow-lg transition-shadow hover:border-gray-300 cursor-pointer group no-underline"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-4 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
               >
-                <div className={`${getIconColor(card.color)} mb-2 group-hover:scale-110 transition-transform`} style={{fontSize: '18px'}}>
+                <div className={`${getIconColor(card.color)} mb-3 group-hover:scale-110 transition-transform`} style={{fontSize: '20px'}}>
                   {card.icon}
                 </div>
-                <h3 className="text-[10px] md:text-xs font-semibold text-gray-900 mb-1 line-clamp-2">
+                <h3 className="text-[13px] font-semibold text-[#2E5AAC] mb-2 line-clamp-2">
                   {card.title}
                 </h3>
-                <p className="text-[9px] md:text-[10px] text-gray-600 mb-2 line-clamp-2">
+                <p className="text-[12px] text-[#7A7A7A] mb-3 line-clamp-2">
                   {card.description}
                 </p>
-                <span className="text-[9px] md:text-[10px] font-medium text-blue-600 group-hover:text-blue-700 flex items-center gap-0.5">
+                <span className="text-[12px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-1">
                   View Details
                   <span>→</span>
                 </span>
@@ -139,30 +139,30 @@ export default function AnalyticsOverview() {
           </div>
 
           {/* Key Insights Section */}
-          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
-            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-[#2E5AAC] mb-6">
               Key Insights
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Financial Rating */}
-              <div className="border-l-4 border-blue-600 pl-3">
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">Financial Rating</p>
-                <p className="text-lg md:text-xl font-bold text-gray-900 mb-1">A+ Rating</p>
-                <p className="text-[10px] md:text-xs text-gray-600">Strong financial position</p>
+              <div className="border-l-4 border-[#2E5AAC] pl-4">
+                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Financial Rating</p>
+                <p className="text-xl font-semibold text-[#2E5AAC] mb-1">A+ Rating</p>
+                <p className="text-[13px] text-[#7A7A7A]">Strong financial position</p>
               </div>
 
               {/* Revenue Growth */}
-              <div className="border-l-4 border-green-600 pl-3">
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">Revenue Growth</p>
-                <p className="text-lg md:text-xl font-bold text-gray-900 mb-1">+32.15% YoY</p>
-                <p className="text-[10px] md:text-xs text-gray-600">Consistent growth trajectory</p>
+              <div className="border-l-4 border-[#10B981] pl-4">
+                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Revenue Growth</p>
+                <p className="text-xl font-semibold text-[#10B981] mb-1">+32.15% YoY</p>
+                <p className="text-[13px] text-[#7A7A7A]">Consistent growth trajectory</p>
               </div>
 
               {/* Operational Efficiency */}
-              <div className="border-l-4 border-purple-600 pl-3">
-                <p className="text-[11px] md:text-xs text-gray-600 mb-1">Operational Efficiency</p>
-                <p className="text-lg md:text-xl font-bold text-gray-900 mb-1">28.4%</p>
-                <p className="text-[10px] md:text-xs text-gray-600">Efficiency improvement</p>
+              <div className="border-l-4 border-[#8B5CF6] pl-4">
+                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Operational Efficiency</p>
+                <p className="text-xl font-semibold text-[#8B5CF6] mb-1">28.4%</p>
+                <p className="text-[13px] text-[#7A7A7A]">Efficiency improvement</p>
               </div>
             </div>
           </div>
