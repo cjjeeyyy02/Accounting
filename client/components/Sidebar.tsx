@@ -121,14 +121,14 @@ export function Sidebar() {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-0 h-screen w-64 bg-[#F0F4FF] border-r border-[#E5E7EB] transition-all duration-300 ease-in-out z-40",
+          "fixed left-0 top-0 h-screen w-64 bg-[#1E3F7A] border-r border-[#1A2D4D] transition-all duration-300 ease-in-out z-40",
           "flex flex-col font-sans",
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
           "shadow-sm"
         )}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-[#E5E7EB] bg-[#F0F4FF]">
+        <div className="p-6 border-b border-[#1A2D4D] bg-[#1E3F7A]">
           <Link
             to="/"
             className="flex items-center gap-2 font-bold text-2xl text-[#2E5AAC] hover:opacity-80 transition-opacity"
