@@ -22,7 +22,7 @@ interface SubMenuItem {
 
 interface NavItem {
   label: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   href?: string;
   badge?: string;
   submenu?: SubMenuItem[];
