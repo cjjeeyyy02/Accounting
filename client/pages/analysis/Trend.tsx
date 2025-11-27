@@ -134,20 +134,20 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Trend Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 mb-3">
             {trendMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-xs md:text-sm font-semibold text-gray-900 mb-2 md:mb-3">
+                <p className="text-[11px] md:text-xs font-semibold text-gray-900 mb-2">
                   {metric.label}
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {metric.trends.map((trend) => (
                     <div key={trend.period} className="flex justify-between items-center">
-                      <p className="text-xs text-gray-600">{trend.period}</p>
-                      <p className="text-xs md:text-sm font-semibold text-gray-900">
+                      <p className="text-[10px] text-gray-600">{trend.period}</p>
+                      <p className="text-[11px] md:text-xs font-semibold text-gray-900">
                         {trend.value}
                       </p>
                     </div>
@@ -158,13 +158,13 @@ export default function TrendAnalysis() {
           </div>
 
           {/* Year-over-Year Revenue Comparison */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
-            <div className="flex justify-between items-center mb-3 md:mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Year-over-Year Revenue Comparison
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={14} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={13} />
                 Filter
               </button>
             </div>
