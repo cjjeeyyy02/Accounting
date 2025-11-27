@@ -52,17 +52,6 @@ const navItems: NavItem[] = [
     badge: "New",
     submenu: analysisSubmenu,
   },
-  {
-    label: "Charts",
-    icon: <PieChart size={20} />,
-    href: "/charts",
-  },
-  {
-    label: "Trends",
-    icon: <LineChart size={20} />,
-    href: "/trends",
-  },
-  { label: "Customers", icon: <Users size={20} />, href: "/customers" },
 ];
 
 export function Sidebar() {
