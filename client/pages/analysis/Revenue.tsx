@@ -75,11 +75,10 @@ const topCustomers: Customer[] = [
   { name: "Innovation Labs", revenue: "$18,900", percentage: 6 },
 ];
 
-export default function RevenueAnalysis() {
+function RevenueAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-6 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-6 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
             <div>
@@ -274,6 +273,16 @@ export default function RevenueAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function RevenueAnalysis() {
+  return (
+    <Layout>
+      <RevenueAnalysisContent />
     </Layout>
   );
 }
+
+export default RevenueAnalysis;
+export { RevenueAnalysisContent };
