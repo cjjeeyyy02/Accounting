@@ -85,17 +85,17 @@ const analysisCards: AnalysisCard[] = [
 
 const getIconColor = (color: string) => {
   const colors: { [key: string]: string } = {
-    blue: "text-blue-600",
-    green: "text-green-600",
-    orange: "text-orange-600",
-    purple: "text-purple-600",
-    red: "text-red-600",
-    pink: "text-pink-600",
-    teal: "text-teal-600",
-    indigo: "text-indigo-600",
-    cyan: "text-cyan-600",
+    blue: "text-[#2E5AAC]",
+    green: "text-[#10B981]",
+    orange: "text-[#F59E0B]",
+    purple: "text-[#8B5CF6]",
+    red: "text-[#EF4444]",
+    pink: "text-[#EC4899]",
+    teal: "text-[#00A8E8]",
+    indigo: "text-[#4F46E5]",
+    cyan: "text-[#06B6D4]",
   };
-  return colors[color] || "text-blue-600";
+  return colors[color] || "text-[#2E5AAC]";
 };
 
 export default function AnalyticsOverview() {
