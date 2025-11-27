@@ -212,14 +212,14 @@ export default function BreakEvenAnalysis() {
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 mb-3 md:mb-4">
             {keyMetrics.map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-sm text-gray-600 mb-3">{metric.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900">
+                <p className="text-[11px] md:text-xs text-gray-600 mb-2">{metric.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900">
                   {metric.value}
                 </h3>
               </div>
@@ -227,29 +227,29 @@ export default function BreakEvenAnalysis() {
           </div>
 
           {/* Scenario Analysis */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+            <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-3">
               Scenario Analysis
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
               {scenarios.map((scenario) => (
-                <div key={scenario.name} className="border border-gray-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <div key={scenario.name} className="border border-gray-200 rounded-lg p-3">
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-2">
                     {scenario.name}
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-2">
                     {scenario.values.map((item, index) => (
                       <div key={index}>
-                        <p className="text-sm text-gray-600 mb-2">
+                        <p className="text-[11px] md:text-xs text-gray-600 mb-1">
                           {item.label}
                         </p>
                         <div className="flex items-center justify-between">
-                          <p className="text-lg font-bold text-gray-900">
+                          <p className="text-xs md:text-sm font-bold text-gray-900">
                             {item.value}
                           </p>
                           <span
-                            className={`text-xs font-medium px-2 py-1 rounded ${getStatusColor(
+                            className={`text-[10px] md:text-[11px] font-medium px-2 py-0.5 rounded ${getStatusColor(
                               item.status
                             )}`}
                           >
