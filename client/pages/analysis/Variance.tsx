@@ -280,17 +280,17 @@ export default function VarianceAnalysis() {
           </div>
 
           {/* Department Performance */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Department Performance
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-3 md:space-y-4">
               {departmentPerformance.map((dept) => (
-                <div key={dept.name} className="pb-6 border-b border-gray-200 last:border-b-0">
-                  <div className="flex items-start justify-between mb-4">
+                <div key={dept.name} className="pb-3 md:pb-4 border-b border-gray-200 last:border-b-0">
+                  <div className="flex items-start justify-between mb-2 md:mb-3">
                     <div>
-                      <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                      <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1">
                         {dept.name}
                       </h3>
                       <p className="text-xs text-gray-600">
@@ -298,7 +298,7 @@ export default function VarianceAnalysis() {
                       </p>
                     </div>
                     <span
-                      className={`text-sm font-semibold px-3 py-1 rounded ${
+                      className={`text-xs md:text-sm font-semibold px-2 md:px-3 py-1 rounded ${
                         dept.status === "favorable"
                           ? "bg-green-100 text-green-700"
                           : "bg-red-100 text-red-700"
@@ -309,9 +309,9 @@ export default function VarianceAnalysis() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3">
                     <div className="flex-1">
-                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full ${
                             dept.status === "favorable"
