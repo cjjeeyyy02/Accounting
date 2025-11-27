@@ -23,13 +23,13 @@ const tabs: Tab[] = [
   { id: "financial", label: "Financial Analysis", Component: FinancialAnalysisContent },
   { id: "revenue", label: "Revenue Analysis", Component: RevenueAnalysisContent },
   { id: "expense", label: "Expense Analysis", Component: ExpenseAnalysisContent },
-  { id: "cash-flow", label: "Cash Flow Analysis", Component: CashFlowPage },
-  { id: "customer", label: "Customer Analysis", Component: CustomerPage },
-  { id: "variance", label: "Variance Analysis", Component: VariancePage },
-  { id: "break-even", label: "Break-even Analysis", Component: BreakEvenPage },
-  { id: "ratio", label: "Ratio Analysis", Component: RatioPage },
-  { id: "trend", label: "Trend Analysis", Component: TrendPage },
-  { id: "department", label: "Department Analysis", Component: DepartmentPage },
+  { id: "cash-flow", label: "Cash Flow Analysis", Component: CashFlowAnalysisContent },
+  { id: "customer", label: "Customer Analysis", Component: CustomerAnalysisContent },
+  { id: "variance", label: "Variance Analysis", Component: VarianceAnalysisContent },
+  { id: "break-even", label: "Break-even Analysis", Component: BreakEvenAnalysisContent },
+  { id: "ratio", label: "Ratio Analysis", Component: RatioAnalysisContent },
+  { id: "trend", label: "Trend Analysis", Component: TrendAnalysisContent },
+  { id: "department", label: "Department Analysis", Component: DepartmentAnalysisContent },
 ];
 
 export default function Analysis() {
