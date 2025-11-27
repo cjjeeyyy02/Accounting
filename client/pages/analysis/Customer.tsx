@@ -270,12 +270,12 @@ export default function CustomerAnalysis() {
                               style={{ width: "100%" }}
                             />
                           </div>
-                          <span className="text-xs">{row.jan || "-"}</span>
+                          <span className="text-[10px]">{row.jan || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -283,12 +283,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span className="text-xs">{row.feb || "-"}</span>
+                          <span className="text-[10px]">{row.feb || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -296,12 +296,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span className="text-xs">{row.mar || "-"}</span>
+                          <span className="text-[10px]">{row.mar || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -309,12 +309,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span className="text-xs">{row.apr || "-"}</span>
+                          <span className="text-[10px]">{row.apr || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -322,12 +322,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span className="text-xs">{row.may || "-"}</span>
+                          <span className="text-[10px]">{row.may || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                      <td className="text-[10px] md:text-xs text-gray-700 px-2 md:px-3 py-1 md:py-2">
                         <div className="flex items-center gap-1">
-                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="w-6 md:w-12 h-0.5 md:h-1 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -335,7 +335,7 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span className="text-xs">{row.jun || "-"}</span>
+                          <span className="text-[10px]">{row.jun || "-"}</span>
                         </div>
                       </td>
                     </tr>
