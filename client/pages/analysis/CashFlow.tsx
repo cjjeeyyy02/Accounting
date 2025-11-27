@@ -235,14 +235,14 @@ export default function CashFlowAnalysis() {
           </div>
 
           {/* Quarterly Activity */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Q1 Quarterly Activity */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-5">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
                 Q1 Quarterly Activity
               </h2>
 
-              <div className="space-y-2 md:space-y-3">
+              <div className="space-y-2">
                 {q1QuarterlyActivity.map((item, index) => {
                   const maxValue = Math.max(...q1QuarterlyActivity.map(i => i.value));
                   const percentage = (item.value / maxValue) * 100;
@@ -250,14 +250,14 @@ export default function CashFlowAnalysis() {
                   return (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-1">
-                        <p className="text-xs md:text-sm font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
                           {item.activity}
                         </p>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700">
+                        <span className="text-[11px] md:text-xs font-semibold text-gray-700">
                           ${(item.value / 1000).toFixed(0)}k
                         </span>
                       </div>
-                      <div className="h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-1 md:h-1.5 bg-gray-200 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-blue-600 rounded-full"
                           style={{ width: `${percentage}%` }}
@@ -270,12 +270,12 @@ export default function CashFlowAnalysis() {
             </div>
 
             {/* Q2 Quarterly Activity */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-5">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">
                 Q2 Quarterly Activity
               </h2>
 
-              <div className="space-y-2 md:space-y-3">
+              <div className="space-y-2">
                 {q2QuarterlyActivity.map((item, index) => {
                   const maxValue = Math.max(...q2QuarterlyActivity.map(i => i.value));
                   const percentage = (item.value / maxValue) * 100;
@@ -283,14 +283,14 @@ export default function CashFlowAnalysis() {
                   return (
                     <div key={index}>
                       <div className="flex justify-between items-center mb-1">
-                        <p className="text-xs md:text-sm font-medium text-gray-900">
+                        <p className="text-[11px] md:text-xs font-medium text-gray-900">
                           {item.activity}
                         </p>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700">
+                        <span className="text-[11px] md:text-xs font-semibold text-gray-700">
                           ${(item.value / 1000).toFixed(0)}k
                         </span>
                       </div>
-                      <div className="h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-1 md:h-1.5 bg-gray-200 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-red-600 rounded-full"
                           style={{ width: `${percentage}%` }}
