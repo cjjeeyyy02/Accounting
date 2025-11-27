@@ -111,10 +111,10 @@ export function Sidebar() {
             to="/"
             className="flex items-center gap-2 font-bold text-2xl text-sidebar-primary hover:opacity-80 transition-opacity"
           >
-            <div className="w-8 h-8 rounded-lg bg-sidebar-primary flex items-center justify-center text-sidebar-primary-foreground font-bold">
-              F
+            <div className="w-8 h-8 rounded-lg bg-sidebar-primary flex items-center justify-center text-sidebar-primary-foreground font-bold text-xs">
+              FC
             </div>
-            <span>FuGare</span>
+            <span>Fincore</span>
           </Link>
         </div>
 
