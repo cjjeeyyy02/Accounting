@@ -27,7 +27,9 @@ import {
   Settings,
   LogOut,
   HelpCircle,
+  Menu,
 } from "lucide-react";
+import { useSidebar } from "./SidebarContext";
 
 interface BreadcrumbSegment {
   label: string;
