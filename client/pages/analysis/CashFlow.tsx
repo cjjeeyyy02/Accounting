@@ -115,11 +115,10 @@ const q2QuarterlyActivity: QuarterlyActivity[] = [
   { activity: "Dividends Paid", value: 9500 },
 ];
 
-export default function CashFlowAnalysis() {
+function CashFlowAnalysisContent() {
   return (
-    <Layout>
-      <div className="flex-1 overflow-auto">
-        <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
+    <div className="flex-1 overflow-auto">
+      <div className="p-3 md:p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
@@ -304,6 +303,16 @@ export default function CashFlowAnalysis() {
           </div>
         </div>
       </div>
+  );
+}
+
+function CashFlowAnalysis() {
+  return (
+    <Layout>
+      <CashFlowAnalysisContent />
     </Layout>
   );
 }
+
+export default CashFlowAnalysis;
+export { CashFlowAnalysisContent };
