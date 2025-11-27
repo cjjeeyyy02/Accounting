@@ -176,13 +176,13 @@ export default function CashFlowAnalysis() {
               <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Cash Flow Trends
               </h2>
-              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={14} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={13} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={150} minHeight={150}>
+            <ResponsiveContainer width="100%" height={120} minHeight={120}>
               <BarChart data={cashFlowTrendsData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
