@@ -101,21 +101,21 @@ export default function RevenueAnalysis() {
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-4"
+                className="bg-white rounded-lg border border-gray-200 p-3"
               >
-                <p className="text-xs text-gray-600 mb-2">{card.label}</p>
-                <h3 className="text-[18px] font-bold text-gray-900 mb-2">
+                <p className="text-[11px] md:text-xs text-gray-600 mb-1">{card.label}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {card.isPositive ? (
-                      <TrendingUp size={14} className="text-green-600" />
+                      <TrendingUp size={13} className="text-green-600" />
                     ) : (
-                      <TrendingDown size={14} className="text-red-600" />
+                      <TrendingDown size={13} className="text-red-600" />
                     )}
                     <span
-                      className={`text-xs font-medium ${
+                      className={`text-[10px] md:text-xs font-medium ${
                         card.isPositive ? "text-green-600" : "text-red-600"
                       }`}
                     >
@@ -129,18 +129,18 @@ export default function RevenueAnalysis() {
           </div>
 
           {/* Revenue by Source Chart */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-[16px] font-semibold text-gray-900">
+          <div className="bg-white rounded-lg border border-gray-200 p-3 md:p-4 mb-3">
+            <div className="flex justify-between items-center mb-2 md:mb-3">
+              <h2 className="text-sm md:text-base font-semibold text-gray-900">
                 Revenue by Source
               </h2>
-              <button className="flex items-center gap-2 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={14} />
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 text-[11px] md:text-xs text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={13} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={180}>
+            <ResponsiveContainer width="100%" height={120} minHeight={120}>
               <AreaChart data={revenueBySourceData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#6b7280" />
