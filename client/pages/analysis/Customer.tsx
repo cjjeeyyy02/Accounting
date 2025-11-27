@@ -113,43 +113,43 @@ export default function CustomerAnalysis() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+        <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4 md:mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                 Customer Analysis
               </h1>
-              <p className="text-gray-600">
+              <p className="text-xs md:text-sm text-gray-600">
                 Customer segments, value, and lifetime analysis
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2">
-              <Download size={16} />
+            <Button className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2 text-xs md:text-sm h-8 md:h-10">
+              <Download size={14} />
               Export Report
             </Button>
           </div>
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
             {metricCards.map((card) => (
               <div
                 key={card.label}
-                className="bg-white rounded-lg border border-gray-200 p-6"
+                className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
               >
-                <p className="text-sm text-gray-600 mb-2">{card.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <p className="text-xs md:text-sm text-gray-600 mb-1">{card.label}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                   {card.value}
                 </h3>
                 {card.change !== undefined && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {card.isPositive ? (
-                      <TrendingUp size={16} className="text-green-600" />
+                      <TrendingUp size={14} className="text-green-600" />
                     ) : (
-                      <TrendingDown size={16} className="text-red-600" />
+                      <TrendingDown size={14} className="text-red-600" />
                     )}
                     <span
-                      className={`text-sm font-medium ${
+                      className={`text-xs md:text-sm font-medium ${
                         card.isPositive ? "text-green-600" : "text-red-600"
                       }`}
                     >
@@ -163,28 +163,28 @@ export default function CustomerAnalysis() {
           </div>
 
           {/* Customer Segments */}
-          <div className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="mb-4 md:mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Customer Segments
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               {customerSegments.map((segment) => (
                 <div
                   key={segment.name}
-                  className="bg-white rounded-lg border border-gray-200 p-6"
+                  className="bg-white rounded-lg border border-gray-200 p-3 md:p-4"
                 >
-                  <div className="text-3xl mb-3">{segment.icon}</div>
-                  <p className="text-sm text-gray-600 mb-1">{segment.name}</p>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <div className="text-2xl md:text-3xl mb-2 md:mb-3">{segment.icon}</div>
+                  <p className="text-xs md:text-sm text-gray-600 mb-1">{segment.name}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
                     {segment.count}
                   </h3>
-                  <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-blue-600 rounded-full"
                       style={{ width: `${segment.percentage}%` }}
                     />
                   </div>
-                  <p className="text-xs text-gray-600 mt-2">
+                  <p className="text-xs text-gray-600 mt-1 md:mt-2">
                     {segment.percentage}% of total
                   </p>
                 </div>
@@ -193,16 +193,16 @@ export default function CustomerAnalysis() {
           </div>
 
           {/* Top Customers */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Top Customers</h2>
-              <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                <Filter size={16} />
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6 mb-4 md:mb-6">
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900">Top Customers</h2>
+              <button className="flex items-center gap-2 px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                <Filter size={14} />
                 Filter
               </button>
             </div>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={150} minHeight={150}>
               <BarChart data={topCustomersData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} stroke="#6b7280" />
@@ -221,8 +221,8 @@ export default function CustomerAnalysis() {
           </div>
 
           {/* Cohort Analysis */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
               Cohort Analysis
             </h2>
 
@@ -230,25 +230,25 @@ export default function CustomerAnalysis() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Cohort
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Jan
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Feb
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Mar
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Apr
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       May
                     </th>
-                    <th className="text-left text-sm font-semibold text-gray-900 px-4 py-3">
+                    <th className="text-left text-xs md:text-sm font-semibold text-gray-900 px-2 md:px-4 py-2 md:py-3">
                       Jun
                     </th>
                   </tr>
@@ -259,23 +259,23 @@ export default function CustomerAnalysis() {
                       key={index}
                       className="border-b border-gray-200 hover:bg-gray-50"
                     >
-                      <td className="text-sm font-medium text-gray-900 px-4 py-3">
+                      <td className="text-xs md:text-sm font-medium text-gray-900 px-2 md:px-4 py-2 md:py-3">
                         {row.cohort}
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{ width: "100%" }}
                             />
                           </div>
-                          <span>{row.jan || "-"}</span>
+                          <span className="text-xs">{row.jan || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -283,12 +283,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span>{row.feb || "-"}</span>
+                          <span className="text-xs">{row.feb || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -296,12 +296,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span>{row.mar || "-"}</span>
+                          <span className="text-xs">{row.mar || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -309,12 +309,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span>{row.apr || "-"}</span>
+                          <span className="text-xs">{row.apr || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -322,12 +322,12 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span>{row.may || "-"}</span>
+                          <span className="text-xs">{row.may || "-"}</span>
                         </div>
                       </td>
-                      <td className="text-sm text-gray-700 px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <td className="text-xs md:text-sm text-gray-700 px-2 md:px-4 py-2 md:py-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-8 md:w-16 h-1 md:h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -335,7 +335,7 @@ export default function CustomerAnalysis() {
                               }}
                             />
                           </div>
-                          <span>{row.jun || "-"}</span>
+                          <span className="text-xs">{row.jun || "-"}</span>
                         </div>
                       </td>
                     </tr>
