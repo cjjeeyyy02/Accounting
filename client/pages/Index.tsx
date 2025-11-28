@@ -136,11 +136,11 @@ export default function Index() {
           </div>
 
           {/* MIDDLE SECTION - TWO COLUMNS */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
             {/* LEFT COLUMN - FINANCIAL HIGHLIGHTS */}
-            <div className="lg:col-span-1 bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-6">
-              <h2 className="text-lg font-semibold text-[#2E5AAC] mb-6">Financial Highlights & Key Updates</h2>
-              <div className="space-y-4">
+            <div className="lg:col-span-1 bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-4">
+              <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">Financial Highlights & Key Updates</h2>
+              <div className="space-y-2">
                 <HighlightItem
                   number={1}
                   text="Achieved a 15% increase in revenue year-over-year."
