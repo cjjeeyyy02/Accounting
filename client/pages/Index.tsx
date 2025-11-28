@@ -78,19 +78,19 @@ interface AccountCardProps {
 }
 
 const AccountCard: React.FC<AccountCardProps> = ({ label, value, growth, isPositive, icon }) => (
-  <div className="bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-4 flex flex-col items-center justify-center hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="text-[#2E5AAC] mb-3">
-      {icon}
+  <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex flex-col items-center justify-center hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
+    <div className="text-[#2E5AAC] mb-2" style={{ width: '20px', height: '20px' }}>
+      {React.cloneElement(icon as React.ReactElement, { size: 20 })}
     </div>
-    <p className="text-[11px] font-medium text-[#7A7A7A] mb-2 text-center">{label}</p>
-    <h3 className="text-xl font-bold text-[#2E5AAC] mb-2">{value}</h3>
-    <div className="flex items-center gap-1">
+    <p className="text-[9px] font-medium text-[#7A7A7A] mb-1 text-center">{label}</p>
+    <h3 className="text-base font-bold text-[#2E5AAC] mb-1">{value}</h3>
+    <div className="flex items-center gap-0.5">
       {isPositive ? (
-        <TrendingUp size={12} className="text-[#10B981]" />
+        <TrendingUp size={10} className="text-[#10B981]" />
       ) : (
-        <TrendingDown size={12} className="text-[#EF4444]" />
+        <TrendingDown size={10} className="text-[#EF4444]" />
       )}
-      <span className={`text-xs font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
+      <span className={`text-[9px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
         {isPositive ? "+" : ""}{growth}%
       </span>
     </div>
