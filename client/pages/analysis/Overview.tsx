@@ -129,7 +129,7 @@ function AnalysisOverviewContent() {
                 <p className="text-[11px] text-[#7A7A7A] mb-2 line-clamp-2">
                   {card.description}
                 </p>
-                <span className="text-[10px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-0.5">
+                <span className="text-[10px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-0">
                   View Details
                   <span>→</span>
                 </span>
