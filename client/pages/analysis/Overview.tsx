@@ -101,13 +101,13 @@ const getIconColor = (color: string) => {
 function AnalysisOverviewContent() {
   return (
     <div className="flex-1 overflow-auto">
-      <div className="p-6 bg-[#F6F8FA] min-h-screen">
+      <div className="p-4 bg-[#F6F8FA] min-h-screen">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
+          <div className="mb-4">
+            <h1 className="text-lg font-semibold text-[#2E5AAC] mb-1">
               Financial Analysis Center
             </h1>
-            <p className="text-[14px] font-normal text-[#7A7A7A]">
+            <p className="text-[12px] font-normal text-[#7A7A7A]">
               Comprehensive analysis tools to understand your financial performance
             </p>
           </div>
