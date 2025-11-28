@@ -144,23 +144,23 @@ function AnalysisOverviewContent() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Financial Rating */}
-              <div className="border-l-4 border-[#2E5AAC] pl-4">
-                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Financial Rating</p>
-                <p className="text-xl font-semibold text-[#2E5AAC] mb-1">A+ Rating</p>
-                <p className="text-[13px] text-[#7A7A7A]">Strong financial position</p>
+              <div className="border-l-4 border-[#2E5AAC] pl-3">
+                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Financial Rating</p>
+                <p className="text-base font-semibold text-[#2E5AAC] mb-1">A+ Rating</p>
+                <p className="text-[11px] text-[#7A7A7A]">Strong financial position</p>
               </div>
 
               {/* Revenue Growth */}
-              <div className="border-l-4 border-[#10B981] pl-4">
-                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Revenue Growth</p>
-                <p className="text-xl font-semibold text-[#10B981] mb-1">+32.15% YoY</p>
-                <p className="text-[13px] text-[#7A7A7A]">Consistent growth trajectory</p>
+              <div className="border-l-4 border-[#10B981] pl-3">
+                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Revenue Growth</p>
+                <p className="text-base font-semibold text-[#10B981] mb-1">+32.15% YoY</p>
+                <p className="text-[11px] text-[#7A7A7A]">Consistent growth trajectory</p>
               </div>
 
               {/* Operational Efficiency */}
-              <div className="border-l-4 border-[#8B5CF6] pl-4">
-                <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Operational Efficiency</p>
-                <p className="text-xl font-semibold text-[#8B5CF6] mb-1">28.4%</p>
+              <div className="border-l-4 border-[#8B5CF6] pl-3">
+                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Operational Efficiency</p>
+                <p className="text-base font-semibold text-[#8B5CF6] mb-1">28.4%</p>
                 <p className="text-[13px] text-[#7A7A7A]">Efficiency improvement</p>
               </div>
             </div>
