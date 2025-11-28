@@ -185,51 +185,51 @@ export default function Reports() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="text-gray-700">Report Name</TableHead>
-                    <TableHead className="text-gray-700">Type</TableHead>
-                    <TableHead className="text-gray-700">Period</TableHead>
-                    <TableHead className="text-gray-700">Date</TableHead>
-                    <TableHead className="text-gray-700">Status</TableHead>
-                    <TableHead className="text-gray-700">Actions</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Report Name</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Type</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Period</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Date</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Status</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {reports.map((report) => (
-                    <TableRow key={report.id} className="hover:bg-gray-50">
-                      <TableCell className="text-gray-900 font-medium">
+                    <TableRow key={report.id} className="hover:bg-gray-50 border-t border-gray-200">
+                      <TableCell className="text-gray-900 font-medium text-xs py-2 px-3">
                         {report.name}
                       </TableCell>
-                      <TableCell>
-                        <Badge className={`${getTypeColor(report.type)}`}>
+                      <TableCell className="text-xs py-2 px-3">
+                        <Badge className={`${getTypeColor(report.type)} text-xs`}>
                           {report.type}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-gray-700">{report.period}</TableCell>
-                      <TableCell className="text-gray-700">{report.date}</TableCell>
-                      <TableCell>
-                        <Badge className={`${getStatusColor(report.status)}`}>
+                      <TableCell className="text-gray-700 text-xs py-2 px-3">{report.period}</TableCell>
+                      <TableCell className="text-gray-700 text-xs py-2 px-3">{report.date}</TableCell>
+                      <TableCell className="text-xs py-2 px-3">
+                        <Badge className={`${getStatusColor(report.status)} text-xs`}>
                           {report.status}
                         </Badge>
                       </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="View">
-                            <Eye size={18} className="text-gray-600" />
+                      <TableCell className="text-xs py-2 px-3">
+                        <div className="flex items-center gap-1">
+                          <button className="p-1 hover:bg-gray-100 rounded transition-colors" title="View">
+                            <Eye size={14} className="text-gray-600" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Download">
-                            <Download size={18} className="text-gray-600" />
+                          <button className="p-1 hover:bg-gray-100 rounded transition-colors" title="Download">
+                            <Download size={14} className="text-gray-600" />
                           </button>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                                <MoreVertical size={18} className="text-gray-600" />
+                              <button className="p-1 hover:bg-gray-100 rounded transition-colors">
+                                <MoreVertical size={14} className="text-gray-600" />
                               </button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Details</DropdownMenuItem>
-                              <DropdownMenuItem>Download</DropdownMenuItem>
-                              <DropdownMenuItem>Share</DropdownMenuItem>
-                              <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
+                              <DropdownMenuItem className="text-xs">View Details</DropdownMenuItem>
+                              <DropdownMenuItem className="text-xs">Download</DropdownMenuItem>
+                              <DropdownMenuItem className="text-xs">Share</DropdownMenuItem>
+                              <DropdownMenuItem className="text-red-600 text-xs">Delete</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </div>
@@ -242,14 +242,14 @@ export default function Reports() {
           </div>
 
           {/* Custom Report Section */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-2">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-4">
+            <h3 className="text-sm font-bold text-gray-900 mb-1">
               Need a Custom Report?
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-xs text-gray-600 mb-3">
               Generate a custom financial report tailored to your specific needs.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
               Generate Custom Report
             </Button>
           </div>
