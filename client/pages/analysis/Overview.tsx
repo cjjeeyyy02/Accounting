@@ -138,11 +138,11 @@ function AnalysisOverviewContent() {
           </div>
 
           {/* Key Insights Section */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[#2E5AAC] mb-6">
+          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 shadow-sm">
+            <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">
               Key Insights
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Financial Rating */}
               <div className="border-l-4 border-[#2E5AAC] pl-4">
                 <p className="text-[13px] font-medium text-[#7A7A7A] mb-2">Financial Rating</p>
