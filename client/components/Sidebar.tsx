@@ -38,7 +38,6 @@ const navItems: NavItem[] = [
     label: "Analysis",
     icon: <TrendingUp size={20} />,
     href: "/analysis",
-    badge: "New",
   },
   { label: "Accounts", icon: <User size={20} />, href: "/account" },
   { label: "Transactions", icon: <CreditCard size={20} />, href: "/transactions" },
