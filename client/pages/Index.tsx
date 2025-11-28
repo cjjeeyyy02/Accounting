@@ -163,10 +163,10 @@ export default function Index() {
 
             {/* RIGHT COLUMN - REVENUE ANALYSIS */}
             <div className="lg:col-span-2 space-y-4">
-              {/* Title with yellow highlight */}
+              {/* Title */}
               <div>
                 <h2 className="text-base font-bold">
-                  <span className="bg-yellow-300 px-1">Revenue</span> Analysis
+                  Revenue Analysis
                 </h2>
               </div>
 
