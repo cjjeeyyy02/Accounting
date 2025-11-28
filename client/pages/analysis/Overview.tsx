@@ -113,12 +113,12 @@ function AnalysisOverviewContent() {
           </div>
 
           {/* Analysis Cards Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-4">
             {analysisCards.map((card) => (
               <Link
                 key={card.href}
                 to={card.href}
-                className="bg-white rounded-lg border border-[#E5E7EB] p-4 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
+                className="bg-white rounded-lg border border-[#E5E7EB] p-3 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
               >
                 <div className={`${getIconColor(card.color)} mb-3 group-hover:scale-110 transition-transform`} style={{fontSize: '20px'}}>
                   {card.icon}
