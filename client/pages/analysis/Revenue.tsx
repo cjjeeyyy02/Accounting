@@ -82,7 +82,7 @@ function RevenueAnalysisContent() {
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h1 className="text-2xl md:text-[28px] font-semibold text-[#2E5AAC] mb-2">
+              <h1 className="text-lg font-semibold text-[#2E5AAC] mb-1">
                 Revenue Analysis
               </h1>
               <p className="text-[14px] font-normal text-[#7A7A7A]">
