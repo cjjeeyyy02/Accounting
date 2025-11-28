@@ -1,9 +1,7 @@
+import React from "react";
 import { Layout } from "@/components/Layout";
 import { TrendingUp, TrendingDown, DollarSign, Zap, Wallet, PiggyBank, BarChart3, Coins, Building2 } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-
-// Force cache bust
-const CACHE_VERSION = Date.now();
 
 // Chart data
 const revenueData = [
