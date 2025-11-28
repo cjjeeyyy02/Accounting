@@ -233,8 +233,8 @@ export default function Index() {
 
           {/* BOTTOM SECTION - ACCOUNT BALANCES */}
           <div>
-            <h2 className="text-lg font-semibold text-[#2E5AAC] mb-6">Account Balances</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">Account Balances</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <AccountCard
                 label="Checking"
                 value="$245k"
