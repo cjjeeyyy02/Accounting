@@ -136,7 +136,7 @@ function ExpenseAnalysisContent() {
           {/* Header */}
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h1 className="text-lg md:text-xl font-semibold text-[#2E5AAC] mb-1">
+              <h1 className="text-lg font-semibold text-[#2E5AAC] mb-1">
                 Expense Analysis
               </h1>
               <p className="text-[11px] md:text-[12px] font-normal text-[#7A7A7A]">
