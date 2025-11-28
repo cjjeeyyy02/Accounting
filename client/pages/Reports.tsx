@@ -212,27 +212,19 @@ export default function Reports() {
                         </Badge>
                       </TableCell>
                       <TableCell className="text-xs py-2 px-3">
-                        <div className="flex items-center gap-1">
-                          <button className="p-1 hover:bg-gray-100 rounded transition-colors" title="View">
-                            <Eye size={14} className="text-gray-600" />
-                          </button>
-                          <button className="p-1 hover:bg-gray-100 rounded transition-colors" title="Download">
-                            <Download size={14} className="text-gray-600" />
-                          </button>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <button className="p-1 hover:bg-gray-100 rounded transition-colors">
-                                <MoreVertical size={14} className="text-gray-600" />
-                              </button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem className="text-xs">View Details</DropdownMenuItem>
-                              <DropdownMenuItem className="text-xs">Download</DropdownMenuItem>
-                              <DropdownMenuItem className="text-xs">Share</DropdownMenuItem>
-                              <DropdownMenuItem className="text-red-600 text-xs">Delete</DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        </div>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <button className="p-1 hover:bg-gray-100 rounded transition-colors">
+                              <MoreVertical size={14} className="text-gray-600" />
+                            </button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem className="text-xs">View Details</DropdownMenuItem>
+                            <DropdownMenuItem className="text-xs">Download</DropdownMenuItem>
+                            <DropdownMenuItem className="text-xs">Share</DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600 text-xs">Delete</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       </TableCell>
                     </TableRow>
                   ))}
