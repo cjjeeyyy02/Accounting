@@ -77,8 +77,8 @@ interface AccountCardProps {
 
 const AccountCard: React.FC<AccountCardProps> = ({ label, value, growth, isPositive, icon }) => (
   <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex flex-col items-center justify-center hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="text-[#2E5AAC] mb-2" style={{ width: '20px', height: '20px' }}>
-      {React.cloneElement(icon as React.ReactElement, { size: 20 })}
+    <div className="text-[#2E5AAC] mb-2 scale-60">
+      {icon}
     </div>
     <p className="text-[9px] font-medium text-[#7A7A7A] mb-1 text-center">{label}</p>
     <h3 className="text-base font-bold text-[#2E5AAC] mb-1">{value}</h3>
