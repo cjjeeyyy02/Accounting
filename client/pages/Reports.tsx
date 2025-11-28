@@ -132,8 +132,12 @@ export default function Reports() {
           {/* Header */}
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h1 className="text-lg font-semibold text-gray-900 mb-1">Reports</h1>
-              <p className="text-[12px] font-normal text-gray-600">Access and generate financial reports</p>
+              <h1 className="text-lg font-semibold text-gray-900 mb-1">
+                Reports
+              </h1>
+              <p className="text-[12px] font-normal text-gray-600">
+                Access and generate financial reports
+              </p>
             </div>
             <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
               + Export All
@@ -158,7 +162,9 @@ export default function Reports() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     {category.title}
                   </h3>
-                  <p className="text-xs text-gray-600">{category.description}</p>
+                  <p className="text-xs text-gray-600">
+                    {category.description}
+                  </p>
                 </div>
               );
             })}
@@ -167,7 +173,9 @@ export default function Reports() {
           {/* Recent Reports Section */}
           <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
-              <h2 className="text-sm font-bold text-gray-900">Recent Reports</h2>
+              <h2 className="text-sm font-bold text-gray-900">
+                Recent Reports
+              </h2>
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -185,29 +193,52 @@ export default function Reports() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Report Name</TableHead>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Type</TableHead>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Period</TableHead>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Date</TableHead>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Status</TableHead>
-                    <TableHead className="text-gray-700 text-xs py-2 px-3">Actions</TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Report Name
+                    </TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Type
+                    </TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Period
+                    </TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Date
+                    </TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Status
+                    </TableHead>
+                    <TableHead className="text-gray-700 text-xs py-2 px-3">
+                      Actions
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {reports.map((report) => (
-                    <TableRow key={report.id} className="hover:bg-gray-50 border-t border-gray-200">
+                    <TableRow
+                      key={report.id}
+                      className="hover:bg-gray-50 border-t border-gray-200"
+                    >
                       <TableCell className="text-gray-900 font-medium text-xs py-2 px-3">
                         {report.name}
                       </TableCell>
                       <TableCell className="text-xs py-2 px-3">
-                        <Badge className={`${getTypeColor(report.type)} text-xs`}>
+                        <Badge
+                          className={`${getTypeColor(report.type)} text-xs`}
+                        >
                           {report.type}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-gray-700 text-xs py-2 px-3">{report.period}</TableCell>
-                      <TableCell className="text-gray-700 text-xs py-2 px-3">{report.date}</TableCell>
+                      <TableCell className="text-gray-700 text-xs py-2 px-3">
+                        {report.period}
+                      </TableCell>
+                      <TableCell className="text-gray-700 text-xs py-2 px-3">
+                        {report.date}
+                      </TableCell>
                       <TableCell className="text-xs py-2 px-3">
-                        <Badge className={`${getStatusColor(report.status)} text-xs`}>
+                        <Badge
+                          className={`${getStatusColor(report.status)} text-xs`}
+                        >
                           {report.status}
                         </Badge>
                       </TableCell>
@@ -215,14 +246,25 @@ export default function Reports() {
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <button className="p-1 hover:bg-gray-100 rounded transition-colors">
-                              <MoreVertical size={14} className="text-gray-600" />
+                              <MoreVertical
+                                size={14}
+                                className="text-gray-600"
+                              />
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuItem className="text-xs">View Details</DropdownMenuItem>
-                            <DropdownMenuItem className="text-xs">Download</DropdownMenuItem>
-                            <DropdownMenuItem className="text-xs">Share</DropdownMenuItem>
-                            <DropdownMenuItem className="text-red-600 text-xs">Delete</DropdownMenuItem>
+                            <DropdownMenuItem className="text-xs">
+                              View Details
+                            </DropdownMenuItem>
+                            <DropdownMenuItem className="text-xs">
+                              Download
+                            </DropdownMenuItem>
+                            <DropdownMenuItem className="text-xs">
+                              Share
+                            </DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600 text-xs">
+                              Delete
+                            </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>
@@ -239,7 +281,8 @@ export default function Reports() {
               Need a Custom Report?
             </h3>
             <p className="text-xs text-gray-600 mb-3">
-              Generate a custom financial report tailored to your specific needs.
+              Generate a custom financial report tailored to your specific
+              needs.
             </p>
             <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
               Generate Custom Report

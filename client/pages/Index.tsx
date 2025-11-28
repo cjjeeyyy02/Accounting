@@ -1,6 +1,24 @@
 import { Layout } from "@/components/Layout";
-import { TrendingUp, TrendingDown, DollarSign, Zap, Wallet, PiggyBank, BarChart3, Coins, Building2 } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  TrendingUp,
+  TrendingDown,
+  DollarSign,
+  Zap,
+  Wallet,
+  PiggyBank,
+  BarChart3,
+  Coins,
+  Building2,
+} from "lucide-react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 // Chart data
 const revenueData = [
@@ -29,11 +47,15 @@ interface MetricCardProps {
   icon: React.ReactNode;
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ label, value, growth, isPositive, icon }) => (
+const MetricCard: React.FC<MetricCardProps> = ({
+  label,
+  value,
+  growth,
+  isPositive,
+  icon,
+}) => (
   <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex items-center gap-3 hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="flex-shrink-0 text-[#2E5AAC] scale-75">
-      {icon}
-    </div>
+    <div className="flex-shrink-0 text-[#2E5AAC] scale-75">{icon}</div>
     <div className="flex-1">
       <p className="text-[10px] font-medium text-[#7A7A7A] mb-0.5">{label}</p>
       <h3 className="text-lg font-bold text-[#2E5AAC] mb-1">{value}</h3>
@@ -43,8 +65,11 @@ const MetricCard: React.FC<MetricCardProps> = ({ label, value, growth, isPositiv
         ) : (
           <TrendingDown size={11} className="text-[#EF4444]" />
         )}
-        <span className={`text-[10px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
-          {isPositive ? "+" : ""}{growth}% vs last month
+        <span
+          className={`text-[10px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}
+        >
+          {isPositive ? "+" : ""}
+          {growth}% vs last month
         </span>
       </div>
     </div>
@@ -57,9 +82,15 @@ interface HighlightItemProps {
   colors: { bg: string; text: string };
 }
 
-const HighlightItem: React.FC<HighlightItemProps> = ({ number, text, colors }) => (
+const HighlightItem: React.FC<HighlightItemProps> = ({
+  number,
+  text,
+  colors,
+}) => (
   <div className="flex items-start gap-2 pb-3 border-b border-[#E5E7EB] last:border-b-0">
-    <div className={`${colors.bg} ${colors.text} w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs`}>
+    <div
+      className={`${colors.bg} ${colors.text} w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs`}
+    >
       {number}
     </div>
     <p className="text-[11px] text-[#4C4C4C] leading-snug flex-1">{text}</p>
@@ -74,12 +105,18 @@ interface AccountCardProps {
   icon: React.ReactNode;
 }
 
-const AccountCard: React.FC<AccountCardProps> = ({ label, value, growth, isPositive, icon }) => (
+const AccountCard: React.FC<AccountCardProps> = ({
+  label,
+  value,
+  growth,
+  isPositive,
+  icon,
+}) => (
   <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex flex-col items-center justify-center hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="text-[#2E5AAC] mb-2 scale-60">
-      {icon}
-    </div>
-    <p className="text-[9px] font-medium text-[#7A7A7A] mb-1 text-center">{label}</p>
+    <div className="text-[#2E5AAC] mb-2 scale-60">{icon}</div>
+    <p className="text-[9px] font-medium text-[#7A7A7A] mb-1 text-center">
+      {label}
+    </p>
     <h3 className="text-base font-bold text-[#2E5AAC] mb-1">{value}</h3>
     <div className="flex items-center gap-0.5">
       {isPositive ? (
@@ -87,8 +124,11 @@ const AccountCard: React.FC<AccountCardProps> = ({ label, value, growth, isPosit
       ) : (
         <TrendingDown size={10} className="text-[#EF4444]" />
       )}
-      <span className={`text-[9px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
-        {isPositive ? "+" : ""}{growth}%
+      <span
+        className={`text-[9px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}
+      >
+        {isPositive ? "+" : ""}
+        {growth}%
       </span>
     </div>
   </div>
@@ -136,7 +176,9 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
             {/* LEFT COLUMN - FINANCIAL HIGHLIGHTS */}
             <div className="lg:col-span-1 bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-4">
-              <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">Financial Highlights & Key Updates</h2>
+              <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">
+                Financial Highlights & Key Updates
+              </h2>
               <div className="space-y-2">
                 <HighlightItem
                   number={1}
@@ -174,13 +216,13 @@ export default function Index() {
             {/* RIGHT COLUMN - REVENUE ANALYSIS */}
             <div className="lg:col-span-2 bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-4">
               {/* Title */}
-              <h2 className="text-base font-bold mb-4">
-                Revenue Analysis
-              </h2>
+              <h2 className="text-base font-bold mb-4">Revenue Analysis</h2>
 
               {/* Annual Revenue Trend Chart */}
               <div className="mb-4">
-                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">Annual Revenue Trend Chart</h3>
+                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">
+                  Annual Revenue Trend Chart
+                </h3>
                 <ResponsiveContainer width="100%" height={160}>
                   <LineChart data={revenueData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
@@ -208,7 +250,9 @@ export default function Index() {
 
               {/* Annual Expenditure Trend Chart */}
               <div>
-                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">Annual Expenditure Trend Chart</h3>
+                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">
+                  Annual Expenditure Trend Chart
+                </h3>
                 <ResponsiveContainer width="100%" height={160}>
                   <LineChart data={expenditureData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
@@ -238,7 +282,9 @@ export default function Index() {
 
           {/* BOTTOM SECTION - ACCOUNT BALANCES */}
           <div>
-            <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">Account Balances</h2>
+            <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">
+              Account Balances
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               <AccountCard
                 label="Checking"

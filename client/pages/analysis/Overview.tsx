@@ -1,5 +1,16 @@
 import { Layout } from "@/components/Layout";
-import { BarChart3, TrendingUp, DollarSign, ArrowUpRight, Zap, PieChart, Target, Percent, Activity, Users } from "lucide-react";
+import {
+  BarChart3,
+  TrendingUp,
+  DollarSign,
+  ArrowUpRight,
+  Zap,
+  PieChart,
+  Target,
+  Percent,
+  Activity,
+  Users,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface AnalysisCard {
@@ -102,71 +113,93 @@ function AnalysisOverviewContent() {
   return (
     <div className="flex-1 overflow-auto">
       <div className="p-4 bg-[#F6F8FA] min-h-screen">
-          {/* Header */}
-          <div className="mb-4">
-            <h1 className="text-lg font-semibold text-[#2E5AAC] mb-1">
-              Financial Analysis Center
-            </h1>
-            <p className="text-[12px] font-normal text-[#7A7A7A]">
-              Comprehensive analysis tools to understand your financial performance
-            </p>
-          </div>
+        {/* Header */}
+        <div className="mb-4">
+          <h1 className="text-lg font-semibold text-[#2E5AAC] mb-1">
+            Financial Analysis Center
+          </h1>
+          <p className="text-[12px] font-normal text-[#7A7A7A]">
+            Comprehensive analysis tools to understand your financial
+            performance
+          </p>
+        </div>
 
-          {/* Analysis Cards Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-4">
-            {analysisCards.map((card) => (
-              <Link
-                key={card.href}
-                to={card.href}
-                className="bg-white rounded-lg border border-[#E5E7EB] p-3 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
+        {/* Analysis Cards Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-4">
+          {analysisCards.map((card) => (
+            <Link
+              key={card.href}
+              to={card.href}
+              className="bg-white rounded-lg border border-[#E5E7EB] p-3 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
+            >
+              <div
+                className={`${getIconColor(card.color)} mb-2 group-hover:scale-110 transition-transform`}
+                style={{ fontSize: "18px" }}
               >
-                <div className={`${getIconColor(card.color)} mb-2 group-hover:scale-110 transition-transform`} style={{fontSize: '18px'}}>
-                  {card.icon}
-                </div>
-                <h3 className="text-[12px] font-semibold text-[#2E5AAC] mb-1 line-clamp-2">
-                  {card.title}
-                </h3>
-                <p className="text-[11px] text-[#7A7A7A] mb-2 line-clamp-2">
-                  {card.description}
-                </p>
-                <span className="text-[10px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-0">
-                  View Details
-                  <span>→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Key Insights Section */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 shadow-sm">
-            <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">
-              Key Insights
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Financial Rating */}
-              <div className="border-l-4 border-[#2E5AAC] pl-3">
-                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Financial Rating</p>
-                <p className="text-base font-semibold text-[#2E5AAC] mb-1">A+ Rating</p>
-                <p className="text-[11px] text-[#7A7A7A]">Strong financial position</p>
+                {card.icon}
               </div>
+              <h3 className="text-[12px] font-semibold text-[#2E5AAC] mb-1 line-clamp-2">
+                {card.title}
+              </h3>
+              <p className="text-[11px] text-[#7A7A7A] mb-2 line-clamp-2">
+                {card.description}
+              </p>
+              <span className="text-[10px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-0">
+                View Details
+                <span>→</span>
+              </span>
+            </Link>
+          ))}
+        </div>
 
-              {/* Revenue Growth */}
-              <div className="border-l-4 border-[#10B981] pl-3">
-                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Revenue Growth</p>
-                <p className="text-base font-semibold text-[#10B981] mb-1">+32.15% YoY</p>
-                <p className="text-[11px] text-[#7A7A7A]">Consistent growth trajectory</p>
-              </div>
+        {/* Key Insights Section */}
+        <div className="bg-white rounded-lg border border-[#E5E7EB] p-4 shadow-sm">
+          <h2 className="text-sm font-semibold text-[#2E5AAC] mb-4">
+            Key Insights
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Financial Rating */}
+            <div className="border-l-4 border-[#2E5AAC] pl-3">
+              <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">
+                Financial Rating
+              </p>
+              <p className="text-base font-semibold text-[#2E5AAC] mb-1">
+                A+ Rating
+              </p>
+              <p className="text-[11px] text-[#7A7A7A]">
+                Strong financial position
+              </p>
+            </div>
 
-              {/* Operational Efficiency */}
-              <div className="border-l-4 border-[#8B5CF6] pl-3">
-                <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Operational Efficiency</p>
-                <p className="text-base font-semibold text-[#8B5CF6] mb-1">28.4%</p>
-                <p className="text-[11px] text-[#7A7A7A]">Efficiency improvement</p>
-              </div>
+            {/* Revenue Growth */}
+            <div className="border-l-4 border-[#10B981] pl-3">
+              <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">
+                Revenue Growth
+              </p>
+              <p className="text-base font-semibold text-[#10B981] mb-1">
+                +32.15% YoY
+              </p>
+              <p className="text-[11px] text-[#7A7A7A]">
+                Consistent growth trajectory
+              </p>
+            </div>
+
+            {/* Operational Efficiency */}
+            <div className="border-l-4 border-[#8B5CF6] pl-3">
+              <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">
+                Operational Efficiency
+              </p>
+              <p className="text-base font-semibold text-[#8B5CF6] mb-1">
+                28.4%
+              </p>
+              <p className="text-[11px] text-[#7A7A7A]">
+                Efficiency improvement
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 }
 

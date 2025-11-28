@@ -40,9 +40,17 @@ const navItems: NavItem[] = [
     href: "/analysis",
   },
   { label: "Accounts", icon: <User size={20} />, href: "/account" },
-  { label: "Transactions", icon: <CreditCard size={20} />, href: "/transactions" },
+  {
+    label: "Transactions",
+    icon: <CreditCard size={20} />,
+    href: "/transactions",
+  },
   { label: "Invoices", icon: <FileText size={20} />, href: "/invoices" },
-  { label: "Customers/Vendors", icon: <Users size={20} />, href: "/customers-vendors" },
+  {
+    label: "Customers/Vendors",
+    icon: <Users size={20} />,
+    href: "/customers-vendors",
+  },
   { label: "Inventory", icon: <Package size={20} />, href: "/inventory" },
   { label: "Budget", icon: <Target size={20} />, href: "/budget" },
   { label: "Upload Center", icon: <Cloud size={20} />, href: "/upload-center" },
@@ -108,7 +116,7 @@ export function Sidebar() {
           "fixed left-0 top-0 h-screen w-64 bg-[#1E3F7A] border-r border-[#1A2D4D] transition-all duration-300 ease-in-out z-40",
           "flex flex-col font-sans",
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
-          "shadow-sm"
+          "shadow-sm",
         )}
       >
         {/* Logo */}
@@ -130,7 +138,8 @@ export function Sidebar() {
           onScroll={(e) => {
             scrollPositionRef.current = (e.target as HTMLDivElement).scrollTop;
           }}
-          className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide bg-[#1E3F7A]">
+          className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide bg-[#1E3F7A]"
+        >
           <div className="space-y-2">
             {navItems.map((item) => {
               const isActive = item.href && location.pathname === item.href;
@@ -146,7 +155,7 @@ export function Sidebar() {
                         "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-[14px] border-l-4",
                         isSubmenuActive || isExpanded
                           ? "bg-[#2E5AAC] text-white border-l-white"
-                          : "text-white hover:bg-[#2D5A8C] border-l-transparent hover:border-l-[#4C7AB5]"
+                          : "text-white hover:bg-[#2D5A8C] border-l-transparent hover:border-l-[#4C7AB5]",
                       )}
                     >
                       {item.icon}
@@ -160,7 +169,7 @@ export function Sidebar() {
                         size={16}
                         className={cn(
                           "transition-transform",
-                          isExpanded && "rotate-180"
+                          isExpanded && "rotate-180",
                         )}
                       />
                     </button>
@@ -171,7 +180,7 @@ export function Sidebar() {
                         "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-[14px] border-l-4",
                         isActive
                           ? "bg-[#2E5AAC] text-white border-l-white"
-                          : "text-white hover:bg-[#2D5A8C] border-l-transparent hover:border-l-[#4C7AB5]"
+                          : "text-white hover:bg-[#2D5A8C] border-l-transparent hover:border-l-[#4C7AB5]",
                       )}
                     >
                       {item.icon}
@@ -198,7 +207,7 @@ export function Sidebar() {
                               "block px-3 py-2 rounded-lg text-[13px] transition-all font-medium",
                               isSubActive
                                 ? "bg-[#2E5AAC] text-white font-semibold"
-                                : "text-[#B0C4E3] hover:bg-[#2D5A8C] hover:text-white"
+                                : "text-[#B0C4E3] hover:bg-[#2D5A8C] hover:text-white",
                             )}
                           >
                             {subitem.label}
