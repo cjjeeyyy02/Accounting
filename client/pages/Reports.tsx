@@ -128,53 +128,53 @@ export default function Reports() {
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
-        <div className="p-8">
+        <div className="p-4">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-4">
             <div>
-              <h1 className="text-[28px] font-semibold text-gray-900 mb-2">Reports</h1>
-              <p className="text-[14px] font-normal text-gray-600">Access and generate financial reports</p>
+              <h1 className="text-lg font-semibold text-gray-900 mb-1">Reports</h1>
+              <p className="text-[12px] font-normal text-gray-600">Access and generate financial reports</p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
               + Export All
             </Button>
           </div>
 
           {/* Report Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             {reportCategories.map((category) => {
               const Icon = category.icon;
               return (
                 <div
                   key={category.title}
-                  className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+                  className="bg-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-shadow cursor-pointer"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <Icon className="w-8 h-8 text-blue-600" />
-                    <span className="text-sm font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+                  <div className="flex items-start justify-between mb-2">
+                    <Icon className="w-6 h-6 text-blue-600" />
+                    <span className="text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full">
                       {category.count}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     {category.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{category.description}</p>
+                  <p className="text-xs text-gray-600">{category.description}</p>
                 </div>
               );
             })}
           </div>
 
           {/* Recent Reports Section */}
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-gray-900">Recent Reports</h2>
-              <div className="flex items-center gap-4">
+          <div className="mb-4">
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="text-sm font-bold text-gray-900">Recent Reports</h2>
+              <div className="flex items-center gap-2">
                 <input
                   type="text"
                   placeholder="Search reports..."
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  className="px-2 py-1 border border-gray-300 rounded-lg text-xs focus:outline-none focus:border-blue-500"
                 />
-                <Button variant="outline">
+                <Button variant="outline" className="text-xs h-8">
                   Filter
                 </Button>
               </div>
