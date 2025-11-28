@@ -120,13 +120,13 @@ function AnalysisOverviewContent() {
                 to={card.href}
                 className="bg-white rounded-lg border border-[#E5E7EB] p-3 hover:shadow-md transition-shadow hover:border-[#2E5AAC] cursor-pointer group no-underline shadow-sm"
               >
-                <div className={`${getIconColor(card.color)} mb-3 group-hover:scale-110 transition-transform`} style={{fontSize: '20px'}}>
+                <div className={`${getIconColor(card.color)} mb-2 group-hover:scale-110 transition-transform`} style={{fontSize: '18px'}}>
                   {card.icon}
                 </div>
-                <h3 className="text-[13px] font-semibold text-[#2E5AAC] mb-2 line-clamp-2">
+                <h3 className="text-[12px] font-semibold text-[#2E5AAC] mb-1 line-clamp-2">
                   {card.title}
                 </h3>
-                <p className="text-[12px] text-[#7A7A7A] mb-3 line-clamp-2">
+                <p className="text-[11px] text-[#7A7A7A] mb-2 line-clamp-2">
                   {card.description}
                 </p>
                 <span className="text-[12px] font-medium text-[#2E5AAC] group-hover:text-[#1E3F7A] flex items-center gap-1">
