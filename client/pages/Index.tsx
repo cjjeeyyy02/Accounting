@@ -202,9 +202,9 @@ export default function Index() {
               </div>
 
               {/* Annual Expenditure Trend Chart */}
-              <div className="bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-6">
-                <h3 className="text-sm font-semibold text-[#2E5AAC] mb-4">Annual Expenditure Trend Chart</h3>
-                <ResponsiveContainer width="100%" height={220}>
+              <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3">
+                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">Annual Expenditure Trend Chart</h3>
+                <ResponsiveContainer width="100%" height={160}>
                   <LineChart data={expenditureData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
                     <XAxis dataKey="month" stroke="#7A7A7A" />
