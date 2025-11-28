@@ -165,18 +165,18 @@ export default function Index() {
             </div>
 
             {/* RIGHT COLUMN - REVENUE ANALYSIS */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-4">
               {/* Title with yellow highlight */}
               <div>
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-base font-bold">
                   <span className="bg-yellow-300 px-1">Revenue</span> Analysis
                 </h2>
               </div>
 
               {/* Annual Revenue Trend Chart */}
-              <div className="bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-6">
-                <h3 className="text-sm font-semibold text-[#2E5AAC] mb-4">Annual Revenue Trend Chart</h3>
-                <ResponsiveContainer width="100%" height={220}>
+              <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3">
+                <h3 className="text-xs font-semibold text-[#2E5AAC] mb-3">Annual Revenue Trend Chart</h3>
+                <ResponsiveContainer width="100%" height={160}>
                   <LineChart data={revenueData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
                     <XAxis dataKey="month" stroke="#7A7A7A" />
