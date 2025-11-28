@@ -33,20 +33,20 @@ interface MetricCardProps {
 }
 
 const MetricCard: React.FC<MetricCardProps> = ({ label, value, growth, isPositive, icon }) => (
-  <div className="bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-5 flex items-center gap-4 hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="flex-shrink-0 text-[#2E5AAC]">
-      {icon}
+  <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex items-center gap-3 hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
+    <div className="flex-shrink-0 text-[#2E5AAC]" style={{ width: '24px', height: '24px' }}>
+      {React.cloneElement(icon as React.ReactElement, { size: 24 })}
     </div>
     <div className="flex-1">
-      <p className="text-[12px] font-medium text-[#7A7A7A] mb-1">{label}</p>
-      <h3 className="text-2xl font-bold text-[#2E5AAC] mb-2">{value}</h3>
-      <div className="flex items-center gap-1">
+      <p className="text-[10px] font-medium text-[#7A7A7A] mb-0.5">{label}</p>
+      <h3 className="text-lg font-bold text-[#2E5AAC] mb-1">{value}</h3>
+      <div className="flex items-center gap-0.5">
         {isPositive ? (
-          <TrendingUp size={14} className="text-[#10B981]" />
+          <TrendingUp size={11} className="text-[#10B981]" />
         ) : (
-          <TrendingDown size={14} className="text-[#EF4444]" />
+          <TrendingDown size={11} className="text-[#EF4444]" />
         )}
-        <span className={`text-xs font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
+        <span className={`text-[10px] font-medium ${isPositive ? "text-[#10B981]" : "text-[#EF4444]"}`}>
           {isPositive ? "+" : ""}{growth}% vs last month
         </span>
       </div>
