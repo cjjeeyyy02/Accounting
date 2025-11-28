@@ -102,9 +102,9 @@ export default function Index() {
     <Layout>
       <div className="bg-white min-h-screen">
         {/* Main Container with padding */}
-        <div className="p-6 max-w-7xl mx-auto">
+        <div className="p-4 max-w-7xl mx-auto">
           {/* TOP SECTION - METRIC CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <MetricCard
               label="Total Revenue"
               value="$328,000"
