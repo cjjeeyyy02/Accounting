@@ -61,11 +61,11 @@ interface HighlightItemProps {
 }
 
 const HighlightItem: React.FC<HighlightItemProps> = ({ number, text, colors }) => (
-  <div className="flex items-start gap-4 pb-4 border-b border-[#E5E7EB] last:border-b-0">
-    <div className={`${colors.bg} ${colors.text} w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm`}>
+  <div className="flex items-start gap-2 pb-3 border-b border-[#E5E7EB] last:border-b-0">
+    <div className={`${colors.bg} ${colors.text} w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs`}>
       {number}
     </div>
-    <p className="text-[13px] text-[#4C4C4C] leading-relaxed flex-1">{text}</p>
+    <p className="text-[11px] text-[#4C4C4C] leading-snug flex-1">{text}</p>
   </div>
 );
 
