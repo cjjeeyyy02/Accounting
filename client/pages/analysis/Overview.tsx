@@ -161,7 +161,7 @@ function AnalysisOverviewContent() {
               <div className="border-l-4 border-[#8B5CF6] pl-3">
                 <p className="text-[11px] font-medium text-[#7A7A7A] mb-1">Operational Efficiency</p>
                 <p className="text-base font-semibold text-[#8B5CF6] mb-1">28.4%</p>
-                <p className="text-[13px] text-[#7A7A7A]">Efficiency improvement</p>
+                <p className="text-[11px] text-[#7A7A7A]">Efficiency improvement</p>
               </div>
             </div>
           </div>
