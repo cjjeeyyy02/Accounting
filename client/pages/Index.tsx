@@ -158,6 +158,16 @@ export default function Index() {
                   text="Achieved a 15% increase in income this month."
                   colors={{ bg: "bg-[#F59E0B]", text: "text-white" }}
                 />
+                <HighlightItem
+                  number={5}
+                  text="Expanded operational efficiency by 12% through automation initiatives."
+                  colors={{ bg: "bg-[#8B5CF6]", text: "text-white" }}
+                />
+                <HighlightItem
+                  number={6}
+                  text="Customer retention improved to 85%, up from 78% last quarter."
+                  colors={{ bg: "bg-[#06B6D4]", text: "text-white" }}
+                />
               </div>
             </div>
 
