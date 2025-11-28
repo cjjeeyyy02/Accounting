@@ -251,7 +251,7 @@ export default function Index() {
                 value="$90k"
                 growth={5.8}
                 isPositive={true}
-                icon={<Trending2 size={28} />}
+                icon={<BarChart3 size={28} />}
               />
               <AccountCard
                 label="Crypto"
