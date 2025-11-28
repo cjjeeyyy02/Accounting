@@ -32,8 +32,8 @@ interface MetricCardProps {
 
 const MetricCard: React.FC<MetricCardProps> = ({ label, value, growth, isPositive, icon }) => (
   <div className="bg-white rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.06)] p-3 flex items-center gap-3 hover:shadow-[0_8px_16px_rgba(0,0,0,0.1)] transition-shadow">
-    <div className="flex-shrink-0 text-[#2E5AAC]" style={{ width: '24px', height: '24px' }}>
-      {React.cloneElement(icon as React.ReactElement, { size: 24 })}
+    <div className="flex-shrink-0 text-[#2E5AAC] scale-75">
+      {icon}
     </div>
     <div className="flex-1">
       <p className="text-[10px] font-medium text-[#7A7A7A] mb-0.5">{label}</p>
