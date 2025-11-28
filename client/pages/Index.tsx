@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { TrendingUp, TrendingDown, DollarSign, Zap, Wallet, PiggyBank, Trending2, Coins, Building2 } from "lucide-react";
+import { TrendingUp, TrendingDown, DollarSign, Zap, Wallet, PiggyBank, BarChart3, Coins, Building2 } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 // Chart data
