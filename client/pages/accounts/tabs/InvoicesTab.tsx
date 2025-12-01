@@ -40,6 +40,7 @@ import {
   Trash2,
   Download,
   CheckCircle2,
+  Edit2,
 } from "lucide-react";
 
 interface Invoice {
