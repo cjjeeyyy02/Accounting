@@ -143,26 +143,72 @@ export function CustomersVendorsTab() {
   });
 
   const handleAddContact = (data: any) => {
-    const newContact: ContactEntity = {
-      id: String(contacts.length + 1),
-      name: data.name,
-      type: data.type,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-      city: data.city,
-      country: data.country,
-      status: data.status,
-      totalTransactions: 0,
-      totalAmount: 0,
-    };
-    setContacts([...contacts, newContact]);
-    setIsAddingContact(false);
-    form.reset();
+    if (isEditing && selectedContact) {
+      const updatedContacts = contacts.map((contact) =>
+        contact.id === selectedContact.id
+          ? {
+              ...contact,
+              name: data.name,
+              type: data.type,
+              email: data.email,
+              phone: data.phone,
+              address: data.address,
+              city: data.city,
+              country: data.country,
+              status: data.status,
+            }
+          : contact
+      );
+      setContacts(updatedContacts);
+      setIsEditing(false);
+      setIsAddingContact(false);
+      setSelectedContact(null);
+      form.reset();
+    } else {
+      const newContact: ContactEntity = {
+        id: String(contacts.length + 1),
+        name: data.name,
+        type: data.type,
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+        city: data.city,
+        country: data.country,
+        status: data.status,
+        totalTransactions: 0,
+        totalAmount: 0,
+      };
+      setContacts([...contacts, newContact]);
+      setIsAddingContact(false);
+      form.reset();
+    }
+  };
+
+  const handleOpenEdit = (contact: ContactEntity) => {
+    setSelectedContact(contact);
+    setIsEditing(true);
+    setIsAddingContact(true);
+    form.reset({
+      name: contact.name,
+      type: contact.type,
+      email: contact.email,
+      phone: contact.phone,
+      address: contact.address,
+      city: contact.city,
+      country: contact.country,
+      status: contact.status,
+    });
   };
 
   const handleDeleteContact = (id: string) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
+    setContactToDelete(null);
+  };
+
+  const confirmDelete = () => {
+    if (contactToDelete) {
+      handleDeleteContact(contactToDelete.id);
+    }
   };
 
   const filteredContacts =
