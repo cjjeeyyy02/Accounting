@@ -416,7 +416,7 @@ export function UploadCenterTab() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleDownloadFile(file.name)}>
                         <Download size={16} className="mr-2" />
                         Download
                       </DropdownMenuItem>
