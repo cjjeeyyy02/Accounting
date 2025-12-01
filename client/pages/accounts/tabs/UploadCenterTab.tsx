@@ -401,17 +401,24 @@ export function UploadCenterTab() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 ml-4">
-                  <Button variant="outline" size="sm">
-                    <Download size={16} />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleDeleteFile(file.id)}
-                  >
-                    <Trash2 size={16} className="text-red-600" />
-                  </Button>
+                <div className="ml-4">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <MoreVertical size={16} />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem>
+                        <Download size={16} className="mr-2" />
+                        Download
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleDeleteFile(file.id)}>
+                        <Trash2 size={16} className="mr-2 text-red-600" />
+                        Delete
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </div>
             </Card>
