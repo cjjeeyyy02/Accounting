@@ -264,10 +264,11 @@ export function InventoryTab() {
             <DialogHeader>
               <DialogTitle>{isEditing ? "Edit Inventory Item" : "Add Inventory Item"}</DialogTitle>
             </DialogHeader>
-            <form
-              onSubmit={form.handleSubmit(handleAddItem)}
-              className="space-y-4"
-            >
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleAddItem)}
+                className="space-y-4"
+              >
               <FormField
                 control={form.control}
                 name="name"
@@ -375,6 +376,7 @@ export function InventoryTab() {
                 {isEditing ? "Update Item" : "Add Item"}
               </Button>
             </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </div>
