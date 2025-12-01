@@ -246,7 +246,14 @@ export function InventoryTab() {
         <h2 className="text-xl font-semibold text-gray-900">
           Inventory Management
         </h2>
-        <Dialog open={isAddingItem} onOpenChange={setIsAddingItem}>
+        <Dialog open={isAddingItem} onOpenChange={(open) => {
+          setIsAddingItem(open);
+          if (!open) {
+            setIsEditing(false);
+            setSelectedItem(null);
+            form.reset();
+          }
+        }}>
           <DialogTrigger asChild>
             <Button className="gap-2">
               <Plus size={16} />
@@ -255,7 +262,7 @@ export function InventoryTab() {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Add Inventory Item</DialogTitle>
+              <DialogTitle>{isEditing ? "Edit Inventory Item" : "Add Inventory Item"}</DialogTitle>
             </DialogHeader>
             <form
               onSubmit={form.handleSubmit(handleAddItem)}
