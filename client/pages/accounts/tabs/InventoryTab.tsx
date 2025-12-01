@@ -372,7 +372,7 @@ export function InventoryTab() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Add Item
+                {isEditing ? "Update Item" : "Add Item"}
               </Button>
             </form>
           </DialogContent>
