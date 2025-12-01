@@ -502,160 +502,165 @@ export function InventoryTab() {
                   ${item.totalValue.toLocaleString()}
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-2">
-                    <Dialog open={isViewingItem && selectedItem?.id === item.id} onOpenChange={setIsViewingItem}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedItem(item)}
-                        >
-                          <Eye size={16} />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>{selectedItem?.name}</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <Card className="p-4 bg-gray-50">
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Item Details
-                            </h3>
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <p className="text-gray-600 mb-1">SKU</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedItem?.sku}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Category</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedItem?.category}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Unit</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedItem?.unit}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Unit Price</p>
-                                <p className="font-semibold text-gray-900">
-                                  ${selectedItem?.unitPrice.toFixed(2)}
-                                </p>
-                              </div>
-                            </div>
-                          </Card>
-
-                          <Card className="p-4 bg-gray-50">
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Stock Status
-                            </h3>
-                            <div className="space-y-3">
-                              <div>
-                                <div className="flex items-center justify-between mb-2">
-                                  <span className="text-sm text-gray-600">
-                                    Current Quantity
-                                  </span>
-                                  <span className="font-semibold text-gray-900">
-                                    {selectedItem?.quantity}{" "}
-                                    {selectedItem?.unit}
-                                  </span>
-                                </div>
-                                <Progress
-                                  value={stockPercentage(
-                                    selectedItem ||
-                                      ({} as InventoryItem)
-                                  )}
-                                  className="h-2"
-                                />
-                              </div>
-                              <div className="flex justify-between text-xs text-gray-600">
-                                <span>
-                                  Min: {selectedItem?.minQuantity}{" "}
-                                  {selectedItem?.unit}
-                                </span>
-                                <span>
-                                  Total Value: $
-                                  {selectedItem?.totalValue.toLocaleString()}
-                                </span>
-                              </div>
-                            </div>
-                          </Card>
-
-                          {selectedItem?.status !== "in-stock" && (
-                            <Card className="p-4 bg-yellow-50 border-yellow-200">
-                              <div className="flex gap-2 items-start">
-                                <AlertTriangle
-                                  size={20}
-                                  className="text-yellow-600 flex-shrink-0 mt-0.5"
-                                />
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <MoreVertical size={16} />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <Dialog open={isViewingItem && selectedItem?.id === item.id} onOpenChange={setIsViewingItem}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setSelectedItem(item);
+                            setIsViewingItem(true);
+                          }}>
+                            <Eye size={16} className="mr-2" />
+                            View Details
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>{selectedItem?.name}</DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <Card className="p-4 bg-gray-50">
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Item Details
+                              </h3>
+                              <div className="grid grid-cols-2 gap-4 text-sm">
                                 <div>
-                                  <p className="font-semibold text-yellow-900">
-                                    {selectedItem?.status === "low-stock"
-                                      ? "Low Stock Alert"
-                                      : "Out of Stock"}
+                                  <p className="text-gray-600 mb-1">SKU</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedItem?.sku}
                                   </p>
-                                  <p className="text-sm text-yellow-800 mt-1">
-                                    {selectedItem?.status === "low-stock"
-                                      ? "Consider reordering this item to maintain optimal stock levels."
-                                      : "This item is out of stock. Please reorder immediately."}
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Category</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedItem?.category}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Unit</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedItem?.unit}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Unit Price</p>
+                                  <p className="font-semibold text-gray-900">
+                                    ${selectedItem?.unitPrice.toFixed(2)}
                                   </p>
                                 </div>
                               </div>
                             </Card>
-                          )}
 
-                          <Button className="w-full">Reorder Item</Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleOpenEdit(item)}
-                    >
-                      <Edit2 size={16} />
-                    </Button>
-                    <Dialog open={itemToDelete?.id === item.id} onOpenChange={(open) => {
-                      if (!open) setItemToDelete(null);
-                    }}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setItemToDelete(item)}
-                        >
-                          <Trash2 size={16} className="text-red-600" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Delete Inventory Item</DialogTitle>
-                        </DialogHeader>
-                        <p className="text-sm text-gray-600">
-                          Are you sure you want to delete <strong>{itemToDelete?.name}</strong>? This action cannot be undone.
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                          <Button
-                            variant="outline"
-                            onClick={() => setItemToDelete(null)}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            variant="destructive"
-                            onClick={confirmDelete}
-                          >
+                            <Card className="p-4 bg-gray-50">
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Stock Status
+                              </h3>
+                              <div className="space-y-3">
+                                <div>
+                                  <div className="flex items-center justify-between mb-2">
+                                    <span className="text-sm text-gray-600">
+                                      Current Quantity
+                                    </span>
+                                    <span className="font-semibold text-gray-900">
+                                      {selectedItem?.quantity}{" "}
+                                      {selectedItem?.unit}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={stockPercentage(
+                                      selectedItem ||
+                                        ({} as InventoryItem)
+                                    )}
+                                    className="h-2"
+                                  />
+                                </div>
+                                <div className="flex justify-between text-xs text-gray-600">
+                                  <span>
+                                    Min: {selectedItem?.minQuantity}{" "}
+                                    {selectedItem?.unit}
+                                  </span>
+                                  <span>
+                                    Total Value: $
+                                    {selectedItem?.totalValue.toLocaleString()}
+                                  </span>
+                                </div>
+                              </div>
+                            </Card>
+
+                            {selectedItem?.status !== "in-stock" && (
+                              <Card className="p-4 bg-yellow-50 border-yellow-200">
+                                <div className="flex gap-2 items-start">
+                                  <AlertTriangle
+                                    size={20}
+                                    className="text-yellow-600 flex-shrink-0 mt-0.5"
+                                  />
+                                  <div>
+                                    <p className="font-semibold text-yellow-900">
+                                      {selectedItem?.status === "low-stock"
+                                        ? "Low Stock Alert"
+                                        : "Out of Stock"}
+                                    </p>
+                                    <p className="text-sm text-yellow-800 mt-1">
+                                      {selectedItem?.status === "low-stock"
+                                        ? "Consider reordering this item to maintain optimal stock levels."
+                                        : "This item is out of stock. Please reorder immediately."}
+                                    </p>
+                                  </div>
+                                </div>
+                              </Card>
+                            )}
+
+                            <Button className="w-full">Reorder Item</Button>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                      <DropdownMenuItem onClick={() => handleOpenEdit(item)}>
+                        <Edit2 size={16} className="mr-2" />
+                        Edit
+                      </DropdownMenuItem>
+                      <Dialog open={itemToDelete?.id === item.id} onOpenChange={(open) => {
+                        if (!open) setItemToDelete(null);
+                      }}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setItemToDelete(item);
+                          }}>
+                            <Trash2 size={16} className="mr-2 text-red-600" />
                             Delete
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Delete Inventory Item</DialogTitle>
+                          </DialogHeader>
+                          <p className="text-sm text-gray-600">
+                            Are you sure you want to delete <strong>{itemToDelete?.name}</strong>? This action cannot be undone.
+                          </p>
+                          <div className="flex gap-3 justify-end">
+                            <Button
+                              variant="outline"
+                              onClick={() => setItemToDelete(null)}
+                            >
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              onClick={confirmDelete}
+                            >
+                              Delete
+                            </Button>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
