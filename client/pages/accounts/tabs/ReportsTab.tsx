@@ -155,60 +155,59 @@ export function ReportsTab() {
               <p className="text-xs text-gray-600">{report.size}</p>
             </div>
 
-            <div className="flex gap-2">
-              <Dialog open={isViewingReport && selectedReport?.id === report.id} onOpenChange={setIsViewingReport}>
-                <DialogTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 gap-1"
-                    onClick={() => setSelectedReport(report)}
-                  >
-                    <Eye size={14} />
-                    View
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-2xl">
-                  <DialogHeader>
-                    <DialogTitle>{selectedReport?.name}</DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-4 max-h-96 overflow-y-auto">
-                    <div className="flex gap-2 text-sm">
-                      <span className="text-gray-600">Type:</span>
-                      <span className="font-medium text-gray-900">
-                        {selectedReport?.type}
-                      </span>
-                      <span className="text-gray-600 ml-4">Generated:</span>
-                      <span className="font-medium text-gray-900">
-                        {selectedReport?.generatedDate}
-                      </span>
-                    </div>
-
-                    {mockReportContent.sections.map((section, idx) => (
-                      <div key={idx}>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          {section.name}
-                        </h4>
-                        <p className="text-sm text-gray-700 leading-relaxed">
-                          {section.content}
-                        </p>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm">
+                  <MoreVertical size={16} />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <Dialog open={isViewingReport && selectedReport?.id === report.id} onOpenChange={setIsViewingReport}>
+                  <DialogTrigger asChild>
+                    <DropdownMenuItem onSelect={(e) => {
+                      e.preventDefault();
+                      setSelectedReport(report);
+                      setIsViewingReport(true);
+                    }}>
+                      <Eye size={16} className="mr-2" />
+                      View
+                    </DropdownMenuItem>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl">
+                    <DialogHeader>
+                      <DialogTitle>{selectedReport?.name}</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4 max-h-96 overflow-y-auto">
+                      <div className="flex gap-2 text-sm">
+                        <span className="text-gray-600">Type:</span>
+                        <span className="font-medium text-gray-900">
+                          {selectedReport?.type}
+                        </span>
+                        <span className="text-gray-600 ml-4">Generated:</span>
+                        <span className="font-medium text-gray-900">
+                          {selectedReport?.generatedDate}
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                </DialogContent>
-              </Dialog>
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex-1 gap-1"
-                onClick={() =>
-                  handleDownload(report.name)
-                }
-              >
-                <Download size={14} />
-                Download
-              </Button>
-            </div>
+
+                      {mockReportContent.sections.map((section, idx) => (
+                        <div key={idx}>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            {section.name}
+                          </h4>
+                          <p className="text-sm text-gray-700 leading-relaxed">
+                            {section.content}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </DialogContent>
+                </Dialog>
+                <DropdownMenuItem onClick={() => handleDownload(report.name)}>
+                  <Download size={16} className="mr-2" />
+                  Download
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </Card>
         ))}
       </div>
