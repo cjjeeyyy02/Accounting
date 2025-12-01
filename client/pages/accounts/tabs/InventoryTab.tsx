@@ -135,31 +135,81 @@ export function InventoryTab() {
   });
 
   const handleAddItem = (data: any) => {
-    const newItem: InventoryItem = {
-      id: String(inventory.length + 1),
-      name: data.name,
-      category: data.category,
-      sku: data.sku,
-      quantity: parseInt(data.quantity),
-      minQuantity: parseInt(data.minQuantity),
-      unit: data.unit,
-      unitPrice: parseFloat(data.unitPrice),
-      totalValue:
-        parseInt(data.quantity) * parseFloat(data.unitPrice),
-      status:
-        parseInt(data.quantity) === 0
-          ? "out-of-stock"
-          : parseInt(data.quantity) <= parseInt(data.minQuantity)
-            ? "low-stock"
-            : "in-stock",
-    };
-    setInventory([...inventory, newItem]);
-    setIsAddingItem(false);
-    form.reset();
+    const quantity = parseInt(data.quantity);
+    const minQuantity = parseInt(data.minQuantity);
+    const unitPrice = parseFloat(data.unitPrice);
+    const status =
+      quantity === 0
+        ? "out-of-stock"
+        : quantity <= minQuantity
+          ? "low-stock"
+          : "in-stock";
+
+    if (isEditing && selectedItem) {
+      const updatedInventory = inventory.map((item) =>
+        item.id === selectedItem.id
+          ? {
+              ...item,
+              name: data.name,
+              category: data.category,
+              sku: data.sku,
+              quantity,
+              minQuantity,
+              unit: data.unit,
+              unitPrice,
+              totalValue: quantity * unitPrice,
+              status: status as "in-stock" | "low-stock" | "out-of-stock",
+            }
+          : item
+      );
+      setInventory(updatedInventory);
+      setIsEditing(false);
+      setIsAddingItem(false);
+      setSelectedItem(null);
+      form.reset();
+    } else {
+      const newItem: InventoryItem = {
+        id: String(inventory.length + 1),
+        name: data.name,
+        category: data.category,
+        sku: data.sku,
+        quantity,
+        minQuantity,
+        unit: data.unit,
+        unitPrice,
+        totalValue: quantity * unitPrice,
+        status: status as "in-stock" | "low-stock" | "out-of-stock",
+      };
+      setInventory([...inventory, newItem]);
+      setIsAddingItem(false);
+      form.reset();
+    }
+  };
+
+  const handleOpenEdit = (item: InventoryItem) => {
+    setSelectedItem(item);
+    setIsEditing(true);
+    setIsAddingItem(true);
+    form.reset({
+      name: item.name,
+      category: item.category,
+      sku: item.sku,
+      quantity: String(item.quantity),
+      minQuantity: String(item.minQuantity),
+      unit: item.unit,
+      unitPrice: String(item.unitPrice),
+    });
   };
 
   const handleDeleteItem = (id: string) => {
     setInventory(inventory.filter((item) => item.id !== id));
+    setItemToDelete(null);
+  };
+
+  const confirmDelete = () => {
+    if (itemToDelete) {
+      handleDeleteItem(itemToDelete.id);
+    }
   };
 
   const filteredInventory =
