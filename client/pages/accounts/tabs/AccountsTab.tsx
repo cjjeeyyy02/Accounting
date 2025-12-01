@@ -124,21 +124,57 @@ export function AccountsTab() {
   });
 
   const handleAddAccount = (data: any) => {
-    const newAccount: Account = {
-      id: String(accounts.length + 1),
-      name: data.name,
-      type: data.type,
-      balance: 0,
-      status: data.status as "active" | "inactive" | "suspended",
-    };
-    setAccounts([...accounts, newAccount]);
-    setIsAddingAccount(false);
-    form.reset();
+    if (isEditing && selectedAccount) {
+      const updatedAccounts = accounts.map((acc) =>
+        acc.id === selectedAccount.id
+          ? {
+              ...acc,
+              name: data.name,
+              type: data.type,
+              status: data.status as "active" | "inactive" | "suspended",
+            }
+          : acc
+      );
+      setAccounts(updatedAccounts);
+      setIsEditing(false);
+      setIsAddingAccount(false);
+      setSelectedAccount(null);
+      form.reset();
+    } else {
+      const newAccount: Account = {
+        id: String(accounts.length + 1),
+        name: data.name,
+        type: data.type,
+        balance: 0,
+        status: data.status as "active" | "inactive" | "suspended",
+      };
+      setAccounts([...accounts, newAccount]);
+      setIsAddingAccount(false);
+      form.reset();
+    }
+  };
+
+  const handleOpenEdit = (account: Account) => {
+    setSelectedAccount(account);
+    setIsEditing(true);
+    setIsAddingAccount(true);
+    form.reset({
+      name: account.name,
+      type: account.type,
+      status: account.status,
+    });
   };
 
   const handleDeleteAccount = (id: string) => {
     setAccounts(accounts.filter((acc) => acc.id !== id));
+    setAccountToDelete(null);
     setSelectedAccount(null);
+  };
+
+  const confirmDelete = () => {
+    if (accountToDelete) {
+      handleDeleteAccount(accountToDelete.id);
+    }
   };
 
   const getStatusColor = (status: string) => {
