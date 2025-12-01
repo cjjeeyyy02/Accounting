@@ -119,6 +119,8 @@ export function InventoryTab() {
   const [isAddingItem, setIsAddingItem] = useState(false);
   const [isViewingItem, setIsViewingItem] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [isEditing, setIsEditing] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState<InventoryItem | null>(null);
 
   const form = useForm({
     defaultValues: {
