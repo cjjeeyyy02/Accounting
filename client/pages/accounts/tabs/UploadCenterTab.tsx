@@ -24,7 +24,14 @@ import {
   Trash2,
   Upload,
   X,
+  MoreVertical,
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface UploadedFile {
   id: string;
