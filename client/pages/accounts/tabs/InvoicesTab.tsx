@@ -41,7 +41,14 @@ import {
   Download,
   CheckCircle2,
   Edit2,
+  MoreVertical,
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface Invoice {
   id: string;
