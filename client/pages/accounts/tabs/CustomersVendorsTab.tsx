@@ -126,6 +126,8 @@ export function CustomersVendorsTab() {
   const [isAddingContact, setIsAddingContact] = useState(false);
   const [isViewingContact, setIsViewingContact] = useState(false);
   const [typeFilter, setTypeFilter] = useState("all");
+  const [isEditing, setIsEditing] = useState(false);
+  const [contactToDelete, setContactToDelete] = useState<ContactEntity | null>(null);
 
   const form = useForm({
     defaultValues: {
