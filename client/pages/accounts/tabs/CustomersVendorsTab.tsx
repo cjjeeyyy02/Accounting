@@ -34,7 +34,13 @@ import {
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useForm } from "react-hook-form";
-import { Edit2, Eye, Plus, Trash2, Mail, Phone } from "lucide-react";
+import { Edit2, Eye, Plus, Trash2, Mail, Phone, MoreVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface ContactEntity {
   id: string;
