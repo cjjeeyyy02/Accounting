@@ -524,10 +524,45 @@ export function InvoicesTab() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => handleDeleteInvoice(invoice.id)}
+                      onClick={() => handleOpenEdit(invoice)}
                     >
-                      <Trash2 size={16} className="text-red-600" />
+                      <Edit2 size={16} />
                     </Button>
+                    <Dialog open={invoiceToDelete?.id === invoice.id} onOpenChange={(open) => {
+                      if (!open) setInvoiceToDelete(null);
+                    }}>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setInvoiceToDelete(invoice)}
+                        >
+                          <Trash2 size={16} className="text-red-600" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Delete Invoice</DialogTitle>
+                        </DialogHeader>
+                        <p className="text-sm text-gray-600">
+                          Are you sure you want to delete invoice <strong>{invoiceToDelete?.number}</strong>? This action cannot be undone.
+                        </p>
+                        <div className="flex gap-3 justify-end">
+                          <Button
+                            variant="outline"
+                            onClick={() => setInvoiceToDelete(null)}
+                          >
+                            Cancel
+                          </Button>
+                          <Button
+                            variant="destructive"
+                            onClick={confirmDelete}
+                          >
+                            Delete
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </TableCell>
               </TableRow>
