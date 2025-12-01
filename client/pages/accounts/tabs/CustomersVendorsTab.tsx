@@ -479,154 +479,159 @@ export function CustomersVendorsTab() {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-2">
-                    <Dialog open={isViewingContact && selectedContact?.id === contact.id} onOpenChange={setIsViewingContact}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedContact(contact)}
-                        >
-                          <Eye size={16} />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>{selectedContact?.name}</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <Card className="p-4 bg-gray-50">
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Contact Details
-                            </h3>
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <p className="text-gray-600 mb-1">Type</p>
-                                <Badge
-                                  className={getTypeColor(
-                                    selectedContact?.type || ""
-                                  )}
-                                >
-                                  {selectedContact?.type === "customer"
-                                    ? "Customer"
-                                    : "Vendor"}
-                                </Badge>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <MoreVertical size={16} />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <Dialog open={isViewingContact && selectedContact?.id === contact.id} onOpenChange={setIsViewingContact}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setSelectedContact(contact);
+                            setIsViewingContact(true);
+                          }}>
+                            <Eye size={16} className="mr-2" />
+                            View Details
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>{selectedContact?.name}</DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <Card className="p-4 bg-gray-50">
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Contact Details
+                              </h3>
+                              <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                  <p className="text-gray-600 mb-1">Type</p>
+                                  <Badge
+                                    className={getTypeColor(
+                                      selectedContact?.type || ""
+                                    )}
+                                  >
+                                    {selectedContact?.type === "customer"
+                                      ? "Customer"
+                                      : "Vendor"}
+                                  </Badge>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Status</p>
+                                  <Badge
+                                    className={getStatusColor(
+                                      selectedContact?.status || ""
+                                    )}
+                                  >
+                                    {selectedContact?.status}
+                                  </Badge>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Email</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedContact?.email}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Phone</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedContact?.phone}
+                                  </p>
+                                </div>
+                                <div className="col-span-2">
+                                  <p className="text-gray-600 mb-1">Address</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedContact?.address}
+                                  </p>
+                                </div>
+                                <div className="col-span-2">
+                                  <p className="text-gray-600 mb-1">
+                                    Location
+                                  </p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedContact?.city},
+                                    {selectedContact?.country}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Status</p>
-                                <Badge
-                                  className={getStatusColor(
-                                    selectedContact?.status || ""
-                                  )}
-                                >
-                                  {selectedContact?.status}
-                                </Badge>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Email</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedContact?.email}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Phone</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedContact?.phone}
-                                </p>
-                              </div>
-                              <div className="col-span-2">
-                                <p className="text-gray-600 mb-1">Address</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedContact?.address}
-                                </p>
-                              </div>
-                              <div className="col-span-2">
-                                <p className="text-gray-600 mb-1">
-                                  Location
-                                </p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedContact?.city},
-                                  {selectedContact?.country}
-                                </p>
-                              </div>
-                            </div>
-                          </Card>
+                            </Card>
 
-                          <Card className="p-4 bg-gray-50">
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Transaction Summary
-                            </h3>
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <p className="text-gray-600 mb-1">Total</p>
-                                <p className="text-xl font-bold text-gray-900">
-                                  {selectedContact?.totalTransactions}
-                                </p>
+                            <Card className="p-4 bg-gray-50">
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Transaction Summary
+                              </h3>
+                              <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                  <p className="text-gray-600 mb-1">Total</p>
+                                  <p className="text-xl font-bold text-gray-900">
+                                    {selectedContact?.totalTransactions}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">
+                                    Total Amount
+                                  </p>
+                                  <p className="text-xl font-bold text-gray-900">
+                                    $
+                                    {selectedContact?.totalAmount.toLocaleString()}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">
-                                  Total Amount
-                                </p>
-                                <p className="text-xl font-bold text-gray-900">
-                                  $
-                                  {selectedContact?.totalAmount.toLocaleString()}
-                                </p>
-                              </div>
-                            </div>
-                          </Card>
+                            </Card>
 
-                          <div className="flex gap-2">
-                            <Button variant="outline" className="flex-1">
-                              View Transactions
-                            </Button>
-                            <Button className="flex-1">Send Invoice</Button>
+                            <div className="flex gap-2">
+                              <Button variant="outline" className="flex-1">
+                                View Transactions
+                              </Button>
+                              <Button className="flex-1">Send Invoice</Button>
+                            </div>
                           </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleOpenEdit(contact)}
-                    >
-                      <Edit2 size={16} />
-                    </Button>
-                    <Dialog open={contactToDelete?.id === contact.id} onOpenChange={(open) => {
-                      if (!open) setContactToDelete(null);
-                    }}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setContactToDelete(contact)}
-                        >
-                          <Trash2 size={16} className="text-red-600" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Delete Contact</DialogTitle>
-                        </DialogHeader>
-                        <p className="text-sm text-gray-600">
-                          Are you sure you want to delete <strong>{contactToDelete?.name}</strong>? This action cannot be undone.
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                          <Button
-                            variant="outline"
-                            onClick={() => setContactToDelete(null)}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            variant="destructive"
-                            onClick={confirmDelete}
-                          >
+                        </DialogContent>
+                      </Dialog>
+                      <DropdownMenuItem onClick={() => handleOpenEdit(contact)}>
+                        <Edit2 size={16} className="mr-2" />
+                        Edit
+                      </DropdownMenuItem>
+                      <Dialog open={contactToDelete?.id === contact.id} onOpenChange={(open) => {
+                        if (!open) setContactToDelete(null);
+                      }}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setContactToDelete(contact);
+                          }}>
+                            <Trash2 size={16} className="mr-2 text-red-600" />
                             Delete
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Delete Contact</DialogTitle>
+                          </DialogHeader>
+                          <p className="text-sm text-gray-600">
+                            Are you sure you want to delete <strong>{contactToDelete?.name}</strong>? This action cannot be undone.
+                          </p>
+                          <div className="flex gap-3 justify-end">
+                            <Button
+                              variant="outline"
+                              onClick={() => setContactToDelete(null)}
+                            >
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              onClick={confirmDelete}
+                            >
+                              Delete
+                            </Button>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
