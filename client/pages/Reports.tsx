@@ -1,4 +1,5 @@
-import { FileText, DollarSign, BarChart3, MoreVertical } from "lucide-react";
+import { useState } from "react";
+import { FileText, DollarSign, BarChart3, MoreVertical, Download, Eye } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
 interface Report {
   id: string;
