@@ -126,23 +126,65 @@ export function InvoicesTab() {
   });
 
   const handleCreateInvoice = (data: any) => {
-    const newInvoice: Invoice = {
-      id: String(invoices.length + 1),
-      number: data.number,
-      client: data.client,
-      amount: parseFloat(data.amount),
-      dueDate: data.dueDate,
-      status: data.status,
-      createdDate: new Date().toISOString().split("T")[0],
-      description: data.description,
-    };
-    setInvoices([...invoices, newInvoice]);
-    setIsAddingInvoice(false);
-    form.reset();
+    if (isEditing && selectedInvoice) {
+      const updatedInvoices = invoices.map((inv) =>
+        inv.id === selectedInvoice.id
+          ? {
+              ...inv,
+              number: data.number,
+              client: data.client,
+              amount: parseFloat(data.amount),
+              dueDate: data.dueDate,
+              status: data.status,
+              description: data.description,
+            }
+          : inv
+      );
+      setInvoices(updatedInvoices);
+      setIsEditing(false);
+      setIsAddingInvoice(false);
+      setSelectedInvoice(null);
+      form.reset();
+    } else {
+      const newInvoice: Invoice = {
+        id: String(invoices.length + 1),
+        number: data.number,
+        client: data.client,
+        amount: parseFloat(data.amount),
+        dueDate: data.dueDate,
+        status: data.status,
+        createdDate: new Date().toISOString().split("T")[0],
+        description: data.description,
+      };
+      setInvoices([...invoices, newInvoice]);
+      setIsAddingInvoice(false);
+      form.reset();
+    }
+  };
+
+  const handleOpenEdit = (invoice: Invoice) => {
+    setSelectedInvoice(invoice);
+    setIsEditing(true);
+    setIsAddingInvoice(true);
+    form.reset({
+      number: invoice.number,
+      client: invoice.client,
+      amount: String(invoice.amount),
+      dueDate: invoice.dueDate,
+      status: invoice.status,
+      description: invoice.description,
+    });
   };
 
   const handleDeleteInvoice = (id: string) => {
     setInvoices(invoices.filter((inv) => inv.id !== id));
+    setInvoiceToDelete(null);
+  };
+
+  const confirmDelete = () => {
+    if (invoiceToDelete) {
+      handleDeleteInvoice(invoiceToDelete.id);
+    }
   };
 
   const handleMarkAsPaid = (id: string) => {
