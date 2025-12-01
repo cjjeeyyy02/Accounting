@@ -436,143 +436,148 @@ export function InvoicesTab() {
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-2">
-                    <Dialog open={isViewingInvoice && selectedInvoice?.id === invoice.id} onOpenChange={setIsViewingInvoice}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedInvoice(invoice)}
-                        >
-                          <Eye size={16} />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>
-                            Invoice {selectedInvoice?.number}
-                          </DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <Card className="p-4 bg-gray-50">
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <p className="text-gray-600 mb-1">Client</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedInvoice?.client}
-                                </p>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <MoreVertical size={16} />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <Dialog open={isViewingInvoice && selectedInvoice?.id === invoice.id} onOpenChange={setIsViewingInvoice}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setSelectedInvoice(invoice);
+                            setIsViewingInvoice(true);
+                          }}>
+                            <Eye size={16} className="mr-2" />
+                            View Details
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>
+                              Invoice {selectedInvoice?.number}
+                            </DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <Card className="p-4 bg-gray-50">
+                              <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                  <p className="text-gray-600 mb-1">Client</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedInvoice?.client}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">
+                                    Created Date
+                                  </p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedInvoice?.createdDate}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Due Date</p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedInvoice?.dueDate}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Status</p>
+                                  <Badge
+                                    className={getStatusColor(
+                                      selectedInvoice?.status || ""
+                                    )}
+                                  >
+                                    {selectedInvoice?.status}
+                                  </Badge>
+                                </div>
+                                <div className="col-span-2">
+                                  <p className="text-gray-600 mb-1">Amount</p>
+                                  <p className="text-2xl font-bold text-gray-900">
+                                    ${selectedInvoice?.amount.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="col-span-2">
+                                  <p className="text-gray-600 mb-1">
+                                    Description
+                                  </p>
+                                  <p className="text-gray-900">
+                                    {selectedInvoice?.description}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">
-                                  Created Date
-                                </p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedInvoice?.createdDate}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Due Date</p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedInvoice?.dueDate}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Status</p>
-                                <Badge
-                                  className={getStatusColor(
-                                    selectedInvoice?.status || ""
-                                  )}
+                            </Card>
+                            <div className="flex gap-2">
+                              {selectedInvoice?.status !== "paid" && (
+                                <Button
+                                  className="flex-1 gap-2"
+                                  onClick={() =>
+                                    handleMarkAsPaid(selectedInvoice.id)
+                                  }
                                 >
-                                  {selectedInvoice?.status}
-                                </Badge>
-                              </div>
-                              <div className="col-span-2">
-                                <p className="text-gray-600 mb-1">Amount</p>
-                                <p className="text-2xl font-bold text-gray-900">
-                                  ${selectedInvoice?.amount.toLocaleString()}
-                                </p>
-                              </div>
-                              <div className="col-span-2">
-                                <p className="text-gray-600 mb-1">
-                                  Description
-                                </p>
-                                <p className="text-gray-900">
-                                  {selectedInvoice?.description}
-                                </p>
-                              </div>
-                            </div>
-                          </Card>
-                          <div className="flex gap-2">
-                            {selectedInvoice?.status !== "paid" && (
+                                  <CheckCircle2 size={16} />
+                                  Mark as Paid
+                                </Button>
+                              )}
                               <Button
+                                variant="outline"
                                 className="flex-1 gap-2"
                                 onClick={() =>
-                                  handleMarkAsPaid(selectedInvoice.id)
+                                  handleDownloadInvoice(
+                                    selectedInvoice?.number || ""
+                                  )
                                 }
                               >
-                                <CheckCircle2 size={16} />
-                                Mark as Paid
+                                <Download size={16} />
+                                Download PDF
                               </Button>
-                            )}
+                            </div>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                      <DropdownMenuItem onClick={() => handleOpenEdit(invoice)}>
+                        <Edit2 size={16} className="mr-2" />
+                        Edit
+                      </DropdownMenuItem>
+                      <Dialog open={invoiceToDelete?.id === invoice.id} onOpenChange={(open) => {
+                        if (!open) setInvoiceToDelete(null);
+                      }}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setInvoiceToDelete(invoice);
+                          }}>
+                            <Trash2 size={16} className="mr-2 text-red-600" />
+                            Delete
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Delete Invoice</DialogTitle>
+                          </DialogHeader>
+                          <p className="text-sm text-gray-600">
+                            Are you sure you want to delete invoice <strong>{invoiceToDelete?.number}</strong>? This action cannot be undone.
+                          </p>
+                          <div className="flex gap-3 justify-end">
                             <Button
                               variant="outline"
-                              className="flex-1 gap-2"
-                              onClick={() =>
-                                handleDownloadInvoice(
-                                  selectedInvoice?.number || ""
-                                )
-                              }
+                              onClick={() => setInvoiceToDelete(null)}
                             >
-                              <Download size={16} />
-                              Download PDF
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              onClick={confirmDelete}
+                            >
+                              Delete
                             </Button>
                           </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleOpenEdit(invoice)}
-                    >
-                      <Edit2 size={16} />
-                    </Button>
-                    <Dialog open={invoiceToDelete?.id === invoice.id} onOpenChange={(open) => {
-                      if (!open) setInvoiceToDelete(null);
-                    }}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setInvoiceToDelete(invoice)}
-                        >
-                          <Trash2 size={16} className="text-red-600" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Delete Invoice</DialogTitle>
-                        </DialogHeader>
-                        <p className="text-sm text-gray-600">
-                          Are you sure you want to delete invoice <strong>{invoiceToDelete?.number}</strong>? This action cannot be undone.
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                          <Button
-                            variant="outline"
-                            onClick={() => setInvoiceToDelete(null)}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            variant="destructive"
-                            onClick={confirmDelete}
-                          >
-                            Delete
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                        </DialogContent>
+                      </Dialog>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
