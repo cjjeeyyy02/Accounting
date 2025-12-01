@@ -112,6 +112,8 @@ export function AccountsTab() {
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null);
   const [isAddingAccount, setIsAddingAccount] = useState(false);
   const [viewingDetails, setViewingDetails] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [accountToDelete, setAccountToDelete] = useState<Account | null>(null);
 
   const form = useForm({
     defaultValues: {
