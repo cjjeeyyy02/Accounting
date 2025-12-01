@@ -412,7 +412,9 @@ export default function Reports() {
               Generate a custom financial report tailored to your specific
               needs.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8" onClick={() => {
+              alert("Custom Report Generator: This would open a form to create a custom report with selected fields, date ranges, and filters.");
+            }}>
               Generate Custom Report
             </Button>
           </div>
