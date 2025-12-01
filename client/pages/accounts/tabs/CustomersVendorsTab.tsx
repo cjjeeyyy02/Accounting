@@ -252,10 +252,11 @@ export function CustomersVendorsTab() {
             <DialogHeader>
               <DialogTitle>{isEditing ? "Edit Contact" : "Add New Contact"}</DialogTitle>
             </DialogHeader>
-            <form
-              onSubmit={form.handleSubmit(handleAddContact)}
-              className="space-y-4"
-            >
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleAddContact)}
+                className="space-y-4"
+              >
               <FormField
                 control={form.control}
                 name="name"
@@ -372,6 +373,7 @@ export function CustomersVendorsTab() {
                 {isEditing ? "Update Contact" : "Add Contact"}
               </Button>
             </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </div>
