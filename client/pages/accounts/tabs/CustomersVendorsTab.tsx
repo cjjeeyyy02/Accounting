@@ -234,7 +234,14 @@ export function CustomersVendorsTab() {
         <h2 className="text-xl font-semibold text-gray-900">
           Customers & Vendors
         </h2>
-        <Dialog open={isAddingContact} onOpenChange={setIsAddingContact}>
+        <Dialog open={isAddingContact} onOpenChange={(open) => {
+          setIsAddingContact(open);
+          if (!open) {
+            setIsEditing(false);
+            setSelectedContact(null);
+            form.reset();
+          }
+        }}>
           <DialogTrigger asChild>
             <Button className="gap-2">
               <Plus size={16} />
@@ -243,7 +250,7 @@ export function CustomersVendorsTab() {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Add New Contact</DialogTitle>
+              <DialogTitle>{isEditing ? "Edit Contact" : "Add New Contact"}</DialogTitle>
             </DialogHeader>
             <form
               onSubmit={form.handleSubmit(handleAddContact)}
