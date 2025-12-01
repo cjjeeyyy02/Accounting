@@ -369,7 +369,7 @@ export function CustomersVendorsTab() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Add Contact
+                {isEditing ? "Update Contact" : "Add Contact"}
               </Button>
             </form>
           </DialogContent>
