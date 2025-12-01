@@ -196,12 +196,20 @@ export function AccountsTab() {
         <h2 className="text-xl font-semibold text-gray-900">
           Accounts Management
         </h2>
-        <Dialog open={isAddingAccount} onOpenChange={setIsAddingAccount}>
+        <Dialog open={isAddingAccount} onOpenChange={(open) => {
+          setIsAddingAccount(open);
+          if (!open) {
+            setIsEditing(false);
+            setSelectedAccount(null);
+            form.reset();
+          }
+        }}>
           <DialogTrigger asChild>
             <Button
               className="gap-2"
               onClick={() => {
                 setSelectedAccount(null);
+                setIsEditing(false);
                 form.reset();
               }}
             >
@@ -212,7 +220,7 @@ export function AccountsTab() {
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
-                {selectedAccount ? "Edit Account" : "Add New Account"}
+                {isEditing ? "Edit Account" : "Add New Account"}
               </DialogTitle>
             </DialogHeader>
             <Form {...form}>
