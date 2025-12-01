@@ -34,7 +34,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
-import { Edit2, Eye, Plus, Trash2 } from "lucide-react";
+import { Edit2, Eye, Plus, Trash2, MoreVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface Account {
   id: string;
