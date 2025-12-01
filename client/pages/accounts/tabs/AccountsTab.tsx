@@ -338,133 +338,138 @@ export function AccountsTab() {
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-2">
-                    <Dialog open={viewingDetails && selectedAccount?.id === account.id} onOpenChange={setViewingDetails}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedAccount(account)}
-                        >
-                          <Eye size={16} />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>{selectedAccount?.name}</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-6">
-                          <Card className="p-4 bg-gray-50">
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Account Details
-                            </h3>
-                            <div className="grid grid-cols-2 gap-4 text-sm">
-                              <div>
-                                <p className="text-gray-600 mb-1">
-                                  Account Type
-                                </p>
-                                <p className="font-semibold text-gray-900">
-                                  {selectedAccount?.type}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Status</p>
-                                <Badge
-                                  className={getStatusColor(
-                                    selectedAccount?.status || ""
-                                  )}
-                                >
-                                  {selectedAccount?.status}
-                                </Badge>
-                              </div>
-                              <div>
-                                <p className="text-gray-600 mb-1">Balance</p>
-                                <p className="font-semibold text-gray-900">
-                                  $
-                                  {selectedAccount?.balance.toLocaleString()}
-                                </p>
-                              </div>
-                            </div>
-                          </Card>
-
-                          <div>
-                            <h3 className="font-semibold mb-3 text-gray-900">
-                              Recent Transactions
-                            </h3>
-                            <div className="space-y-2">
-                              {mockTransactions.map((tx) => (
-                                <div
-                                  key={tx.id}
-                                  className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50"
-                                >
-                                  <div>
-                                    <p className="font-medium text-gray-900">
-                                      {tx.description}
-                                    </p>
-                                    <p className="text-sm text-gray-600">
-                                      {tx.date}
-                                    </p>
-                                  </div>
-                                  <p
-                                    className={`font-semibold ${
-                                      tx.type === "credit"
-                                        ? "text-green-600"
-                                        : "text-red-600"
-                                    }`}
-                                  >
-                                    {tx.type === "credit" ? "+" : "-"}$
-                                    {tx.amount.toLocaleString()}
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <MoreVertical size={16} />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <Dialog open={viewingDetails && selectedAccount?.id === account.id} onOpenChange={setViewingDetails}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setSelectedAccount(account);
+                            setViewingDetails(true);
+                          }}>
+                            <Eye size={16} className="mr-2" />
+                            View Details
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>{selectedAccount?.name}</DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-6">
+                            <Card className="p-4 bg-gray-50">
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Account Details
+                              </h3>
+                              <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                  <p className="text-gray-600 mb-1">
+                                    Account Type
+                                  </p>
+                                  <p className="font-semibold text-gray-900">
+                                    {selectedAccount?.type}
                                   </p>
                                 </div>
-                              ))}
+                                <div>
+                                  <p className="text-gray-600 mb-1">Status</p>
+                                  <Badge
+                                    className={getStatusColor(
+                                      selectedAccount?.status || ""
+                                    )}
+                                  >
+                                    {selectedAccount?.status}
+                                  </Badge>
+                                </div>
+                                <div>
+                                  <p className="text-gray-600 mb-1">Balance</p>
+                                  <p className="font-semibold text-gray-900">
+                                    $
+                                    {selectedAccount?.balance.toLocaleString()}
+                                  </p>
+                                </div>
+                              </div>
+                            </Card>
+
+                            <div>
+                              <h3 className="font-semibold mb-3 text-gray-900">
+                                Recent Transactions
+                              </h3>
+                              <div className="space-y-2">
+                                {mockTransactions.map((tx) => (
+                                  <div
+                                    key={tx.id}
+                                    className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50"
+                                  >
+                                    <div>
+                                      <p className="font-medium text-gray-900">
+                                        {tx.description}
+                                      </p>
+                                      <p className="text-sm text-gray-600">
+                                        {tx.date}
+                                      </p>
+                                    </div>
+                                    <p
+                                      className={`font-semibold ${
+                                        tx.type === "credit"
+                                          ? "text-green-600"
+                                          : "text-red-600"
+                                      }`}
+                                    >
+                                      {tx.type === "credit" ? "+" : "-"}$
+                                      {tx.amount.toLocaleString()}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleOpenEdit(account)}
-                    >
-                      <Edit2 size={16} />
-                    </Button>
-                    <Dialog open={accountToDelete?.id === account.id} onOpenChange={(open) => {
-                      if (!open) setAccountToDelete(null);
-                    }}>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setAccountToDelete(account)}
-                        >
-                          <Trash2 size={16} className="text-red-600" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Delete Account</DialogTitle>
-                        </DialogHeader>
-                        <p className="text-sm text-gray-600">
-                          Are you sure you want to delete <strong>{accountToDelete?.name}</strong>? This action cannot be undone.
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                          <Button
-                            variant="outline"
-                            onClick={() => setAccountToDelete(null)}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            variant="destructive"
-                            onClick={confirmDelete}
-                          >
+                        </DialogContent>
+                      </Dialog>
+                      <DropdownMenuItem onClick={() => handleOpenEdit(account)}>
+                        <Edit2 size={16} className="mr-2" />
+                        Edit
+                      </DropdownMenuItem>
+                      <Dialog open={accountToDelete?.id === account.id} onOpenChange={(open) => {
+                        if (!open) setAccountToDelete(null);
+                      }}>
+                        <DialogTrigger asChild>
+                          <DropdownMenuItem onSelect={(e) => {
+                            e.preventDefault();
+                            setAccountToDelete(account);
+                          }}>
+                            <Trash2 size={16} className="mr-2 text-red-600" />
                             Delete
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Delete Account</DialogTitle>
+                          </DialogHeader>
+                          <p className="text-sm text-gray-600">
+                            Are you sure you want to delete <strong>{accountToDelete?.name}</strong>? This action cannot be undone.
+                          </p>
+                          <div className="flex gap-3 justify-end">
+                            <Button
+                              variant="outline"
+                              onClick={() => setAccountToDelete(null)}
+                            >
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              onClick={confirmDelete}
+                            >
+                              Delete
+                            </Button>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
