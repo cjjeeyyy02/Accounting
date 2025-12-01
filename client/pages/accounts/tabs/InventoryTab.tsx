@@ -35,7 +35,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { useForm } from "react-hook-form";
-import { Edit2, Eye, Plus, Trash2, AlertTriangle } from "lucide-react";
+import { Edit2, Eye, Plus, Trash2, AlertTriangle, MoreVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface InventoryItem {
   id: string;
