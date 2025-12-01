@@ -231,7 +231,14 @@ export function InvoicesTab() {
         <h2 className="text-xl font-semibold text-gray-900">
           Invoice Management
         </h2>
-        <Dialog open={isAddingInvoice} onOpenChange={setIsAddingInvoice}>
+        <Dialog open={isAddingInvoice} onOpenChange={(open) => {
+          setIsAddingInvoice(open);
+          if (!open) {
+            setIsEditing(false);
+            setSelectedInvoice(null);
+            form.reset();
+          }
+        }}>
           <DialogTrigger asChild>
             <Button className="gap-2">
               <Plus size={16} />
@@ -240,7 +247,7 @@ export function InvoicesTab() {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Create New Invoice</DialogTitle>
+              <DialogTitle>{isEditing ? "Edit Invoice" : "Create New Invoice"}</DialogTitle>
             </DialogHeader>
             <form
               onSubmit={form.handleSubmit(handleCreateInvoice)}
