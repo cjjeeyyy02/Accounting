@@ -154,19 +154,30 @@ export function AccountBalancesTab() {
                 </h3>
                 <p className="text-xs text-gray-600">{account.type}</p>
               </div>
-              <Dialog open={isViewingDetails && selectedAccount?.id === account.id} onOpenChange={setIsViewingDetails}>
-                <DialogTrigger asChild>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setSelectedAccount(account);
                     }}
                   >
-                    <Eye size={16} />
+                    <MoreVertical size={16} />
                   </Button>
-                </DialogTrigger>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <Dialog open={isViewingDetails && selectedAccount?.id === account.id} onOpenChange={setIsViewingDetails}>
+                    <DialogTrigger asChild>
+                      <DropdownMenuItem onSelect={(e) => {
+                        e.preventDefault();
+                        setSelectedAccount(account);
+                        setIsViewingDetails(true);
+                      }}>
+                        <Eye size={16} className="mr-2" />
+                        View Details
+                      </DropdownMenuItem>
+                    </DialogTrigger>
                 <DialogContent className="max-w-2xl">
                   <DialogHeader>
                     <DialogTitle>{selectedAccount?.name}</DialogTitle>
@@ -280,7 +291,9 @@ export function AccountBalancesTab() {
                     </div>
                   </div>
                 </DialogContent>
-              </Dialog>
+                  </Dialog>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             {/* Balance */}
