@@ -111,6 +111,8 @@ export function InvoicesTab() {
   const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null);
   const [isAddingInvoice, setIsAddingInvoice] = useState(false);
   const [isViewingInvoice, setIsViewingInvoice] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [invoiceToDelete, setInvoiceToDelete] = useState<Invoice | null>(null);
 
   const form = useForm({
     defaultValues: {
