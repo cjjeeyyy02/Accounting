@@ -134,6 +134,42 @@ const getTypeColor = (type: string) => {
 };
 
 export default function Reports() {
+  const [reportsList, setReportsList] = useState(reports);
+  const [selectedReport, setSelectedReport] = useState<Report | null>(null);
+  const [isViewingDetails, setIsViewingDetails] = useState(false);
+  const [reportToDelete, setReportToDelete] = useState<Report | null>(null);
+
+  const handleDownload = (reportName: string) => {
+    const link = document.createElement("a");
+    link.href = "#";
+    link.download = `${reportName}.pdf`;
+    link.click();
+  };
+
+  const handleShare = (reportName: string) => {
+    const shareText = `Check out this report: ${reportName}`;
+    if (navigator.share) {
+      navigator.share({
+        title: "Share Report",
+        text: shareText,
+      });
+    } else {
+      navigator.clipboard.writeText(shareText);
+    }
+  };
+
+  const handleDelete = (id: string) => {
+    setReportsList(reportsList.filter((report) => report.id !== id));
+    setReportToDelete(null);
+  };
+
+  const handleExportAll = () => {
+    const link = document.createElement("a");
+    link.href = "#";
+    link.download = "all-reports.zip";
+    link.click();
+  };
+
   return (
     <Layout>
       <div className="flex-1 overflow-auto">
@@ -148,7 +184,7 @@ export default function Reports() {
                 Access and generate financial reports
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-xs h-8" onClick={handleExportAll}>
               + Export All
             </Button>
           </div>
