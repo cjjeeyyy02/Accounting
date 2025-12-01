@@ -179,6 +179,13 @@ export function UploadCenterTab() {
     setFiles(files.filter((file) => file.id !== id));
   };
 
+  const handleDownloadFile = (fileName: string) => {
+    const link = document.createElement("a");
+    link.href = "#";
+    link.download = fileName;
+    link.click();
+  };
+
   const filteredFiles =
     selectedCategory === "all"
       ? files
