@@ -259,7 +259,7 @@ export default function Reports() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {reports.map((report) => (
+                  {reportsList.map((report) => (
                     <TableRow
                       key={report.id}
                       className="hover:bg-gray-50 border-t border-gray-200"
@@ -298,18 +298,101 @@ export default function Reports() {
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuItem className="text-xs">
-                              View Details
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="text-xs">
+                            <Dialog open={isViewingDetails && selectedReport?.id === report.id} onOpenChange={setIsViewingDetails}>
+                              <DialogTrigger asChild>
+                                <DropdownMenuItem onSelect={(e) => {
+                                  e.preventDefault();
+                                  setSelectedReport(report);
+                                  setIsViewingDetails(true);
+                                }} className="text-xs">
+                                  <Eye size={14} className="mr-2" />
+                                  View Details
+                                </DropdownMenuItem>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-2xl">
+                                <DialogHeader>
+                                  <DialogTitle>{selectedReport?.name}</DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-4">
+                                  <Card className="p-4 bg-gray-50">
+                                    <div className="grid grid-cols-2 gap-4 text-sm">
+                                      <div>
+                                        <p className="text-gray-600 mb-1">Type</p>
+                                        <Badge className={getTypeColor(selectedReport?.type || "")}>
+                                          {selectedReport?.type}
+                                        </Badge>
+                                      </div>
+                                      <div>
+                                        <p className="text-gray-600 mb-1">Status</p>
+                                        <Badge className={getStatusColor(selectedReport?.status || "")}>
+                                          {selectedReport?.status}
+                                        </Badge>
+                                      </div>
+                                      <div>
+                                        <p className="text-gray-600 mb-1">Period</p>
+                                        <p className="font-semibold text-gray-900">{selectedReport?.period}</p>
+                                      </div>
+                                      <div>
+                                        <p className="text-gray-600 mb-1">Generated Date</p>
+                                        <p className="font-semibold text-gray-900">{selectedReport?.date}</p>
+                                      </div>
+                                    </div>
+                                  </Card>
+                                  <div className="flex gap-2">
+                                    <Button variant="outline" className="flex-1 text-xs" onClick={() => handleDownload(selectedReport?.name || "report")}>
+                                      <Download size={14} className="mr-2" />
+                                      Download
+                                    </Button>
+                                    <Button className="flex-1 text-xs" onClick={() => handleShare(selectedReport?.name || "report")}>
+                                      Share
+                                    </Button>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                            <DropdownMenuItem className="text-xs" onClick={() => handleDownload(report.name)}>
+                              <Download size={14} className="mr-2" />
                               Download
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="text-xs">
+                            <DropdownMenuItem className="text-xs" onClick={() => handleShare(report.name)}>
                               Share
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="text-red-600 text-xs">
-                              Delete
-                            </DropdownMenuItem>
+                            <Dialog open={reportToDelete?.id === report.id} onOpenChange={(open) => {
+                              if (!open) setReportToDelete(null);
+                            }}>
+                              <DialogTrigger asChild>
+                                <DropdownMenuItem onSelect={(e) => {
+                                  e.preventDefault();
+                                  setReportToDelete(report);
+                                }} className="text-red-600 text-xs">
+                                  Delete
+                                </DropdownMenuItem>
+                              </DialogTrigger>
+                              <DialogContent>
+                                <DialogHeader>
+                                  <DialogTitle>Delete Report</DialogTitle>
+                                </DialogHeader>
+                                <p className="text-sm text-gray-600">
+                                  Are you sure you want to delete <strong>{reportToDelete?.name}</strong>? This action cannot be undone.
+                                </p>
+                                <div className="flex gap-3 justify-end">
+                                  <Button
+                                    variant="outline"
+                                    onClick={() => setReportToDelete(null)}
+                                    className="text-xs"
+                                  >
+                                    Cancel
+                                  </Button>
+                                  <Button
+                                    variant="destructive"
+                                    onClick={() => handleDelete(reportToDelete?.id || "")}
+                                    className="text-xs"
+                                  >
+                                    Delete
+                                  </Button>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>
