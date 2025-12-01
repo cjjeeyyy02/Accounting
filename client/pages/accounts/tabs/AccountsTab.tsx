@@ -285,7 +285,7 @@ export function AccountsTab() {
                   )}
                 />
                 <Button type="submit" className="w-full">
-                  {selectedAccount ? "Update Account" : "Create Account"}
+                  {isEditing ? "Update Account" : "Create Account"}
                 </Button>
               </form>
             </Form>
