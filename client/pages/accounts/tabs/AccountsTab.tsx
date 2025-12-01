@@ -416,16 +416,48 @@ export function AccountsTab() {
                         </div>
                       </DialogContent>
                     </Dialog>
-                    <Button variant="outline" size="sm">
-                      <Edit2 size={16} />
-                    </Button>
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => handleDeleteAccount(account.id)}
+                      onClick={() => handleOpenEdit(account)}
                     >
-                      <Trash2 size={16} className="text-red-600" />
+                      <Edit2 size={16} />
                     </Button>
+                    <Dialog open={accountToDelete?.id === account.id} onOpenChange={(open) => {
+                      if (!open) setAccountToDelete(null);
+                    }}>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setAccountToDelete(account)}
+                        >
+                          <Trash2 size={16} className="text-red-600" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Delete Account</DialogTitle>
+                        </DialogHeader>
+                        <p className="text-sm text-gray-600">
+                          Are you sure you want to delete <strong>{accountToDelete?.name}</strong>? This action cannot be undone.
+                        </p>
+                        <div className="flex gap-3 justify-end">
+                          <Button
+                            variant="outline"
+                            onClick={() => setAccountToDelete(null)}
+                          >
+                            Cancel
+                          </Button>
+                          <Button
+                            variant="destructive"
+                            onClick={confirmDelete}
+                          >
+                            Delete
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </TableCell>
               </TableRow>
