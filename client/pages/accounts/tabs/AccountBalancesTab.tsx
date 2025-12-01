@@ -10,7 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowDownRight, ArrowUpRight, Eye, TrendingUp } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Eye, TrendingUp, MoreVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 interface AccountBalance {
   id: string;
