@@ -250,10 +250,11 @@ export function InvoicesTab() {
             <DialogHeader>
               <DialogTitle>{isEditing ? "Edit Invoice" : "Create New Invoice"}</DialogTitle>
             </DialogHeader>
-            <form
-              onSubmit={form.handleSubmit(handleCreateInvoice)}
-              className="space-y-4"
-            >
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleCreateInvoice)}
+                className="space-y-4"
+              >
               <FormField
                 control={form.control}
                 name="number"
@@ -347,6 +348,7 @@ export function InvoicesTab() {
                 {isEditing ? "Update Invoice" : "Create Invoice"}
               </Button>
             </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </div>
