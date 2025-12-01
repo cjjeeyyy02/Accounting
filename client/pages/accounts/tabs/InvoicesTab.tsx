@@ -343,7 +343,7 @@ export function InvoicesTab() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Create Invoice
+                {isEditing ? "Update Invoice" : "Create Invoice"}
               </Button>
             </form>
           </DialogContent>
