@@ -10,9 +10,9 @@ export default function AccountsDashboard() {
 
   return (
     <Layout>
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen w-full">
         {/* Page Header */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white border-b border-gray-200 w-full">
           <div className="px-6 lg:px-8 py-6">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
               Bank Accounts
@@ -24,7 +24,7 @@ export default function AccountsDashboard() {
         </div>
 
         {/* Tabs Navigation */}
-        <div className="bg-white px-6 lg:px-8 py-0">
+        <div className="bg-white w-full px-6 lg:px-8 py-0">
           <Tabs
             value={activeTab}
             onValueChange={setActiveTab}
