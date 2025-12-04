@@ -121,12 +121,9 @@ export function ReportsTab() {
   };
 
   return (
-    <div className="bg-white px-4 sm:px-6 lg:px-8 py-6">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">
-          Financial Reports
-        </h2>
-        <Button className="gap-2">
+    <div className="bg-white px-6 lg:px-8 py-6">
+      <div className="flex items-center justify-end mb-6">
+        <Button className="gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors">
           <Plus size={16} />
           Generate New Report
         </Button>
