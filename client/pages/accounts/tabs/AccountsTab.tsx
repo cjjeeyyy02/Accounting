@@ -203,7 +203,7 @@ export function AccountsTab() {
         <div></div>
         <Dialog open={isAddingBankAccount} onOpenChange={setIsAddingBankAccount}>
           <DialogTrigger asChild>
-            <Button className="gap-2">
+            <Button className="gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors">
               <Plus size={16} />
               Add
             </Button>
