@@ -198,7 +198,7 @@ export function AccountsTab() {
   };
 
   return (
-    <div className="bg-white px-6 lg:px-8 py-6">
+    <div className="bg-white px-6 lg:px-8 py-6 w-full">
       <div className="flex items-center justify-between mb-4">
         <div></div>
         <Dialog open={isAddingBankAccount} onOpenChange={setIsAddingBankAccount}>
