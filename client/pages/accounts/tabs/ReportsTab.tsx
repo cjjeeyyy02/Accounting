@@ -132,9 +132,15 @@ export function ReportsTab() {
       {/* Reports Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {reports.map((report) => (
-          <Card key={report.id} className="p-4 hover:shadow-lg transition-shadow">
+          <Card
+            key={report.id}
+            className="p-4 hover:shadow-lg transition-shadow"
+          >
             <div className="flex gap-3 mb-3">
-              <FileText size={24} className="text-blue-600 flex-shrink-0 mt-1" />
+              <FileText
+                size={24}
+                className="text-blue-600 flex-shrink-0 mt-1"
+              />
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">
                   {report.name}
@@ -159,13 +165,18 @@ export function ReportsTab() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <Dialog open={isViewingReport && selectedReport?.id === report.id} onOpenChange={setIsViewingReport}>
+                <Dialog
+                  open={isViewingReport && selectedReport?.id === report.id}
+                  onOpenChange={setIsViewingReport}
+                >
                   <DialogTrigger asChild>
-                    <DropdownMenuItem onSelect={(e) => {
-                      e.preventDefault();
-                      setSelectedReport(report);
-                      setIsViewingReport(true);
-                    }}>
+                    <DropdownMenuItem
+                      onSelect={(e) => {
+                        e.preventDefault();
+                        setSelectedReport(report);
+                        setIsViewingReport(true);
+                      }}
+                    >
                       <Eye size={16} className="mr-2" />
                       View
                     </DropdownMenuItem>

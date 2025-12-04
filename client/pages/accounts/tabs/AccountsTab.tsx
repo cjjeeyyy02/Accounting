@@ -140,7 +140,7 @@ export function AccountsTab() {
               type: data.type,
               status: data.status as "active" | "inactive" | "suspended",
             }
-          : acc
+          : acc,
       );
       setAccounts(updatedAccounts);
       setIsEditing(false);
@@ -201,7 +201,10 @@ export function AccountsTab() {
     <div className="bg-white px-6 lg:px-8 py-6 w-full">
       <div className="flex items-center justify-between mb-4">
         <div></div>
-        <Dialog open={isAddingBankAccount} onOpenChange={setIsAddingBankAccount}>
+        <Dialog
+          open={isAddingBankAccount}
+          onOpenChange={setIsAddingBankAccount}
+        >
           <DialogTrigger asChild>
             <Button className="gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors">
               <Plus size={16} />
@@ -224,7 +227,9 @@ export function AccountsTab() {
                 className="w-full p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <p className="font-semibold text-gray-900">Chart of Accounts</p>
-                <p className="text-sm text-gray-600">Create accounting accounts</p>
+                <p className="text-sm text-gray-600">
+                  Create accounting accounts
+                </p>
               </button>
               <button
                 onClick={() => {
@@ -232,8 +237,12 @@ export function AccountsTab() {
                 }}
                 className="w-full p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors"
               >
-                <p className="font-semibold text-gray-900">Accounting Template</p>
-                <p className="text-sm text-gray-600">Use predefined templates</p>
+                <p className="font-semibold text-gray-900">
+                  Accounting Template
+                </p>
+                <p className="text-sm text-gray-600">
+                  Use predefined templates
+                </p>
               </button>
               <button
                 onClick={() => {
@@ -252,14 +261,17 @@ export function AccountsTab() {
           </DialogContent>
         </Dialog>
 
-        <Dialog open={isAddingAccount} onOpenChange={(open) => {
-          setIsAddingAccount(open);
-          if (!open) {
-            setIsEditing(false);
-            setSelectedAccount(null);
-            form.reset();
-          }
-        }}>
+        <Dialog
+          open={isAddingAccount}
+          onOpenChange={(open) => {
+            setIsAddingAccount(open);
+            if (!open) {
+              setIsEditing(false);
+              setSelectedAccount(null);
+              form.reset();
+            }
+          }}
+        >
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
@@ -289,7 +301,10 @@ export function AccountsTab() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Account Type</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue />
@@ -312,7 +327,10 @@ export function AccountsTab() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Status</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue />
@@ -360,7 +378,10 @@ export function AccountsTab() {
           </TableHeader>
           <TableBody>
             {accounts.map((account) => (
-              <TableRow key={account.id} className="border-b border-gray-200 hover:bg-gray-50">
+              <TableRow
+                key={account.id}
+                className="border-b border-gray-200 hover:bg-gray-50"
+              >
                 <TableCell className="font-medium text-gray-900">
                   {account.name}
                 </TableCell>
@@ -382,13 +403,20 @@ export function AccountsTab() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <Dialog open={viewingDetails && selectedAccount?.id === account.id} onOpenChange={setViewingDetails}>
+                      <Dialog
+                        open={
+                          viewingDetails && selectedAccount?.id === account.id
+                        }
+                        onOpenChange={setViewingDetails}
+                      >
                         <DialogTrigger asChild>
-                          <DropdownMenuItem onSelect={(e) => {
-                            e.preventDefault();
-                            setSelectedAccount(account);
-                            setViewingDetails(true);
-                          }}>
+                          <DropdownMenuItem
+                            onSelect={(e) => {
+                              e.preventDefault();
+                              setSelectedAccount(account);
+                              setViewingDetails(true);
+                            }}
+                          >
                             <Eye size={16} className="mr-2" />
                             View Details
                           </DropdownMenuItem>
@@ -415,7 +443,7 @@ export function AccountsTab() {
                                   <p className="text-gray-600 mb-1">Status</p>
                                   <Badge
                                     className={getStatusColor(
-                                      selectedAccount?.status || ""
+                                      selectedAccount?.status || "",
                                     )}
                                   >
                                     {selectedAccount?.status}
@@ -424,8 +452,7 @@ export function AccountsTab() {
                                 <div>
                                   <p className="text-gray-600 mb-1">Balance</p>
                                   <p className="font-semibold text-gray-900">
-                                    $
-                                    {selectedAccount?.balance.toLocaleString()}
+                                    ${selectedAccount?.balance.toLocaleString()}
                                   </p>
                                 </div>
                               </div>
@@ -470,14 +497,19 @@ export function AccountsTab() {
                         <Edit2 size={16} className="mr-2" />
                         Edit
                       </DropdownMenuItem>
-                      <Dialog open={accountToDelete?.id === account.id} onOpenChange={(open) => {
-                        if (!open) setAccountToDelete(null);
-                      }}>
+                      <Dialog
+                        open={accountToDelete?.id === account.id}
+                        onOpenChange={(open) => {
+                          if (!open) setAccountToDelete(null);
+                        }}
+                      >
                         <DialogTrigger asChild>
-                          <DropdownMenuItem onSelect={(e) => {
-                            e.preventDefault();
-                            setAccountToDelete(account);
-                          }}>
+                          <DropdownMenuItem
+                            onSelect={(e) => {
+                              e.preventDefault();
+                              setAccountToDelete(account);
+                            }}
+                          >
                             <Trash2 size={16} className="mr-2 text-red-600" />
                             Delete
                           </DropdownMenuItem>
@@ -487,7 +519,9 @@ export function AccountsTab() {
                             <DialogTitle>Delete Account</DialogTitle>
                           </DialogHeader>
                           <p className="text-sm text-gray-600">
-                            Are you sure you want to delete <strong>{accountToDelete?.name}</strong>? This action cannot be undone.
+                            Are you sure you want to delete{" "}
+                            <strong>{accountToDelete?.name}</strong>? This
+                            action cannot be undone.
                           </p>
                           <div className="flex gap-3 justify-end">
                             <Button
