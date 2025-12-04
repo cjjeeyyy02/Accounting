@@ -11,50 +11,60 @@ export default function AccountsDashboard() {
   return (
     <Layout>
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
-        <div className="max-w-7xl mx-auto">
-          {/* Tabs Navigation */}
-          <div className="bg-white border-b border-gray-200">
-            <div className="px-4 sm:px-6 lg:px-8">
-              <Tabs
-                value={activeTab}
-                onValueChange={setActiveTab}
-                className="w-full"
-              >
-                <TabsList className="w-full justify-start bg-transparent border-0 rounded-none flex gap-0">
-                  <TabsTrigger
-                    value="accounts"
-                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                  >
-                    Bank Accounts
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="reports"
-                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                  >
-                    Reports
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="balances"
-                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
-                  >
-                    Account Balances
-                  </TabsTrigger>
-                </TabsList>
+        {/* Page Header */}
+        <div className="bg-white border-b border-gray-200">
+          <div className="px-6 lg:px-8 py-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Bank Accounts
+            </h1>
+            <p className="text-gray-600">
+              Manage your bank accounts and financial records
+            </p>
+          </div>
+        </div>
 
-                {/* Tab Content */}
-                <div className="mt-0">
-                  <TabsContent value="accounts" className="mt-0">
-                    <AccountsTab />
-                  </TabsContent>
-                  <TabsContent value="reports" className="mt-0">
-                    <ReportsTab />
-                  </TabsContent>
-                  <TabsContent value="balances" className="mt-0">
-                    <AccountBalancesTab />
-                  </TabsContent>
-                </div>
-              </Tabs>
-            </div>
+        {/* Tabs Navigation */}
+        <div className="bg-white border-b border-gray-200">
+          <div className="px-6 lg:px-8">
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
+            >
+              <TabsList className="w-full justify-start bg-transparent border-0 rounded-none flex gap-0">
+                <TabsTrigger
+                  value="accounts"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-0 py-4 text-sm font-medium"
+                >
+                  Bank Accounts
+                </TabsTrigger>
+                <TabsTrigger
+                  value="reports"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-0 py-4 text-sm font-medium ml-6"
+                >
+                  Reports
+                </TabsTrigger>
+                <TabsTrigger
+                  value="balances"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-0 py-4 text-sm font-medium ml-6"
+                >
+                  Account Balances
+                </TabsTrigger>
+              </TabsList>
+
+              {/* Tab Content */}
+              <div className="mt-0">
+                <TabsContent value="accounts" className="mt-0">
+                  <AccountsTab />
+                </TabsContent>
+                <TabsContent value="reports" className="mt-0">
+                  <ReportsTab />
+                </TabsContent>
+                <TabsContent value="balances" className="mt-0">
+                  <AccountBalancesTab />
+                </TabsContent>
+              </div>
+            </Tabs>
           </div>
         </div>
       </div>
