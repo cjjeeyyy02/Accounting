@@ -337,7 +337,7 @@ export function AccountsTab() {
       </div>
 
       {/* Accounts Table */}
-      <div className="overflow-x-auto border rounded-lg mb-6">
+      <div className="overflow-x-auto border border-gray-200 rounded-lg">
         <Table>
           <TableHeader>
             <TableRow className="bg-gray-50">
