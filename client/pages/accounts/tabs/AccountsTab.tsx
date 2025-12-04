@@ -120,6 +120,7 @@ export function AccountsTab() {
   const [viewingDetails, setViewingDetails] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [accountToDelete, setAccountToDelete] = useState<Account | null>(null);
+  const [isAddingBankAccount, setIsAddingBankAccount] = useState(false);
 
   const form = useForm({
     defaultValues: {
@@ -200,8 +201,59 @@ export function AccountsTab() {
     <div className="bg-white p-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-gray-900">
-          Accounts Management
+          Bank Accounts
         </h2>
+        <Dialog open={isAddingBankAccount} onOpenChange={setIsAddingBankAccount}>
+          <DialogTrigger asChild>
+            <Button className="gap-2">
+              <Plus size={16} />
+              Add
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>Add New</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-3">
+              <button
+                onClick={() => {
+                  setIsAddingBankAccount(false);
+                  setSelectedAccount(null);
+                  setIsEditing(false);
+                  form.reset();
+                  setIsAddingAccount(true);
+                }}
+                className="w-full p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <p className="font-semibold text-gray-900">Chart of Accounts</p>
+                <p className="text-sm text-gray-600">Create accounting accounts</p>
+              </button>
+              <button
+                onClick={() => {
+                  setIsAddingBankAccount(false);
+                }}
+                className="w-full p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <p className="font-semibold text-gray-900">Accounting Template</p>
+                <p className="text-sm text-gray-600">Use predefined templates</p>
+              </button>
+              <button
+                onClick={() => {
+                  setIsAddingBankAccount(false);
+                  setSelectedAccount(null);
+                  setIsEditing(false);
+                  form.reset();
+                  setIsAddingAccount(true);
+                }}
+                className="w-full p-4 text-left border rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <p className="font-semibold text-gray-900">Bank Accounts</p>
+                <p className="text-sm text-gray-600">Add bank account</p>
+              </button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         <Dialog open={isAddingAccount} onOpenChange={(open) => {
           setIsAddingAccount(open);
           if (!open) {
@@ -210,23 +262,10 @@ export function AccountsTab() {
             form.reset();
           }
         }}>
-          <DialogTrigger asChild>
-            <Button
-              className="gap-2"
-              onClick={() => {
-                setSelectedAccount(null);
-                setIsEditing(false);
-                form.reset();
-              }}
-            >
-              <Plus size={16} />
-              Add Account
-            </Button>
-          </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
-                {isEditing ? "Edit Account" : "Add New Account"}
+                {isEditing ? "Edit Account" : "Add New Bank Account"}
               </DialogTitle>
             </DialogHeader>
             <Form {...form}>

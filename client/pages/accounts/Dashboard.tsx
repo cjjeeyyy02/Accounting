@@ -24,7 +24,7 @@ export default function AccountsDashboard() {
                   value="accounts"
                   className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-4 py-3 text-sm font-medium"
                 >
-                  Accounts
+                  Bank Accounts
                 </TabsTrigger>
                 <TabsTrigger
                   value="reports"
