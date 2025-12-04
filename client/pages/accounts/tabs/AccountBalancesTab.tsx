@@ -106,7 +106,7 @@ export function AccountBalancesTab() {
   const totalBalance = mockAccountBalances.reduce((sum, acc) => sum + acc.balance, 0);
 
   return (
-    <div className="bg-white p-6">
+    <div className="bg-white px-4 sm:px-6 lg:px-8 py-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-2">
           Account Balances Summary
