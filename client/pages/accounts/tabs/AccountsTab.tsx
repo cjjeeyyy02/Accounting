@@ -360,7 +360,7 @@ export function AccountsTab() {
           </TableHeader>
           <TableBody>
             {accounts.map((account) => (
-              <TableRow key={account.id} className="hover:bg-gray-50">
+              <TableRow key={account.id} className="border-b border-gray-200 hover:bg-gray-50">
                 <TableCell className="font-medium text-gray-900">
                   {account.name}
                 </TableCell>
