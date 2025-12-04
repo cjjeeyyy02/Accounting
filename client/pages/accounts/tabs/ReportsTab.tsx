@@ -121,7 +121,7 @@ export function ReportsTab() {
   };
 
   return (
-    <div className="bg-white p-6">
+    <div className="bg-white px-4 sm:px-6 lg:px-8 py-6">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-gray-900">
           Financial Reports
