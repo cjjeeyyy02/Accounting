@@ -121,7 +121,7 @@ export function ReportsTab() {
   };
 
   return (
-    <div className="bg-white px-6 lg:px-8 py-6">
+    <div className="bg-white px-6 lg:px-8 py-6 w-full">
       <div className="flex items-center justify-end mb-6">
         <Button className="gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors">
           <Plus size={16} />
